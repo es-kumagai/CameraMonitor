@@ -1,0 +1,610 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B1505625270EF75400810CDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505624270EF75400810CDB /* AppDelegate.swift */; };
+		B1505627270EF75400810CDB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505626270EF75400810CDB /* ViewController.swift */; };
+		B1505629270EF75A00810CDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1505628270EF75900810CDB /* Assets.xcassets */; };
+		B150562C270EF75A00810CDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B150562A270EF75A00810CDB /* Main.storyboard */; };
+		B1505637270EF75A00810CDB /* CameraMicCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505636270EF75A00810CDB /* CameraMicCheckerTests.swift */; };
+		B1505641270EF75A00810CDB /* CameraMicCheckerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505640270EF75A00810CDB /* CameraMicCheckerUITests.swift */; };
+		B1505643270EF75A00810CDB /* CameraMicCheckerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505642270EF75A00810CDB /* CameraMicCheckerUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B1505633270EF75A00810CDB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1505619270EF75300810CDB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1505620270EF75400810CDB;
+			remoteInfo = CameraMicChecker;
+		};
+		B150563D270EF75A00810CDB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1505619270EF75300810CDB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1505620270EF75400810CDB;
+			remoteInfo = CameraMicChecker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B1505621270EF75400810CDB /* CameraMicChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraMicChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1505624270EF75400810CDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B1505626270EF75400810CDB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B1505628270EF75900810CDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B150562B270EF75A00810CDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B150562D270EF75A00810CDB /* CameraMicChecker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CameraMicChecker.entitlements; sourceTree = "<group>"; };
+		B1505632270EF75A00810CDB /* CameraMicCheckerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraMicCheckerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1505636270EF75A00810CDB /* CameraMicCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMicCheckerTests.swift; sourceTree = "<group>"; };
+		B150563C270EF75A00810CDB /* CameraMicCheckerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraMicCheckerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1505640270EF75A00810CDB /* CameraMicCheckerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMicCheckerUITests.swift; sourceTree = "<group>"; };
+		B1505642270EF75A00810CDB /* CameraMicCheckerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMicCheckerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B150561E270EF75400810CDB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B150562F270EF75A00810CDB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1505639270EF75A00810CDB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B1505618270EF75300810CDB = {
+			isa = PBXGroup;
+			children = (
+				B1505623270EF75400810CDB /* CameraMicChecker */,
+				B1505635270EF75A00810CDB /* CameraMicCheckerTests */,
+				B150563F270EF75A00810CDB /* CameraMicCheckerUITests */,
+				B1505622270EF75400810CDB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B1505622270EF75400810CDB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B1505621270EF75400810CDB /* CameraMicChecker.app */,
+				B1505632270EF75A00810CDB /* CameraMicCheckerTests.xctest */,
+				B150563C270EF75A00810CDB /* CameraMicCheckerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B1505623270EF75400810CDB /* CameraMicChecker */ = {
+			isa = PBXGroup;
+			children = (
+				B1505624270EF75400810CDB /* AppDelegate.swift */,
+				B1505626270EF75400810CDB /* ViewController.swift */,
+				B1505628270EF75900810CDB /* Assets.xcassets */,
+				B150562A270EF75A00810CDB /* Main.storyboard */,
+				B150562D270EF75A00810CDB /* CameraMicChecker.entitlements */,
+			);
+			path = CameraMicChecker;
+			sourceTree = "<group>";
+		};
+		B1505635270EF75A00810CDB /* CameraMicCheckerTests */ = {
+			isa = PBXGroup;
+			children = (
+				B1505636270EF75A00810CDB /* CameraMicCheckerTests.swift */,
+			);
+			path = CameraMicCheckerTests;
+			sourceTree = "<group>";
+		};
+		B150563F270EF75A00810CDB /* CameraMicCheckerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B1505640270EF75A00810CDB /* CameraMicCheckerUITests.swift */,
+				B1505642270EF75A00810CDB /* CameraMicCheckerUITestsLaunchTests.swift */,
+			);
+			path = CameraMicCheckerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B1505620270EF75400810CDB /* CameraMicChecker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1505646270EF75A00810CDB /* Build configuration list for PBXNativeTarget "CameraMicChecker" */;
+			buildPhases = (
+				B150561D270EF75400810CDB /* Sources */,
+				B150561E270EF75400810CDB /* Frameworks */,
+				B150561F270EF75400810CDB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CameraMicChecker;
+			productName = CameraMicChecker;
+			productReference = B1505621270EF75400810CDB /* CameraMicChecker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B1505631270EF75A00810CDB /* CameraMicCheckerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1505649270EF75A00810CDB /* Build configuration list for PBXNativeTarget "CameraMicCheckerTests" */;
+			buildPhases = (
+				B150562E270EF75A00810CDB /* Sources */,
+				B150562F270EF75A00810CDB /* Frameworks */,
+				B1505630270EF75A00810CDB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B1505634270EF75A00810CDB /* PBXTargetDependency */,
+			);
+			name = CameraMicCheckerTests;
+			productName = CameraMicCheckerTests;
+			productReference = B1505632270EF75A00810CDB /* CameraMicCheckerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B150563B270EF75A00810CDB /* CameraMicCheckerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B150564C270EF75A00810CDB /* Build configuration list for PBXNativeTarget "CameraMicCheckerUITests" */;
+			buildPhases = (
+				B1505638270EF75A00810CDB /* Sources */,
+				B1505639270EF75A00810CDB /* Frameworks */,
+				B150563A270EF75A00810CDB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B150563E270EF75A00810CDB /* PBXTargetDependency */,
+			);
+			name = CameraMicCheckerUITests;
+			productName = CameraMicCheckerUITests;
+			productReference = B150563C270EF75A00810CDB /* CameraMicCheckerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B1505619270EF75300810CDB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					B1505620270EF75400810CDB = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					B1505631270EF75A00810CDB = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = B1505620270EF75400810CDB;
+					};
+					B150563B270EF75A00810CDB = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = B1505620270EF75400810CDB;
+					};
+				};
+			};
+			buildConfigurationList = B150561C270EF75300810CDB /* Build configuration list for PBXProject "CameraMicChecker" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B1505618270EF75300810CDB;
+			productRefGroup = B1505622270EF75400810CDB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B1505620270EF75400810CDB /* CameraMicChecker */,
+				B1505631270EF75A00810CDB /* CameraMicCheckerTests */,
+				B150563B270EF75A00810CDB /* CameraMicCheckerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B150561F270EF75400810CDB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1505629270EF75A00810CDB /* Assets.xcassets in Resources */,
+				B150562C270EF75A00810CDB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1505630270EF75A00810CDB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B150563A270EF75A00810CDB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B150561D270EF75400810CDB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1505627270EF75400810CDB /* ViewController.swift in Sources */,
+				B1505625270EF75400810CDB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B150562E270EF75A00810CDB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1505637270EF75A00810CDB /* CameraMicCheckerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1505638270EF75A00810CDB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1505641270EF75A00810CDB /* CameraMicCheckerUITests.swift in Sources */,
+				B1505643270EF75A00810CDB /* CameraMicCheckerUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B1505634270EF75A00810CDB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1505620270EF75400810CDB /* CameraMicChecker */;
+			targetProxy = B1505633270EF75A00810CDB /* PBXContainerItemProxy */;
+		};
+		B150563E270EF75A00810CDB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1505620270EF75400810CDB /* CameraMicChecker */;
+			targetProxy = B150563D270EF75A00810CDB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B150562A270EF75A00810CDB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B150562B270EF75A00810CDB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B1505644270EF75A00810CDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B1505645270EF75A00810CDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		B1505647270EF75A00810CDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CameraMicChecker/CameraMicChecker.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 89282N6UM7;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.CameraMicChecker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B1505648270EF75A00810CDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CameraMicChecker/CameraMicChecker.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 89282N6UM7;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.CameraMicChecker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		B150564A270EF75A00810CDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 89282N6UM7;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.CameraMicCheckerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CameraMicChecker.app/Contents/MacOS/CameraMicChecker";
+			};
+			name = Debug;
+		};
+		B150564B270EF75A00810CDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 89282N6UM7;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.CameraMicCheckerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CameraMicChecker.app/Contents/MacOS/CameraMicChecker";
+			};
+			name = Release;
+		};
+		B150564D270EF75A00810CDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 89282N6UM7;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.CameraMicCheckerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = CameraMicChecker;
+			};
+			name = Debug;
+		};
+		B150564E270EF75A00810CDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 89282N6UM7;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.CameraMicCheckerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = CameraMicChecker;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B150561C270EF75300810CDB /* Build configuration list for PBXProject "CameraMicChecker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1505644270EF75A00810CDB /* Debug */,
+				B1505645270EF75A00810CDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1505646270EF75A00810CDB /* Build configuration list for PBXNativeTarget "CameraMicChecker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1505647270EF75A00810CDB /* Debug */,
+				B1505648270EF75A00810CDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1505649270EF75A00810CDB /* Build configuration list for PBXNativeTarget "CameraMicCheckerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B150564A270EF75A00810CDB /* Debug */,
+				B150564B270EF75A00810CDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B150564C270EF75A00810CDB /* Build configuration list for PBXNativeTarget "CameraMicCheckerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B150564D270EF75A00810CDB /* Debug */,
+				B150564E270EF75A00810CDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B1505619270EF75300810CDB /* Project object */;
+}
