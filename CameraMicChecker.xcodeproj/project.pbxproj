@@ -705,10 +705,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CameraMicChecker/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Preview all cameras.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "All cameras are displayed.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Monitor microphones.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Monitoring microphones.";
 				INFOPLIST_KEY_NSPrincipalClass = ESApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -737,10 +737,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CameraMicChecker/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Preview all cameras.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "All cameras are displayed.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Monitor microphones.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Monitoring microphones.";
 				INFOPLIST_KEY_NSPrincipalClass = ESApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
