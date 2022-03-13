@@ -7,9 +7,7 @@
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoadsForMedia</key>
-		<true/>
-		<key>NSExceptionDomains</key>
-		<dict/>
+		<false/>
 	</dict>
 </dict>
 </plist>

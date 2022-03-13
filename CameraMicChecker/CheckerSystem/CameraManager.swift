@@ -35,6 +35,9 @@ final class CameraManager {
     }
     
     var cameras: [Camera] {
-        AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera, .externalUnknown], mediaType: .video, position: .unspecified).devices.map(Camera.init)
+        AVCaptureDevice
+            .DiscoverySession(deviceTypes: [.builtInWideAngleCamera, .externalUnknown], mediaType: .video, position: .unspecified)
+            .devices
+            .map(Camera.init)
     }
 }
