@@ -7,6 +7,7 @@
 
 import AppKit
 import Ocean
+import AVFoundation
 
 @objcMembers
 final class CameraCollectionViewController: NSViewController, NotificationObservable {
@@ -43,6 +44,11 @@ final class CameraCollectionViewController: NSViewController, NotificationObserv
                 reloadCameras()
             }
         }
+        
+//        observe(notificationNamed: .AVRouteDetectorMultipleRoutesDetectedDidChange, object: nil) { [unowned self] notification in
+//
+//            print("DETECTED CHANGE")
+//        }
     }
 
     override var representedObject: Any? {
@@ -54,7 +60,6 @@ final class CameraCollectionViewController: NSViewController, NotificationObserv
     func reloadCameras() {
 
         cameras = NSApp.checkerController.cameraDevices
-        print("RELOAD", cameras.count)
     }
 }
 

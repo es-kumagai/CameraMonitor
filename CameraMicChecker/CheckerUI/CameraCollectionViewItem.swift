@@ -37,7 +37,6 @@ final class CameraCollectionViewItem : NSCollectionViewItem {
         let camera = representedObject as! Camera
         let input = try! AVCaptureDeviceInput(device: camera.device)
 
-        print("🚕", camera.name)
         session = AVCaptureSession()
         
         guard session.canAddInput(input) else {
@@ -47,7 +46,10 @@ final class CameraCollectionViewItem : NSCollectionViewItem {
             return
         }
         
+        session.sessionPreset = .low
         session.addInput(input)
+        session.commitConfiguration()
+        
         let previewLayer = AVCaptureVideoPreviewLayer(session: session)
         
         guard previewLayer.connection!.isVideoMirroringSupported else {
@@ -65,7 +67,6 @@ final class CameraCollectionViewItem : NSCollectionViewItem {
         previewLayer.frame = cameraView.bounds
 
         cameraView.wantsLayer = true
-//        previewLayer.transform = CATransform3DMakeRotation(90 * .pi, 1, 1, 0)
         cameraView.layer!.addSublayer(previewLayer)
         
         session.startRunning()
@@ -75,12 +76,7 @@ final class CameraCollectionViewItem : NSCollectionViewItem {
 
         super.viewDidDisappear()
         
-        print("🚒")
         session.stopRunning()
         session = nil
     }
-    
-//    dynamic var camera: Camera! {
-//        didSet { print("X") }
-//    }
 }

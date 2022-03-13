@@ -28,6 +28,6 @@ final class CameraManager {
             .DiscoverySession(deviceTypes: [.builtInWideAngleCamera, .externalUnknown], mediaType: .video, position: .unspecified)
             .devices
             .map(Camera.init)
-            .filter { $0.name != "NDI Video" }
+//            .filter { $0.name != "NDI Video" }
     }
 }
