@@ -1,13 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
             <objects>
-                <application id="hnw-xV-0zn" sceneMemberID="viewController">
+                <application id="hnw-xV-0zn" customClass="ESApplication" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
                             <menuItem title="CameraMicChecker" id="1Xt-HY-uBw">
@@ -670,12 +672,19 @@
                         </items>
                     </menu>
                     <connections>
-                        <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
+                        <outlet property="checkerController" destination="Ooe-Lz-YLe" id="M45-s3-gAJ"/>
+                        <outlet property="delegate" destination="Voe-Tx-rLC" id="e4j-fX-Ukg"/>
+                        <outlet property="dockMenu" destination="AYu-sK-qS6" id="p4a-TX-8Fn"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="CameraMicChecker" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="Ooe-Lz-YLe" customClass="CheckerController" customModule="CameraMicChecker" customModuleProvider="target">
+                    <connections>
+                        <outlet property="delegate" destination="hnw-xV-0zn" id="peX-ME-6lH"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
@@ -683,7 +692,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Camera Checker" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -693,25 +702,75 @@
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
+                        <segue destination="dMW-g0-7vH" kind="relationship" relationship="window.shadowedContentViewController" id="wfd-Ui-gsh"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="hIz-AP-VOD">
+        <!--Camera Collection View Controller-->
+        <scene sceneID="F0B-tS-zjT">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <viewController id="dMW-g0-7vH" customClass="CameraCollectionViewController" customModule="CameraMicChecker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="pYg-pq-XWr">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsw-d9-Zny">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <clipView key="contentView" id="rSG-of-fK6">
+                                    <rect key="frame" x="1" y="1" width="448" height="298"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView id="HHm-Z5-bYf">
+                                            <rect key="frame" x="0.0" y="0.0" width="448" height="158"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="Hwx-WB-yYe">
+                                                <size key="itemSize" width="384" height="216"/>
+                                            </collectionViewFlowLayout>
+                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <binding destination="q6z-Kb-MVP" name="content" keyPath="arrangedObjects" id="cWb-U1-fZq"/>
+                                                <outlet property="delegate" destination="dMW-g0-7vH" id="egM-wh-yfw"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="L8Z-MM-rJ3">
+                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="La1-hF-6KU">
+                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="fsw-d9-Zny" secondAttribute="bottom" id="5A9-k2-xIe"/>
+                            <constraint firstItem="fsw-d9-Zny" firstAttribute="top" secondItem="pYg-pq-XWr" secondAttribute="top" id="MgQ-u9-poC"/>
+                            <constraint firstAttribute="trailing" secondItem="fsw-d9-Zny" secondAttribute="trailing" id="Qqb-M0-gRS"/>
+                            <constraint firstAttribute="bottom" secondItem="fsw-d9-Zny" secondAttribute="bottom" id="bf6-rm-klw"/>
+                            <constraint firstAttribute="trailing" secondItem="fsw-d9-Zny" secondAttribute="trailing" id="kKm-h2-jfH"/>
+                            <constraint firstItem="fsw-d9-Zny" firstAttribute="leading" secondItem="pYg-pq-XWr" secondAttribute="leading" id="luQ-7x-yoO"/>
+                            <constraint firstItem="fsw-d9-Zny" firstAttribute="leading" secondItem="pYg-pq-XWr" secondAttribute="leading" id="nuo-Am-MiJ"/>
+                            <constraint firstItem="fsw-d9-Zny" firstAttribute="top" secondItem="pYg-pq-XWr" secondAttribute="top" id="sT4-ZR-2fW"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cameraArrayController" destination="q6z-Kb-MVP" id="wMf-1H-YAG"/>
+                        <outlet property="cameraCollectionView" destination="HHm-Z5-bYf" id="5ry-tr-Hr0"/>
+                    </connections>
                 </viewController>
-                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="Sa2-wM-Q9E" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <arrayController id="q6z-Kb-MVP" userLabel="Camera Array Controller">
+                    <connections>
+                        <binding destination="dMW-g0-7vH" name="contentArray" keyPath="self.cameras" id="GUR-Mi-Nop"/>
+                    </connections>
+                </arrayController>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="635" y="746"/>
         </scene>
     </scenes>
 </document>

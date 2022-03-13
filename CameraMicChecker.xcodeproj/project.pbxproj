@@ -8,12 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		B1505625270EF75400810CDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505624270EF75400810CDB /* AppDelegate.swift */; };
-		B1505627270EF75400810CDB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505626270EF75400810CDB /* ViewController.swift */; };
 		B1505629270EF75A00810CDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1505628270EF75900810CDB /* Assets.xcassets */; };
 		B150562C270EF75A00810CDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B150562A270EF75A00810CDB /* Main.storyboard */; };
 		B1505637270EF75A00810CDB /* CameraMicCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505636270EF75A00810CDB /* CameraMicCheckerTests.swift */; };
 		B1505641270EF75A00810CDB /* CameraMicCheckerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505640270EF75A00810CDB /* CameraMicCheckerUITests.swift */; };
 		B1505643270EF75A00810CDB /* CameraMicCheckerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505642270EF75A00810CDB /* CameraMicCheckerUITestsLaunchTests.swift */; };
+		B1505650270EFAA500810CDB /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B150564F270EFAA500810CDB /* CameraManager.swift */; };
+		B1505652270EFDF800810CDB /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505651270EFDF800810CDB /* CameraView.swift */; };
+		B1505654270F365200810CDB /* MicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505653270F365200810CDB /* MicManager.swift */; };
+		B1505656270F6A6800810CDB /* Mic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505655270F6A6800810CDB /* Mic.swift */; };
+		B1505658270F6AE800810CDB /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505657270F6AE800810CDB /* Camera.swift */; };
+		B150565A270F6D1B00810CDB /* CheckerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505659270F6D1B00810CDB /* CheckerController.swift */; };
+		B15056F5270FD77100810CDB /* EzAudioUnit.docc in Sources */ = {isa = PBXBuildFile; fileRef = B15056F4270FD77100810CDB /* EzAudioUnit.docc */; };
+		B15056FB270FD77100810CDB /* EzAudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15056F1270FD77100810CDB /* EzAudioUnit.framework */; };
+		B1505702270FD77100810CDB /* EzAudioUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505701270FD77100810CDB /* EzAudioUnitTests.swift */; };
+		B1505703270FD77100810CDB /* EzAudioUnit.h in Headers */ = {isa = PBXBuildFile; fileRef = B15056F3270FD77100810CDB /* EzAudioUnit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B150570F270FD7B400810CDB /* EzAudioUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B150570E270FD7B400810CDB /* EzAudioUnit.swift */; };
+		B182E6F327DB40940089C682 /* CameraCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182E6F227DB40940089C682 /* CameraCollectionViewItem.swift */; };
+		B182E6F527DB41330089C682 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182E6F427DB41330089C682 /* Storyboard.swift */; };
+		B182E6F727DB426B0089C682 /* CameraCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182E6F627DB426B0089C682 /* CameraCollectionViewController.swift */; };
+		B182E6FB27DB5AF10089C682 /* CheckerControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182E6FA27DB5AF10089C682 /* CheckerControllerDelegate.swift */; };
+		B182E6FE27DB5D800089C682 /* Ocean in Frameworks */ = {isa = PBXBuildFile; productRef = B182E6FD27DB5D800089C682 /* Ocean */; };
+		B182E70227DB7ACB0089C682 /* Ocean in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B182E6FD27DB5D800089C682 /* Ocean */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		B182E70527DB7D560089C682 /* Swim in Frameworks */ = {isa = PBXBuildFile; productRef = B182E70427DB7D560089C682 /* Swim */; };
+		B182E70627DB7D690089C682 /* Swim in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B182E70427DB7D560089C682 /* Swim */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		B182E71127DD9FE80089C682 /* CameraCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = B182E71027DD9FE80089C682 /* CameraCollectionViewItem.xib */; };
+		B1CC75F127CA6A280068BECF /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC75F027CA6A280068BECF /* Application.swift */; };
+		B1CC75F327CA74230068BECF /* CheckerControllerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC75F227CA74230068BECF /* CheckerControllerError.swift */; };
+		B1CC75F727CA86930068BECF /* AVCaptureDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC75F627CA86930068BECF /* AVCaptureDevice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,12 +53,40 @@
 			remoteGlobalIDString = B1505620270EF75400810CDB;
 			remoteInfo = CameraMicChecker;
 		};
+		B15056FC270FD77100810CDB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1505619270EF75300810CDB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B15056F0270FD77100810CDB;
+			remoteInfo = EzAudioUnit;
+		};
+		B15056FE270FD77100810CDB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1505619270EF75300810CDB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1505620270EF75400810CDB;
+			remoteInfo = CameraMicChecker;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B182E70027DB72770089C682 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B182E70627DB7D690089C682 /* Swim in Embed Frameworks */,
+				B182E70227DB7ACB0089C682 /* Ocean in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B1505621270EF75400810CDB /* CameraMicChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraMicChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1505624270EF75400810CDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B1505626270EF75400810CDB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B1505628270EF75900810CDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B150562B270EF75A00810CDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B150562D270EF75A00810CDB /* CameraMicChecker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CameraMicChecker.entitlements; sourceTree = "<group>"; };
@@ -45,6 +95,31 @@
 		B150563C270EF75A00810CDB /* CameraMicCheckerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraMicCheckerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1505640270EF75A00810CDB /* CameraMicCheckerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMicCheckerUITests.swift; sourceTree = "<group>"; };
 		B1505642270EF75A00810CDB /* CameraMicCheckerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMicCheckerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B150564F270EFAA500810CDB /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		B1505651270EFDF800810CDB /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		B1505653270F365200810CDB /* MicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicManager.swift; sourceTree = "<group>"; };
+		B1505655270F6A6800810CDB /* Mic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mic.swift; sourceTree = "<group>"; };
+		B1505657270F6AE800810CDB /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		B1505659270F6D1B00810CDB /* CheckerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerController.swift; sourceTree = "<group>"; };
+		B15056F1270FD77100810CDB /* EzAudioUnit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EzAudioUnit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B15056F3270FD77100810CDB /* EzAudioUnit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EzAudioUnit.h; sourceTree = "<group>"; };
+		B15056F4270FD77100810CDB /* EzAudioUnit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = EzAudioUnit.docc; sourceTree = "<group>"; };
+		B15056FA270FD77100810CDB /* EzAudioUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EzAudioUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1505701270FD77100810CDB /* EzAudioUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EzAudioUnitTests.swift; sourceTree = "<group>"; };
+		B150570E270FD7B400810CDB /* EzAudioUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EzAudioUnit.swift; sourceTree = "<group>"; };
+		B182E6F227DB40940089C682 /* CameraCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCollectionViewItem.swift; sourceTree = "<group>"; };
+		B182E6F427DB41330089C682 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		B182E6F627DB426B0089C682 /* CameraCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCollectionViewController.swift; sourceTree = "<group>"; };
+		B182E6FA27DB5AF10089C682 /* CheckerControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerControllerDelegate.swift; sourceTree = "<group>"; };
+		B182E70727DB87FD0089C682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B182E70927DB95C70089C682 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		B182E70B27DB976D0089C682 /* CoreMediaIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMediaIO.framework; path = System/Library/Frameworks/CoreMediaIO.framework; sourceTree = SDKROOT; };
+		B182E70D27DB97DD0089C682 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		B182E70F27DB97F80089C682 /* libswiftCoreMedia.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftCoreMedia.tbd; path = usr/lib/swift/libswiftCoreMedia.tbd; sourceTree = SDKROOT; };
+		B182E71027DD9FE80089C682 /* CameraCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraCollectionViewItem.xib; sourceTree = "<group>"; };
+		B1CC75F027CA6A280068BECF /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		B1CC75F227CA74230068BECF /* CheckerControllerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerControllerError.swift; sourceTree = "<group>"; };
+		B1CC75F627CA86930068BECF /* AVCaptureDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureDevice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +127,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B182E70527DB7D560089C682 /* Swim in Frameworks */,
+				B182E6FE27DB5D800089C682 /* Ocean in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +146,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B15056EE270FD77100810CDB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B15056F7270FD77100810CDB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B15056FB270FD77100810CDB /* EzAudioUnit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -78,7 +170,10 @@
 				B1505623270EF75400810CDB /* CameraMicChecker */,
 				B1505635270EF75A00810CDB /* CameraMicCheckerTests */,
 				B150563F270EF75A00810CDB /* CameraMicCheckerUITests */,
+				B15056F2270FD77100810CDB /* EzAudioUnit */,
+				B1505700270FD77100810CDB /* EzAudioUnitTests */,
 				B1505622270EF75400810CDB /* Products */,
+				B182E70827DB95C70089C682 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +183,8 @@
 				B1505621270EF75400810CDB /* CameraMicChecker.app */,
 				B1505632270EF75A00810CDB /* CameraMicCheckerTests.xctest */,
 				B150563C270EF75A00810CDB /* CameraMicCheckerUITests.xctest */,
+				B15056F1270FD77100810CDB /* EzAudioUnit.framework */,
+				B15056FA270FD77100810CDB /* EzAudioUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,11 +192,16 @@
 		B1505623270EF75400810CDB /* CameraMicChecker */ = {
 			isa = PBXGroup;
 			children = (
+				B182E70727DB87FD0089C682 /* Info.plist */,
+				B1CC75F027CA6A280068BECF /* Application.swift */,
 				B1505624270EF75400810CDB /* AppDelegate.swift */,
-				B1505626270EF75400810CDB /* ViewController.swift */,
+				B1CC75F627CA86930068BECF /* AVCaptureDevice.swift */,
+				B182E6F427DB41330089C682 /* Storyboard.swift */,
 				B1505628270EF75900810CDB /* Assets.xcassets */,
 				B150562A270EF75A00810CDB /* Main.storyboard */,
 				B150562D270EF75A00810CDB /* CameraMicChecker.entitlements */,
+				B150565C270F703C00810CDB /* CheckerUI */,
+				B150565B270F6FF200810CDB /* CheckerSystem */,
 			);
 			path = CameraMicChecker;
 			sourceTree = "<group>";
@@ -121,7 +223,72 @@
 			path = CameraMicCheckerUITests;
 			sourceTree = "<group>";
 		};
+		B150565B270F6FF200810CDB /* CheckerSystem */ = {
+			isa = PBXGroup;
+			children = (
+				B1505657270F6AE800810CDB /* Camera.swift */,
+				B150564F270EFAA500810CDB /* CameraManager.swift */,
+				B1505659270F6D1B00810CDB /* CheckerController.swift */,
+				B182E6FA27DB5AF10089C682 /* CheckerControllerDelegate.swift */,
+				B1CC75F227CA74230068BECF /* CheckerControllerError.swift */,
+				B1505655270F6A6800810CDB /* Mic.swift */,
+				B1505653270F365200810CDB /* MicManager.swift */,
+			);
+			path = CheckerSystem;
+			sourceTree = "<group>";
+		};
+		B150565C270F703C00810CDB /* CheckerUI */ = {
+			isa = PBXGroup;
+			children = (
+				B1505651270EFDF800810CDB /* CameraView.swift */,
+				B182E6F627DB426B0089C682 /* CameraCollectionViewController.swift */,
+				B182E6F227DB40940089C682 /* CameraCollectionViewItem.swift */,
+				B182E71027DD9FE80089C682 /* CameraCollectionViewItem.xib */,
+			);
+			path = CheckerUI;
+			sourceTree = "<group>";
+		};
+		B15056F2270FD77100810CDB /* EzAudioUnit */ = {
+			isa = PBXGroup;
+			children = (
+				B15056F3270FD77100810CDB /* EzAudioUnit.h */,
+				B150570E270FD7B400810CDB /* EzAudioUnit.swift */,
+				B15056F4270FD77100810CDB /* EzAudioUnit.docc */,
+			);
+			path = EzAudioUnit;
+			sourceTree = "<group>";
+		};
+		B1505700270FD77100810CDB /* EzAudioUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				B1505701270FD77100810CDB /* EzAudioUnitTests.swift */,
+			);
+			path = EzAudioUnitTests;
+			sourceTree = "<group>";
+		};
+		B182E70827DB95C70089C682 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B182E70F27DB97F80089C682 /* libswiftCoreMedia.tbd */,
+				B182E70D27DB97DD0089C682 /* CoreMedia.framework */,
+				B182E70B27DB976D0089C682 /* CoreMediaIO.framework */,
+				B182E70927DB95C70089C682 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		B15056EC270FD77100810CDB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1505703270FD77100810CDB /* EzAudioUnit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		B1505620270EF75400810CDB /* CameraMicChecker */ = {
@@ -131,12 +298,17 @@
 				B150561D270EF75400810CDB /* Sources */,
 				B150561E270EF75400810CDB /* Frameworks */,
 				B150561F270EF75400810CDB /* Resources */,
+				B182E70027DB72770089C682 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = CameraMicChecker;
+			packageProductDependencies = (
+				B182E6FD27DB5D800089C682 /* Ocean */,
+				B182E70427DB7D560089C682 /* Swim */,
+			);
 			productName = CameraMicChecker;
 			productReference = B1505621270EF75400810CDB /* CameraMicChecker.app */;
 			productType = "com.apple.product-type.application";
@@ -177,6 +349,43 @@
 			productReference = B150563C270EF75A00810CDB /* CameraMicCheckerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		B15056F0270FD77100810CDB /* EzAudioUnit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1505708270FD77100810CDB /* Build configuration list for PBXNativeTarget "EzAudioUnit" */;
+			buildPhases = (
+				B15056EC270FD77100810CDB /* Headers */,
+				B15056ED270FD77100810CDB /* Sources */,
+				B15056EE270FD77100810CDB /* Frameworks */,
+				B15056EF270FD77100810CDB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EzAudioUnit;
+			productName = EzAudioUnit;
+			productReference = B15056F1270FD77100810CDB /* EzAudioUnit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B15056F9270FD77100810CDB /* EzAudioUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B150570B270FD77100810CDB /* Build configuration list for PBXNativeTarget "EzAudioUnitTests" */;
+			buildPhases = (
+				B15056F6270FD77100810CDB /* Sources */,
+				B15056F7270FD77100810CDB /* Frameworks */,
+				B15056F8270FD77100810CDB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B15056FD270FD77100810CDB /* PBXTargetDependency */,
+				B15056FF270FD77100810CDB /* PBXTargetDependency */,
+			);
+			name = EzAudioUnitTests;
+			productName = EzAudioUnitTests;
+			productReference = B15056FA270FD77100810CDB /* EzAudioUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -185,7 +394,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					B1505620270EF75400810CDB = {
 						CreatedOnToolsVersion = 13.0;
@@ -195,6 +404,13 @@
 						TestTargetID = B1505620270EF75400810CDB;
 					};
 					B150563B270EF75A00810CDB = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = B1505620270EF75400810CDB;
+					};
+					B15056F0270FD77100810CDB = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					B15056F9270FD77100810CDB = {
 						CreatedOnToolsVersion = 13.0;
 						TestTargetID = B1505620270EF75400810CDB;
 					};
@@ -209,6 +425,10 @@
 				Base,
 			);
 			mainGroup = B1505618270EF75300810CDB;
+			packageReferences = (
+				B182E6FC27DB5D800089C682 /* XCRemoteSwiftPackageReference "Ocean" */,
+				B182E70327DB7D560089C682 /* XCRemoteSwiftPackageReference "Swim" */,
+			);
 			productRefGroup = B1505622270EF75400810CDB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -216,6 +436,8 @@
 				B1505620270EF75400810CDB /* CameraMicChecker */,
 				B1505631270EF75A00810CDB /* CameraMicCheckerTests */,
 				B150563B270EF75A00810CDB /* CameraMicCheckerUITests */,
+				B15056F0270FD77100810CDB /* EzAudioUnit */,
+				B15056F9270FD77100810CDB /* EzAudioUnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -227,6 +449,7 @@
 			files = (
 				B1505629270EF75A00810CDB /* Assets.xcassets in Resources */,
 				B150562C270EF75A00810CDB /* Main.storyboard in Resources */,
+				B182E71127DD9FE80089C682 /* CameraCollectionViewItem.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +467,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B15056EF270FD77100810CDB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B15056F8270FD77100810CDB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -251,8 +488,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1505627270EF75400810CDB /* ViewController.swift in Sources */,
+				B1505650270EFAA500810CDB /* CameraManager.swift in Sources */,
+				B182E6FB27DB5AF10089C682 /* CheckerControllerDelegate.swift in Sources */,
+				B1CC75F327CA74230068BECF /* CheckerControllerError.swift in Sources */,
+				B1505654270F365200810CDB /* MicManager.swift in Sources */,
+				B1CC75F727CA86930068BECF /* AVCaptureDevice.swift in Sources */,
+				B1CC75F127CA6A280068BECF /* Application.swift in Sources */,
+				B150565A270F6D1B00810CDB /* CheckerController.swift in Sources */,
+				B1505656270F6A6800810CDB /* Mic.swift in Sources */,
 				B1505625270EF75400810CDB /* AppDelegate.swift in Sources */,
+				B1505658270F6AE800810CDB /* Camera.swift in Sources */,
+				B182E6F527DB41330089C682 /* Storyboard.swift in Sources */,
+				B1505652270EFDF800810CDB /* CameraView.swift in Sources */,
+				B182E6F327DB40940089C682 /* CameraCollectionViewItem.swift in Sources */,
+				B182E6F727DB426B0089C682 /* CameraCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +522,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B15056ED270FD77100810CDB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B15056F5270FD77100810CDB /* EzAudioUnit.docc in Sources */,
+				B150570F270FD7B400810CDB /* EzAudioUnit.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B15056F6270FD77100810CDB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1505702270FD77100810CDB /* EzAudioUnitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -285,6 +551,16 @@
 			isa = PBXTargetDependency;
 			target = B1505620270EF75400810CDB /* CameraMicChecker */;
 			targetProxy = B150563D270EF75A00810CDB /* PBXContainerItemProxy */;
+		};
+		B15056FD270FD77100810CDB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B15056F0270FD77100810CDB /* EzAudioUnit */;
+			targetProxy = B15056FC270FD77100810CDB /* PBXContainerItemProxy */;
+		};
+		B15056FF270FD77100810CDB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1505620270EF75400810CDB /* CameraMicChecker */;
+			targetProxy = B15056FE270FD77100810CDB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -421,20 +697,25 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CameraMicChecker/CameraMicChecker.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 89282N6UM7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CameraMicChecker/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Preview all cameras.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Monitor microphones.";
+				INFOPLIST_KEY_NSPrincipalClass = ESApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-concurrency";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.CameraMicChecker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -448,20 +729,25 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CameraMicChecker/CameraMicChecker.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 89282N6UM7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CameraMicChecker/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Preview all cameras.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Monitor microphones.";
+				INFOPLIST_KEY_NSPrincipalClass = ESApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-concurrency";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.CameraMicChecker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -565,6 +851,112 @@
 			};
 			name = Release;
 		};
+		B1505709270FD77100810CDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 89282N6UM7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.EzAudioUnit";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B150570A270FD77100810CDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 89282N6UM7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.EzAudioUnit";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B150570C270FD77100810CDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 89282N6UM7;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.EzAudioUnitTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CameraMicChecker.app/Contents/MacOS/CameraMicChecker";
+			};
+			name = Debug;
+		};
+		B150570D270FD77100810CDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 89282N6UM7;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.EzAudioUnitTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CameraMicChecker.app/Contents/MacOS/CameraMicChecker";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -604,7 +996,57 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		B1505708270FD77100810CDB /* Build configuration list for PBXNativeTarget "EzAudioUnit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1505709270FD77100810CDB /* Debug */,
+				B150570A270FD77100810CDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B150570B270FD77100810CDB /* Build configuration list for PBXNativeTarget "EzAudioUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B150570C270FD77100810CDB /* Debug */,
+				B150570D270FD77100810CDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B182E6FC27DB5D800089C682 /* XCRemoteSwiftPackageReference "Ocean" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:es-kumagai/Ocean.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		B182E70327DB7D560089C682 /* XCRemoteSwiftPackageReference "Swim" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/es-kumagai/Swim";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B182E6FD27DB5D800089C682 /* Ocean */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B182E6FC27DB5D800089C682 /* XCRemoteSwiftPackageReference "Ocean" */;
+			productName = Ocean;
+		};
+		B182E70427DB7D560089C682 /* Swim */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B182E70327DB7D560089C682 /* XCRemoteSwiftPackageReference "Swim" */;
+			productName = Swim;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B1505619270EF75300810CDB /* Project object */;
 }

@@ -4,10 +4,48 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AudioUnit.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>CameraMicChecker.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>ESAudioUnit.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>EzAudioUnit.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>B1505620270EF75400810CDB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B1505631270EF75A00810CDB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B150563B270EF75A00810CDB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B15056F9270FD77100810CDB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
