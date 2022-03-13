@@ -10,23 +10,12 @@ import AVFoundation
 
 final class CameraManager {
     
-    let session = AVCaptureSession()
-    
     init() {
 
-        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        guard case .authorized = AVCaptureDevice.authorizationStatus(for: .video) else {
             
-        case .authorized:
-            session.startRunning()
-        
-        default:
             fatalError("Video is not permitted.")
         }
-    }
-    
-    deinit {
-        
-        session.stopRunning()
     }
     
     var systemCamera: Camera? {
@@ -39,5 +28,6 @@ final class CameraManager {
             .DiscoverySession(deviceTypes: [.builtInWideAngleCamera, .externalUnknown], mediaType: .video, position: .unspecified)
             .devices
             .map(Camera.init)
+            .filter { $0.name != "NDI Video" }
     }
 }

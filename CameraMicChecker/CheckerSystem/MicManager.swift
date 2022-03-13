@@ -10,7 +10,6 @@ import AVFoundation
 
 final class MicManager {
 
-    let session = AVCaptureSession()
     let engine = AVAudioEngine()
     
     let queue = DispatchQueue(label: "MicController")
@@ -20,19 +19,10 @@ final class MicManager {
     
     init() {
 
-        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        guard case .authorized = AVCaptureDevice.authorizationStatus(for: .video) else {
             
-        case .authorized:
-            session.startRunning()
-        
-        default:
             fatalError("Mic is not permitted.")
         }
-    }
-    
-    deinit {
-        
-        session.stopRunning()
     }
     
     var systemMic: Mic? {
@@ -73,11 +63,11 @@ final class MicManager {
 //        
 //        output.setSampleBufferDelegate(self, queue: queue)
         
-        session.inputs.forEach(session.removeInput)
-        session.outputs.forEach(session.removeOutput)
-        
-        session.addInput(input)
-        session.addOutput(output)
+//        session.inputs.forEach(session.removeInput)
+//        session.outputs.forEach(session.removeOutput)
+//        
+//        session.addInput(input)
+//        session.addOutput(output)
     }
 }
 
