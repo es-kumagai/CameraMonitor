@@ -13,13 +13,12 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Aer-iR-YjX">
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Aer-iR-YjX" customClass="CameraPreviewView" customModule="CameraMicChecker" customModuleProvider="target">
                     <rect key="frame" x="2" y="2" width="476" height="268"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="wantsLayer" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </customView>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ED4-cz-XMF">
-                    <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="a7S-zg-h7G"/>
-                </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nh8-h5-SaN">
                     <rect key="frame" x="6" y="248" width="58" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="CAMERA" id="ALS-eD-ywm">
@@ -33,20 +32,16 @@
                 </textField>
             </subviews>
             <constraints>
-                <constraint firstItem="ED4-cz-XMF" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="7wc-1M-bh0"/>
                 <constraint firstItem="nh8-h5-SaN" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="8" id="AJg-DD-wZY"/>
-                <constraint firstAttribute="bottom" secondItem="ED4-cz-XMF" secondAttribute="bottom" id="L5H-Pn-dbe"/>
                 <constraint firstItem="Aer-iR-YjX" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="2" id="Nsh-PK-MYZ"/>
-                <constraint firstAttribute="trailing" secondItem="ED4-cz-XMF" secondAttribute="trailing" id="QCI-fd-QOt"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nh8-h5-SaN" secondAttribute="trailing" constant="8" id="QZd-Dl-tW5"/>
                 <constraint firstAttribute="bottom" secondItem="Aer-iR-YjX" secondAttribute="bottom" constant="2" id="TNZ-uF-zxE"/>
                 <constraint firstAttribute="trailing" secondItem="Aer-iR-YjX" secondAttribute="trailing" constant="2" id="YhG-fb-D8K"/>
                 <constraint firstItem="nh8-h5-SaN" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="8" id="g6B-Qb-oAf"/>
                 <constraint firstItem="Aer-iR-YjX" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="2" id="hcI-PN-8C3"/>
-                <constraint firstItem="ED4-cz-XMF" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="s7W-G6-P6c"/>
             </constraints>
             <connections>
-                <outlet property="contentView" destination="ED4-cz-XMF" id="oS1-YK-NOf"/>
+                <outlet property="contentView" destination="Aer-iR-YjX" id="VYE-BB-FxF"/>
                 <outlet property="nameLabel" destination="nh8-h5-SaN" id="8iQ-T2-q7S"/>
             </connections>
             <point key="canvasLocation" x="139" y="154"/>

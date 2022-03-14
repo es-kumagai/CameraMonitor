@@ -34,6 +34,7 @@
 		B182E70627DB7D690089C682 /* Swim in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B182E70427DB7D560089C682 /* Swim */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		B182E71127DD9FE80089C682 /* CameraCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = B182E71027DD9FE80089C682 /* CameraCollectionViewItem.xib */; };
 		B182E71327DE4F610089C682 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B182E71227DE4F610089C682 /* NetworkExtension.framework */; };
+		B1AF5CF927DEDD8E006A11CC /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF5CF827DEDD8E006A11CC /* CameraPreviewView.swift */; };
 		B1CC75F127CA6A280068BECF /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC75F027CA6A280068BECF /* Application.swift */; };
 		B1CC75F327CA74230068BECF /* CheckerControllerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC75F227CA74230068BECF /* CheckerControllerError.swift */; };
 		B1CC75F727CA86930068BECF /* AVCaptureDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC75F627CA86930068BECF /* AVCaptureDevice.swift */; };
@@ -119,6 +120,7 @@
 		B182E70F27DB97F80089C682 /* libswiftCoreMedia.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftCoreMedia.tbd; path = usr/lib/swift/libswiftCoreMedia.tbd; sourceTree = SDKROOT; };
 		B182E71027DD9FE80089C682 /* CameraCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraCollectionViewItem.xib; sourceTree = "<group>"; };
 		B182E71227DE4F610089C682 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		B1AF5CF827DEDD8E006A11CC /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
 		B1CC75F027CA6A280068BECF /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		B1CC75F227CA74230068BECF /* CheckerControllerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerControllerError.swift; sourceTree = "<group>"; };
 		B1CC75F627CA86930068BECF /* AVCaptureDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureDevice.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				B1505651270EFDF800810CDB /* CameraView.swift */,
+				B1AF5CF827DEDD8E006A11CC /* CameraPreviewView.swift */,
 				B182E6F627DB426B0089C682 /* CameraCollectionViewController.swift */,
 				B182E6F227DB40940089C682 /* CameraCollectionViewItem.swift */,
 				B182E71027DD9FE80089C682 /* CameraCollectionViewItem.xib */,
@@ -494,6 +497,7 @@
 			files = (
 				B1505650270EFAA500810CDB /* CameraManager.swift in Sources */,
 				B182E6FB27DB5AF10089C682 /* CheckerControllerDelegate.swift in Sources */,
+				B1AF5CF927DEDD8E006A11CC /* CameraPreviewView.swift in Sources */,
 				B1CC75F327CA74230068BECF /* CheckerControllerError.swift in Sources */,
 				B1505654270F365200810CDB /* MicManager.swift in Sources */,
 				B1CC75F727CA86930068BECF /* AVCaptureDevice.swift in Sources */,

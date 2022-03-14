@@ -44,7 +44,7 @@ final class CameraCollectionViewController: NSViewController, NotificationObserv
                 reloadCameras()
             }
         }
-        
+
 //        observe(notificationNamed: .AVRouteDetectorMultipleRoutesDetectedDidChange, object: nil) { [unowned self] notification in
 //
 //            print("DETECTED CHANGE")
