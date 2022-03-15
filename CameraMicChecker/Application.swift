@@ -15,7 +15,7 @@ final class Application : NSApplication {
     @IBOutlet var checkerController: CheckerController!
 }
 
-var NSApp = AppKit.NSApp as! Application
+let NSApp = AppKit.NSApp as! Application
 
 extension Application {
 
