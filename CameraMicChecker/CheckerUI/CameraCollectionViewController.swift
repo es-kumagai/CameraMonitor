@@ -9,7 +9,7 @@ import AppKit
 import Ocean
 import AVFoundation
 
-@objcMembers
+@objcMembers @MainActor
 final class CameraCollectionViewController: NSViewController, NotificationObservable {
 
     @IBOutlet weak var cameraCollectionView: NSCollectionView! {
@@ -39,10 +39,7 @@ final class CameraCollectionViewController: NSViewController, NotificationObserv
 
         observe(Application.DevicesDidUpdateNotification.self) { [unowned self] notification in
             
-            Task { @MainActor in
-                
-                reloadCameras()
-            }
+            reloadCameras()
         }
 
 //        observe(notificationNamed: .AVRouteDetectorMultipleRoutesDetectedDidChange, object: nil) { [unowned self] notification in
@@ -59,7 +56,7 @@ final class CameraCollectionViewController: NSViewController, NotificationObserv
 
     func reloadCameras() {
 
-        cameras = NSApp.checkerController.cameraDevices
+        cameras = App.checkerController.cameraDevices
     }
 }
 

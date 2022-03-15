@@ -18,7 +18,7 @@ final class CameraCollectionViewItem : NSCollectionViewItem {
         super.viewWillAppear()
         
         let camera = representedObject as! Camera
-        let previewState = NSApp.checkerController.cameraManager.previewState(for: camera)
+        let previewState = App.checkerController.cameraManager.previewState(for: camera)
         
         cameraView.startPreview(camera: camera, with: previewState)
     }

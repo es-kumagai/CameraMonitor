@@ -9,26 +9,24 @@ import Foundation
 import AppKit
 import Ocean
 
-@objc(ESApplication) @objcMembers
-final class Application : NSApplication {
-    
-    @IBOutlet var checkerController: CheckerController!
-}
+@MainActor
+let App = Application()
 
-let NSApp = AppKit.NSApp as! Application
+@MainActor
+final class Application: @unchecked Sendable {
+    
+    var checkerController: CheckerController
+    
+    init() {
+        
+        checkerController = CheckerController()
+    }
+}
 
 extension Application {
 
     struct DevicesDidUpdateNotification : NotificationProtocol {
         
         var checkerController: CheckerController
-    }
-}
-
-extension Application : CheckerControllerDelegate {
-    
-    func checkerControllerDevicesDidUpdate(_ checkerController: CheckerController) {
-
-        DevicesDidUpdateNotification(checkerController: checkerController).post()
     }
 }

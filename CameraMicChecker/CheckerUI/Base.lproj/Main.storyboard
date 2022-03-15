@@ -9,7 +9,7 @@
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
             <objects>
-                <application id="hnw-xV-0zn" customClass="ESApplication" sceneMemberID="viewController">
+                <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
                             <menuItem title="CameraMicChecker" id="1Xt-HY-uBw">
@@ -672,7 +672,6 @@
                         </items>
                     </menu>
                     <connections>
-                        <outlet property="checkerController" destination="Ooe-Lz-YLe" id="M45-s3-gAJ"/>
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="e4j-fX-Ukg"/>
                         <outlet property="dockMenu" destination="AYu-sK-qS6" id="p4a-TX-8Fn"/>
                     </connections>
@@ -680,11 +679,6 @@
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="CameraMicChecker" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <customObject id="Ooe-Lz-YLe" customClass="CheckerController" customModule="CameraMicChecker" customModuleProvider="target">
-                    <connections>
-                        <outlet property="delegate" destination="hnw-xV-0zn" id="peX-ME-6lH"/>
-                    </connections>
-                </customObject>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>

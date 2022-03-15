@@ -8,13 +8,15 @@
 import Cocoa
 
 @main
-class AppDelegate: NSObject, NSApplicationDelegate {
+final class AppDelegate: NSObject, NSApplicationDelegate, @unchecked Sendable {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
 
-        Task {
+        Task { @MainActor in
             
-            try await NSApp.checkerController.prepare()
+            App.checkerController.delegate = self
+
+            try await App.checkerController.prepare()
         }
     }
 
@@ -32,3 +34,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 }
 
+extension AppDelegate: CheckerControllerDelegate {
+    
+    func checkerControllerDevicesDidUpdate(_ checkerController: CheckerController) {
+
+        Application.DevicesDidUpdateNotification(checkerController: checkerController).post()
+    }
+}
