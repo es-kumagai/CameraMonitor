@@ -35,6 +35,8 @@
 		B182E71127DD9FE80089C682 /* CameraCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = B182E71027DD9FE80089C682 /* CameraCollectionViewItem.xib */; };
 		B182E71327DE4F610089C682 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B182E71227DE4F610089C682 /* NetworkExtension.framework */; };
 		B1AF5CF927DEDD8E006A11CC /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF5CF827DEDD8E006A11CC /* CameraPreviewView.swift */; };
+		B1B8627227E0B1FA009DF1BD /* PreviewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8627127E0B1FA009DF1BD /* PreviewState.swift */; };
+		B1B8627427E0B581009DF1BD /* AVCaptureVideoPreviewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8627327E0B581009DF1BD /* AVCaptureVideoPreviewLayer.swift */; };
 		B1CC75F127CA6A280068BECF /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC75F027CA6A280068BECF /* Application.swift */; };
 		B1CC75F327CA74230068BECF /* CheckerControllerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC75F227CA74230068BECF /* CheckerControllerError.swift */; };
 		B1CC75F727CA86930068BECF /* AVCaptureDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC75F627CA86930068BECF /* AVCaptureDevice.swift */; };
@@ -121,6 +123,8 @@
 		B182E71027DD9FE80089C682 /* CameraCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraCollectionViewItem.xib; sourceTree = "<group>"; };
 		B182E71227DE4F610089C682 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		B1AF5CF827DEDD8E006A11CC /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
+		B1B8627127E0B1FA009DF1BD /* PreviewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewState.swift; sourceTree = "<group>"; };
+		B1B8627327E0B581009DF1BD /* AVCaptureVideoPreviewLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureVideoPreviewLayer.swift; sourceTree = "<group>"; };
 		B1CC75F027CA6A280068BECF /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		B1CC75F227CA74230068BECF /* CheckerControllerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerControllerError.swift; sourceTree = "<group>"; };
 		B1CC75F627CA86930068BECF /* AVCaptureDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureDevice.swift; sourceTree = "<group>"; };
@@ -201,6 +205,7 @@
 				B1CC75F027CA6A280068BECF /* Application.swift */,
 				B1505624270EF75400810CDB /* AppDelegate.swift */,
 				B1CC75F627CA86930068BECF /* AVCaptureDevice.swift */,
+				B1B8627327E0B581009DF1BD /* AVCaptureVideoPreviewLayer.swift */,
 				B182E6F427DB41330089C682 /* Storyboard.swift */,
 				B1505628270EF75900810CDB /* Assets.xcassets */,
 				B150562A270EF75A00810CDB /* Main.storyboard */,
@@ -233,6 +238,7 @@
 			children = (
 				B1505657270F6AE800810CDB /* Camera.swift */,
 				B150564F270EFAA500810CDB /* CameraManager.swift */,
+				B1B8627127E0B1FA009DF1BD /* PreviewState.swift */,
 				B1505659270F6D1B00810CDB /* CheckerController.swift */,
 				B182E6FA27DB5AF10089C682 /* CheckerControllerDelegate.swift */,
 				B1CC75F227CA74230068BECF /* CheckerControllerError.swift */,
@@ -501,8 +507,10 @@
 				B1CC75F327CA74230068BECF /* CheckerControllerError.swift in Sources */,
 				B1505654270F365200810CDB /* MicManager.swift in Sources */,
 				B1CC75F727CA86930068BECF /* AVCaptureDevice.swift in Sources */,
+				B1B8627227E0B1FA009DF1BD /* PreviewState.swift in Sources */,
 				B1CC75F127CA6A280068BECF /* Application.swift in Sources */,
 				B150565A270F6D1B00810CDB /* CheckerController.swift in Sources */,
+				B1B8627427E0B581009DF1BD /* AVCaptureVideoPreviewLayer.swift in Sources */,
 				B1505656270F6A6800810CDB /* Mic.swift in Sources */,
 				B1505625270EF75400810CDB /* AppDelegate.swift in Sources */,
 				B1505658270F6AE800810CDB /* Camera.swift in Sources */,

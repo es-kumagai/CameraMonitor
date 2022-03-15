@@ -27,7 +27,7 @@ final class CameraView : NSView {
         }
     }
         
-    func startPreview(camera: Camera) {
+    func startPreview(camera: Camera, with previewState: CameraManager.PreviewState) {
         
         let input = try! AVCaptureDeviceInput(device: camera.device)
 
@@ -44,17 +44,7 @@ final class CameraView : NSView {
         
         let previewLayer = AVCaptureVideoPreviewLayer(session: session)
         
-//        guard previewLayer.connection!.isVideoMirroringSupported else {
-//
-//            NSLog("%@", "The input device don't support video mirroring: \(input)")
-//            return
-//        }
-
-        previewLayer.videoGravity = .resizeAspectFill
-        previewLayer.connection!.automaticallyAdjustsVideoMirroring = false
-        previewLayer.connection!.isVideoMirrored = false
-        print(previewLayer.connection!.isVideoOrientationSupported, previewLayer.connection!.videoOrientation.rawValue)
-        previewLayer.connection!.videoOrientation = .portrait
+        previewLayer.apply(previewState: previewState)
         previewLayer.frame = bounds
 
         self.previewLayer = previewLayer

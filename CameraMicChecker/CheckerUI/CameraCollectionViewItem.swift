@@ -16,7 +16,11 @@ final class CameraCollectionViewItem : NSCollectionViewItem {
     override func viewWillAppear() {
         
         super.viewWillAppear()
-        cameraView.startPreview(camera: representedObject as! Camera)
+        
+        let camera = representedObject as! Camera
+        let previewState = NSApp.checkerController.cameraManager.previewState(for: camera)
+        
+        cameraView.startPreview(camera: camera, with: previewState)
     }
     
     override func viewDidDisappear() {
