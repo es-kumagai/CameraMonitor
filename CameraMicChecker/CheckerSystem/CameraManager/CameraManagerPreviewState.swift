@@ -16,5 +16,6 @@ extension CameraManager {
         var videoGravity: AVLayerVideoGravity = .resizeAspectFill
         var videoMirrored: Bool = false
         var videoOrientation: AVCaptureVideoOrientation = .portrait
+        var listingPriority: Int = 0
     }
 }
