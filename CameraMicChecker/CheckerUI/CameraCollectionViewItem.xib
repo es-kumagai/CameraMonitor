@@ -16,14 +16,14 @@
                     <rect key="frame" x="2" y="2" width="476" height="268"/>
                     <subviews>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DCz-xo-MTi">
-                            <rect key="frame" x="441" y="233" width="38" height="36"/>
+                            <rect key="frame" x="445" y="236" width="30" height="31"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="24" id="khl-oF-LPr"/>
-                                <constraint firstAttribute="height" constant="24" id="nQC-Oh-cbp"/>
+                                <constraint firstAttribute="width" secondItem="DCz-xo-MTi" secondAttribute="height" multiplier="1:1" id="Ye8-Sk-lkq"/>
+                                <constraint firstAttribute="width" constant="24" id="peS-t1-oJU"/>
                             </constraints>
-                            <buttonCell key="cell" type="push" title="􀅊" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="xqO-1m-kAk">
+                            <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="NSEnterFullScreenTemplate" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="xqO-1m-kAk">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                <font key="font" metaFont="system" size="14"/>
+                                <font key="font" metaFont="system"/>
                             </buttonCell>
                             <connections>
                                 <action selector="expandButtonDidPush:" target="c22-O7-iKe" id="VNh-Hb-LqO"/>
@@ -74,4 +74,7 @@
             </connections>
         </customObject>
     </objects>
+    <resources>
+        <image name="NSEnterFullScreenTemplate" width="16" height="15"/>
+    </resources>
 </document>
