@@ -12,7 +12,9 @@ import AVFoundation
 @objcMembers @MainActor
 final class CameraCollectionViewController: NSViewController, NotificationObservable {
 
-    @IBOutlet weak var cameraCollectionView: NSCollectionView! {
+    var currentSingleCameraWindowControllers: [SingleCameraWindowController] = []
+    
+    @IBOutlet weak var cameraCollectionView: CameraCollectionView! {
         
         didSet {
 
@@ -56,7 +58,7 @@ final class CameraCollectionViewController: NSViewController, NotificationObserv
 
     func reloadCameras() {
 
-        cameras = App.checkerController.cameraDevices
+        cameras = NSApp.checkerController.cameraDevices
     }
 }
 
@@ -68,9 +70,37 @@ extension CameraCollectionViewController : CheckerControllerDelegate {
     }
 }
 
-extension CameraCollectionViewController : NSCollectionViewDelegate {
+extension CameraCollectionViewController : CameraCollectionViewDelegate {
+    
+    func cameraCollectionView(_ view: CameraCollectionView, expandButtonDidPush button: NSButton, on item: CameraCollectionViewItem) {
+        
+        let windowController = singleCameraWindowController(for: item.camera)
+        windowController.showWindow(self)
+    }
 
+    nonisolated func collectionView(_ collectionView: NSCollectionView, willDisplay item: NSCollectionViewItem, forRepresentedObjectAt indexPath: IndexPath) {
+        
+        let item = item as! CameraCollectionViewItem
+        
+        Task { @MainActor in
+            
+            item.cameraView.updatePreviewFrame()
+        }
+    }
 }
+
+private extension CameraCollectionViewController {
+
+    func singleCameraWindowController(for camera: Camera) -> SingleCameraWindowController {
+        
+        let windowController = NSStoryboard.instantiateSingleCameraWindowController(with: camera)
+        
+        currentSingleCameraWindowControllers.append(windowController)
+
+        return windowController
+    }
+}
+
 //
 //extension CameraCollectionViewController : NSCollectionViewDataSource {
 //

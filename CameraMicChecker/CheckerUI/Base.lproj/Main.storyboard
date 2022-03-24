@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,7 +8,7 @@
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
             <objects>
-                <application id="hnw-xV-0zn" sceneMemberID="viewController">
+                <application id="hnw-xV-0zn" customClass="ESApplication" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
                             <menuItem title="CameraMicChecker" id="1Xt-HY-uBw">
@@ -672,12 +671,24 @@
                         </items>
                     </menu>
                     <connections>
+                        <outlet property="checkerController" destination="bSz-Jo-mR7" id="s7L-tt-5mI"/>
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="e4j-fX-Ukg"/>
                         <outlet property="dockMenu" destination="AYu-sK-qS6" id="p4a-TX-8Fn"/>
+                        <outlet property="usbDeviceDetector" destination="w5I-k4-N2z" id="nay-iB-4jz"/>
                     </connections>
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="CameraMicChecker" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+                <customObject id="w5I-k4-N2z" customClass="USBDeviceDetector" customModule="USBDeviceDetector">
+                    <connections>
+                        <outlet property="delegate" destination="hnw-xV-0zn" id="nz9-6R-YMd"/>
+                    </connections>
+                </customObject>
+                <customObject id="bSz-Jo-mR7" customClass="CheckerController" customModule="CameraMicChecker" customModuleProvider="target">
+                    <connections>
+                        <outlet property="delegate" destination="Voe-Tx-rLC" id="Wa5-eo-rr9"/>
+                    </connections>
+                </customObject>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
@@ -717,7 +728,7 @@
                                     <rect key="frame" x="1" y="1" width="448" height="298"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView id="HHm-Z5-bYf">
+                                        <collectionView id="HHm-Z5-bYf" customClass="ESCameraCollectionView">
                                             <rect key="frame" x="0.0" y="0.0" width="448" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="Hwx-WB-yYe">

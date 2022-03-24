@@ -1,20 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="c22-O7-iKe" customClass="CameraView" customModule="CameraMicChecker" customModuleProvider="target">
+        <customView id="c22-O7-iKe" customClass="ESCameraView">
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Aer-iR-YjX" customClass="CameraPreviewView" customModule="CameraMicChecker" customModuleProvider="target">
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Aer-iR-YjX" customClass="ESCameraPreviewView">
                     <rect key="frame" x="2" y="2" width="476" height="268"/>
+                    <subviews>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DCz-xo-MTi">
+                            <rect key="frame" x="441" y="233" width="38" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="24" id="khl-oF-LPr"/>
+                                <constraint firstAttribute="height" constant="24" id="nQC-Oh-cbp"/>
+                            </constraints>
+                            <buttonCell key="cell" type="push" title="􀅊" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="xqO-1m-kAk">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                <font key="font" metaFont="system" size="14"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="expandButtonDidPush:" target="c22-O7-iKe" id="VNh-Hb-LqO"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="DCz-xo-MTi" firstAttribute="top" secondItem="Aer-iR-YjX" secondAttribute="top" constant="4" id="YD5-PZ-I2P"/>
+                        <constraint firstAttribute="trailing" secondItem="DCz-xo-MTi" secondAttribute="trailing" constant="4" id="uaf-Yo-ecO"/>
+                    </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="wantsLayer" value="YES"/>
                     </userDefinedRuntimeAttributes>
@@ -42,11 +61,13 @@
             </constraints>
             <connections>
                 <outlet property="contentView" destination="Aer-iR-YjX" id="VYE-BB-FxF"/>
+                <outlet property="delegate" destination="iQj-dG-nWE" id="j12-bN-fue"/>
+                <outlet property="expandButton" destination="DCz-xo-MTi" id="uSO-Eh-kOf"/>
                 <outlet property="nameLabel" destination="nh8-h5-SaN" id="8iQ-T2-q7S"/>
             </connections>
             <point key="canvasLocation" x="139" y="154"/>
         </customView>
-        <customObject id="iQj-dG-nWE" customClass="CameraCollectionViewItem" customModule="CameraMicChecker" customModuleProvider="target">
+        <customObject id="iQj-dG-nWE" customClass="ESCameraCollectionViewItem">
             <connections>
                 <outlet property="cameraView" destination="c22-O7-iKe" id="NI3-yc-EC4"/>
                 <outlet property="view" destination="c22-O7-iKe" id="USa-Vr-6rl"/>

@@ -7,6 +7,8 @@
 
 import AppKit
 
+@objc(ESCameraPreviewView)
+@MainActor
 final class CameraPreviewView : NSView {
     
 }

@@ -5,30 +5,29 @@
 //  Created by Tomohiro Kumagai on 2021/10/07.
 //
 
-import Cocoa
+import AppKit
+import USBDeviceDetector
 
-@main
+@main @MainActor
 final class AppDelegate: NSObject, NSApplicationDelegate, @unchecked Sendable {
 
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
+    nonisolated func applicationDidFinishLaunching(_ aNotification: Notification) {
 
         Task { @MainActor in
             
-            App.checkerController.delegate = self
-
-            try await App.checkerController.prepare()
+            try await NSApp.checkerController.prepare()
         }
     }
 
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+    nonisolated func applicationWillTerminate(_ aNotification: Notification) {
+        
     }
 
-    func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
+    nonisolated func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
         return true
     }
 
-    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+    nonisolated func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         
         true
     }
@@ -36,7 +35,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, @unchecked Sendable {
 
 extension AppDelegate: CheckerControllerDelegate {
     
-    func checkerControllerDevicesDidUpdate(_ checkerController: CheckerController) {
+    nonisolated func checkerControllerDevicesDidUpdate(_ checkerController: CheckerController) {
 
         Application.DevicesDidUpdateNotification(checkerController: checkerController).post()
     }

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="I9Z-dV-vDe">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="9vB-1w-X8n">
+            <objects>
+                <windowController id="I9Z-dV-vDe" customClass="ESSingleCameraWindowController" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="uFs-vt-cvP">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="425" y="473" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1440"/>
+                        <view key="contentView" id="MDp-fg-Gtm">
+                            <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </view>
+                        <connections>
+                            <outlet property="delegate" destination="I9Z-dV-vDe" id="Bch-Iv-zAC"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="aWZ-CZ-fJL" kind="relationship" relationship="window.shadowedContentViewController" id="3D0-aG-Wdv"/>
+                    </connections>
+                </windowController>
+                <customObject id="MZw-mg-CYB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-304" y="-725"/>
+        </scene>
+        <!--Single Camera View Controller-->
+        <scene sceneID="h3V-Sf-cGd">
+            <objects>
+                <viewController id="aWZ-CZ-fJL" customClass="ESSingleCameraViewController" sceneMemberID="viewController">
+                    <view key="view" id="aXp-Jp-fKn" customClass="ESCameraView">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GNa-lZ-OWr">
+                                <rect key="frame" x="20" y="20" width="440" height="0.0"/>
+                            </stackView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="knh-yp-sUC">
+                                <rect key="frame" x="18" y="234" width="444" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="SINGLE CAMERA" id="PgZ-1n-b8A">
+                                    <font key="font" textStyle="headline" name=".SFNS-Bold"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="aWZ-CZ-fJL" name="value" keyPath="representedObject.name" id="tRB-Fy-WRq"/>
+                                </connections>
+                            </textField>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Gyt-Qh-gi3" customClass="ESCameraPreviewView">
+                                <rect key="frame" x="20" y="28" width="440" height="198"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="wantsLayer" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="GNa-lZ-OWr" secondAttribute="bottom" constant="20" symbolic="YES" id="C5C-e6-Cwd"/>
+                            <constraint firstItem="Gyt-Qh-gi3" firstAttribute="top" secondItem="knh-yp-sUC" secondAttribute="bottom" constant="8" symbolic="YES" id="Dez-Zj-F9o"/>
+                            <constraint firstItem="GNa-lZ-OWr" firstAttribute="top" secondItem="Gyt-Qh-gi3" secondAttribute="bottom" constant="8" symbolic="YES" id="TwF-si-D3i"/>
+                            <constraint firstItem="GNa-lZ-OWr" firstAttribute="top" secondItem="Gyt-Qh-gi3" secondAttribute="bottom" constant="8" symbolic="YES" id="Vth-Ox-f8S"/>
+                            <constraint firstItem="GNa-lZ-OWr" firstAttribute="leading" secondItem="aXp-Jp-fKn" secondAttribute="leading" constant="20" symbolic="YES" id="abZ-nb-SfO"/>
+                            <constraint firstAttribute="trailing" secondItem="knh-yp-sUC" secondAttribute="trailing" constant="20" symbolic="YES" id="hLE-dd-DwA"/>
+                            <constraint firstAttribute="trailing" secondItem="GNa-lZ-OWr" secondAttribute="trailing" constant="20" symbolic="YES" id="hxW-AL-pC1"/>
+                            <constraint firstItem="knh-yp-sUC" firstAttribute="leading" secondItem="aXp-Jp-fKn" secondAttribute="leading" constant="20" symbolic="YES" id="iGd-vv-jzV"/>
+                            <constraint firstItem="knh-yp-sUC" firstAttribute="top" secondItem="aXp-Jp-fKn" secondAttribute="top" constant="20" symbolic="YES" id="mfe-Kx-7E6"/>
+                            <constraint firstAttribute="trailing" secondItem="Gyt-Qh-gi3" secondAttribute="trailing" constant="20" symbolic="YES" id="oWE-L1-BxT"/>
+                            <constraint firstItem="Gyt-Qh-gi3" firstAttribute="leading" secondItem="aXp-Jp-fKn" secondAttribute="leading" constant="20" symbolic="YES" id="udY-Fe-AAi"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="contentView" destination="Gyt-Qh-gi3" id="yNf-sK-Lzo"/>
+                            <outlet property="nameLabel" destination="knh-yp-sUC" id="fTZ-j0-Hx1"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="cameraView" destination="aXp-Jp-fKn" id="8hd-q5-Cwi"/>
+                    </connections>
+                </viewController>
+                <customObject id="rYA-mm-pQW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-105" y="-258"/>
+        </scene>
+    </scenes>
+</document>

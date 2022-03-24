@@ -8,13 +8,18 @@
 import AppKit
 import AVFoundation
 
+@objc(ESCameraView)
+@MainActor
 final class CameraView : NSView {
     
+    @IBOutlet weak var delegate: CameraViewDelegate?
+    
     @IBOutlet var nameLabel: NSTextField!
+    @IBOutlet var expandButton: NSButton!
     @IBOutlet var contentView: CameraPreviewView!
     
     var session: AVCaptureSession!
-    var previewLayer: AVCaptureVideoPreviewLayer? {
+    var previewLayer: AVCaptureVideoPreviewLayer! {
         
         didSet (oldLayer) {
             
@@ -42,13 +47,11 @@ final class CameraView : NSView {
         session.sessionPreset = .low
         session.addInput(input)
         
-        let previewLayer = AVCaptureVideoPreviewLayer(session: session)
-        
+        previewLayer = AVCaptureVideoPreviewLayer(session: session)        
         previewLayer.apply(previewState: previewState)
-        previewLayer.frame = bounds
 
-        self.previewLayer = previewLayer
-
+        updatePreviewFrame()
+        
         session.startRunning()
     }
     
@@ -58,5 +61,22 @@ final class CameraView : NSView {
 
         previewLayer = nil
         session = nil
+    }
+    
+    func updatePreviewFrame() {
+        
+        previewLayer.frame = contentView.bounds
+    }
+    
+    @IBAction func expandButtonDidPush(_ sender: NSButton) {
+        
+        delegate?.cameraView?(self, expandButtonDidPush: sender)
+    }
+    
+    override func resize(withOldSuperviewSize oldSize: NSSize) {
+        
+        super.resize(withOldSuperviewSize: oldSize)
+        
+        updatePreviewFrame()
     }
 }

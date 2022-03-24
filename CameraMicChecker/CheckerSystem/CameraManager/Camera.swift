@@ -7,6 +7,7 @@
 
 import AVFoundation
 
+@objc(ESCamera)
 @objcMembers
 final class Camera : NSObject, Identifiable {
     

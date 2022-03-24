@@ -7,7 +7,9 @@
 
 import Foundation
 
-@objc protocol CheckerControllerDelegate {
+@objc(ESCheckerControllerDelegate)
+@MainActor
+protocol CheckerControllerDelegate {
     
     @objc optional func checkerControllerDevicesDidUpdate(_ checkerController: CheckerController)
 }
