@@ -37,13 +37,13 @@
 		B1CC75F127CA6A280068BECF /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC75F027CA6A280068BECF /* Application.swift */; };
 		B1CC75F327CA74230068BECF /* CheckerControllerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC75F227CA74230068BECF /* CheckerControllerError.swift */; };
 		B1CC75F727CA86930068BECF /* AVCaptureDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC75F627CA86930068BECF /* AVCaptureDevice.swift */; };
-		B1D8004627E35A9C00A64922 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B182E71227DE4F610089C682 /* NetworkExtension.framework */; };
 		B1F77CE127ECA13A00839FAF /* SingleCameraWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F77CE027ECA13A00839FAF /* SingleCameraWindowController.swift */; };
 		B1F77CE327ECA1AB00839FAF /* SingleCameraWindow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1F77CE227ECA1AB00839FAF /* SingleCameraWindow.storyboard */; };
 		B1F77CE527ECA22600839FAF /* SingleCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F77CE427ECA22600839FAF /* SingleCameraViewController.swift */; };
 		B1F77CE727ECA92800839FAF /* CameraViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F77CE627ECA92800839FAF /* CameraViewDelegate.swift */; };
 		B1F77CE927ECAB4500839FAF /* CameraCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F77CE827ECAB4500839FAF /* CameraCollectionViewDelegate.swift */; };
 		B1F77CEB27ECAE0300839FAF /* CameraCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F77CEA27ECAE0300839FAF /* CameraCollectionView.swift */; };
+		B1F77CEC27ECC65300839FAF /* Ocean in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B141529D27E4AA2700B99ECC /* Ocean */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +84,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				B1F77CEC27ECC65300839FAF /* Ocean in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,7 +144,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1D8004627E35A9C00A64922 /* NetworkExtension.framework in Frameworks */,
 				B14152A127E4AA3C00B99ECC /* USBDeviceDetector in Frameworks */,
 				B141529E27E4AA2700B99ECC /* Ocean in Frameworks */,
 			);
