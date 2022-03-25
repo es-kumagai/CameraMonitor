@@ -23,3 +23,12 @@ final class SingleCameraWindowController: NSWindowController {
     }
 
 }
+
+@MainActor
+extension Sequence where Element : SingleCameraWindowController {
+    
+    func closeAll() {
+
+        forEach { $0.close() }
+    }
+}

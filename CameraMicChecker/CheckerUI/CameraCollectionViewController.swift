@@ -12,7 +12,7 @@ import AVFoundation
 @objcMembers @MainActor
 final class CameraCollectionViewController: NSViewController, NotificationObservable {
 
-    var currentSingleCameraWindowControllers: [SingleCameraWindowController] = []
+    var presentedSingleCameraWindowControllers: [SingleCameraWindowController] = []
     
     @IBOutlet weak var cameraCollectionView: CameraCollectionView! {
         
@@ -48,6 +48,13 @@ final class CameraCollectionViewController: NSViewController, NotificationObserv
 //
 //            print("DETECTED CHANGE")
 //        }
+    }
+    
+    override func viewDidDisappear() {
+        
+        super.viewDidDisappear()
+        
+        presentedSingleCameraWindowControllers.closeAll()
     }
 
     override var representedObject: Any? {
@@ -95,7 +102,7 @@ private extension CameraCollectionViewController {
         
         let windowController = NSStoryboard.instantiateSingleCameraWindowController(with: camera)
         
-        currentSingleCameraWindowControllers.append(windowController)
+        presentedSingleCameraWindowControllers.append(windowController)
 
         return windowController
     }
