@@ -16,8 +16,8 @@ final class CheckerController : NSObject {
     private(set) var cameraManager: CameraManager!
     private(set) var micManager: MicManager!
     
-    private(set) var micDevices: [Mic] = []
-    private(set) var cameraDevices: [Camera] = []
+    private(set) var micDevices: Mics = []
+    private(set) var cameraDevices: Cameras = []
     
     private(set) var isReady: Bool = false
 

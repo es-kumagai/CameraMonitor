@@ -7,6 +7,8 @@
 
 import AVFoundation
 
+typealias Cameras = Array<Camera>
+
 @objc(ESCamera)
 @objcMembers
 final class Camera : NSObject, Identifiable {

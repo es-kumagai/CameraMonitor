@@ -26,7 +26,7 @@ final class CameraCollectionViewController: NSViewController, NotificationObserv
 
     var notificationHandlers = Notification.Handlers()
     
-    dynamic var cameras = [Camera]()
+    dynamic var cameras = Cameras()
     
     deinit {
 

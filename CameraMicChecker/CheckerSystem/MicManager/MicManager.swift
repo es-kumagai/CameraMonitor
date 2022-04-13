@@ -30,7 +30,7 @@ final class MicManager {
         AVCaptureDevice.default(for: .audio).map(Mic.init)
     }
     
-    var mics: [Mic] {
+    var mics: Mics {
 
         let discoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInMicrophone], mediaType: .audio, position: .unspecified)
         

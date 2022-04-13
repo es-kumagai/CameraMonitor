@@ -7,6 +7,8 @@
 
 import AVFoundation
 
+typealias Mics = Array<Mic>
+
 @objc(ESMic)
 @objcMembers
 class Mic : NSObject {
