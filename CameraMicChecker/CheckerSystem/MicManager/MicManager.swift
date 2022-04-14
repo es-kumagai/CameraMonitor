@@ -58,7 +58,7 @@ final class MicManager {
 //            
 //            AudioComponentCopyName(component!, &name)
 //            
-//            print(name)
+//            NSLog("%@", name)
 //        }
 //        
 //        output.setSampleBufferDelegate(self, queue: queue)

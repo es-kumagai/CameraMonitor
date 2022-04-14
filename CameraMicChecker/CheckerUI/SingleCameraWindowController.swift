@@ -31,4 +31,44 @@ extension Sequence where Element : SingleCameraWindowController {
 
         forEach { $0.close() }
     }
+    
+    func having(camera: Camera) -> [Element] {
+
+        filter {
+            
+            $0.singleCameraViewController.camera == camera
+        }
+    }
+}
+
+@MainActor
+extension RangeReplaceableCollection where Element : SingleCameraWindowController {
+
+    mutating func remove(_ singleCameraWindowController: SingleCameraWindowController) {
+    
+        singleCameraWindowController.close()
+
+        remove(contentsAt: indexes { $0.singleCameraViewController === singleCameraWindowController })
+    }
+    
+    mutating func remove(having camera: Camera) {
+        
+        for windowController in having(camera: camera) {
+
+            NSLog("%@", "Removing single camera window controller for \(camera) on \(windowController).")
+            
+            remove(windowController)
+        }
+    }
+    
+    mutating func leave(onlyHaving cameras: Cameras) {
+        
+        for windowController in self {
+            
+            if !cameras.contains(windowController.singleCameraViewController.camera) {
+                
+                remove(windowController)
+            }
+        }
+    }
 }

@@ -13,10 +13,30 @@ import AVFoundation
 final class CameraView : NSView {
     
     @IBOutlet weak var delegate: CameraViewDelegate?
-    
+
     @IBOutlet var nameLabel: NSTextField!
     @IBOutlet var expandButton: NSButton!
     @IBOutlet var contentView: CameraPreviewView!
+
+    dynamic var camera: Camera? {
+        
+        willSet (newCamera) {
+
+            stopPreview()
+        }
+        
+        didSet {
+            
+            guard let camera = camera else {
+
+                return
+            }
+
+            let previewState = NSApp.checkerController.cameraManager.previewState(for: camera)
+            
+            startPreview(with: previewState)
+        }
+    }
     
     var session: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer! {
@@ -31,41 +51,67 @@ final class CameraView : NSView {
             }
         }
     }
-        
-    func startPreview(camera: Camera, with previewState: CameraManager.PreviewState) {
-        
-        let input = try! AVCaptureDeviceInput(device: camera.device)
 
-        session = AVCaptureSession()
+    func startPreview(with previewState: CameraManager.PreviewState) {
         
-        guard session.canAddInput(input) else {
+        guard let camera = camera else {
         
-            NSLog("%@", "An input device could'nt be added: \(input)")
+            NSLog("%@", "Cannot start preview on \(self) because no camera is specified.")
             return
         }
         
-        session.sessionPreset = .low
-        session.addInput(input)
+        NSLog("%@", "Starting \(camera) preview on \(self).")
         
-        previewLayer = AVCaptureVideoPreviewLayer(session: session)        
-        previewLayer.apply(previewState: previewState)
+        do {
 
-        updatePreviewFrame()
-        
-        session.startRunning()
+            let input = try AVCaptureDeviceInput(device: camera.device)
+
+            session = AVCaptureSession()
+            
+            guard session.canAddInput(input) else {
+                
+                NSLog("%@", "An input device could'nt be added: \(input)")
+                return
+            }
+            
+            session.sessionPreset = .low
+            session.addInput(input)
+            
+            previewLayer = AVCaptureVideoPreviewLayer(session: session)
+            previewLayer.apply(previewState: previewState)
+            
+            updatePreviewFrame()
+            
+            session.startRunning()
+        }
+        catch {
+            
+            NSLog("%@", "\(camera) could not start preview: \(error)")
+        }
     }
     
     func stopPreview() {
 
-        session.stopRunning()
+        defer {
 
-        previewLayer = nil
-        session = nil
+            session?.stopRunning()
+
+            previewLayer = nil
+            session = nil
+        }
+
+        guard let camera = camera else {
+            
+            NSLog("%@", "Not need to stop preview because no camera is specified.")
+            return
+        }
+
+        NSLog("%@", "Stopping \(camera) preview.")
     }
     
     func updatePreviewFrame() {
         
-        previewLayer.frame = contentView.bounds
+        previewLayer?.frame = contentView.bounds
     }
     
     @IBAction func expandButtonDidPush(_ sender: NSButton) {

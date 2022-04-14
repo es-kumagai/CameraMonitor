@@ -8,6 +8,7 @@
 import AppKit
 import Ocean
 import AVFoundation
+import USBDeviceDetector
 
 @objcMembers @MainActor
 final class CameraCollectionViewController: NSViewController, NotificationObservable {
@@ -26,7 +27,34 @@ final class CameraCollectionViewController: NSViewController, NotificationObserv
 
     var notificationHandlers = Notification.Handlers()
     
-    dynamic var cameras = Cameras()
+    dynamic var cameras = Cameras() {
+        
+        willSet (newCameras) {
+            
+//            let difference = newCameras.difference(from: cameras)
+//            var addedCameras = Set<Camera>()
+//            var removedCameras = Set<Camera>()
+//
+//            for change in difference {
+//
+//                switch change {
+//
+//                case .insert(offset: _, element: let camera, associatedWith: _):
+//                    addedCameras.insert(camera)
+//
+//                case .remove(offset: _, element: let camera, associatedWith: _):
+//                    removedCameras.insert(camera)
+//                }
+//            }
+//
+//            for removedCamera in removedCameras.subtracting(addedCameras) {
+//
+//                NSLog("%@", "Removing single camera window controller for \(removedCamera).")
+//
+//                presentedSingleCameraWindowControllers.remove(having: removedCamera)
+//            }
+        }
+    }
     
     deinit {
 
@@ -43,11 +71,6 @@ final class CameraCollectionViewController: NSViewController, NotificationObserv
             
             reloadCameras()
         }
-
-//        observe(notificationNamed: .AVRouteDetectorMultipleRoutesDetectedDidChange, object: nil) { [unowned self] notification in
-//
-//            print("DETECTED CHANGE")
-//        }
     }
     
     override func viewDidDisappear() {
@@ -66,6 +89,8 @@ final class CameraCollectionViewController: NSViewController, NotificationObserv
     func reloadCameras() {
 
         cameras = NSApp.checkerController.cameraDevices
+        
+        presentedSingleCameraWindowControllers.leave(onlyHaving: cameras)
     }
 }
 
@@ -81,17 +106,28 @@ extension CameraCollectionViewController : CameraCollectionViewDelegate {
     
     func cameraCollectionView(_ view: CameraCollectionView, expandButtonDidPush button: NSButton, on item: CameraCollectionViewItem) {
         
-        let windowController = singleCameraWindowController(for: item.camera)
+        let windowController = singleCameraWindowController(for: item.cameraView.camera!)
         windowController.showWindow(self)
     }
 
     nonisolated func collectionView(_ collectionView: NSCollectionView, willDisplay item: NSCollectionViewItem, forRepresentedObjectAt indexPath: IndexPath) {
         
         let item = item as! CameraCollectionViewItem
+
+        Task { @MainActor in
+
+            NSLog("%@ will display.", item)
+            item.cameraView.updatePreviewFrame()
+        }
+    }
+    
+    nonisolated func collectionView(_ collectionView: NSCollectionView, didEndDisplaying item: NSCollectionViewItem, forRepresentedObjectAt indexPath: IndexPath) {
+        
+        let item = item as! CameraCollectionViewItem
         
         Task { @MainActor in
             
-            item.cameraView.updatePreviewFrame()
+            NSLog("%@ did end displaying.", item)
         }
     }
 }
@@ -100,28 +136,12 @@ private extension CameraCollectionViewController {
 
     func singleCameraWindowController(for camera: Camera) -> SingleCameraWindowController {
         
+        NSLog("%@", "Creating new single camera window controller for \(camera).")
+        
         let windowController = NSStoryboard.instantiateSingleCameraWindowController(with: camera)
         
         presentedSingleCameraWindowControllers.append(windowController)
-
+        
         return windowController
     }
 }
-
-//
-//extension CameraCollectionViewController : NSCollectionViewDataSource {
-//
-//    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-//
-//        return cameras.count
-//    }
-//
-//    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-//
-//        let item = storyboard!.cameraCollectionViewItem
-//
-//        item.camera = cameras[indexPath.section]
-//
-//        return item
-//    }
-//}

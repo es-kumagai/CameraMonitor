@@ -20,6 +20,21 @@ final class Camera : NSObject, Identifiable {
         self.device = device
     }
     
+    override var hash: Int {
+        
+        id.hash
+    }
+    
+    override func isEqual(_ object: Any?) -> Bool {
+    
+        guard let object = object as? Camera else {
+            
+            return super.isEqual(object)
+        }
+
+        return id == object.id
+    }
+    
     dynamic var name: String {
         
         device.localizedName
@@ -63,5 +78,18 @@ final class Camera : NSObject, Identifiable {
     dynamic var isSuspended: Bool {
         
         device.isSuspended
+    }
+}
+
+extension Camera {
+    
+    override var description: String {
+    
+        "\(name) (ID:\(id))"
+    }
+    
+    override var debugDescription: String {
+        
+        "<Camera for '\(name), id=\(id)' at \(ObjectIdentifier(self))>"
     }
 }

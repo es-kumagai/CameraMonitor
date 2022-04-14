@@ -18,18 +18,21 @@ class SingleCameraViewController: NSViewController {
         representedObject as! Camera
     }
 
+    override var representedObject: Any? {
+        
+        didSet {
+    
+            cameraView.camera = camera
+        }
+    }
+    
     override func viewWillAppear() {
         
         super.viewWillAppear()
-        
-        let previewState = NSApp.checkerController.cameraManager.previewState(for: camera)
-        
-        cameraView.startPreview(camera: camera, with: previewState)
     }
     
     override func viewDidDisappear() {
 
         super.viewDidDisappear()
-        cameraView.stopPreview()
     }
 }

@@ -35,7 +35,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, @unchecked Sendable {
 
 extension AppDelegate: CheckerControllerDelegate {
     
-    nonisolated func checkerControllerDevicesDidUpdate(_ checkerController: CheckerController) {
+    func checkerControllerDevicesDidUpdate(_ checkerController: CheckerController) {
 
         Application.DevicesDidUpdateNotification(checkerController: checkerController).post()
     }

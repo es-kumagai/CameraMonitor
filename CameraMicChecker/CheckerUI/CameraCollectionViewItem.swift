@@ -15,29 +15,33 @@ final class CameraCollectionViewItem : NSCollectionViewItem {
     
     @IBOutlet weak var cameraView: CameraView!
     
-    dynamic var camera: Camera {
-    
-        representedObject as! Camera
-    }
-    
     dynamic var cameraCollectionView: CameraCollectionView {
 
         collectionView as! CameraCollectionView
     }
     
+    override var representedObject: Any? {
+        
+        didSet {
+            
+            cameraView.camera = representedObject as? Camera
+        }
+    }
+    
     override func viewWillAppear() {
         
+        NSLog("%@", "A camera collection view item will appear: \(self)")
+
         super.viewWillAppear()
         
-        let previewState = NSApp.checkerController.cameraManager.previewState(for: camera)
-        
-        cameraView.startPreview(camera: camera, with: previewState)
     }
     
     override func viewDidDisappear() {
 
+        NSLog("%@", "A camera collection view item did disappear: \(self)")
+
         super.viewDidDisappear()
-        cameraView.stopPreview()
+
     }
 }
 

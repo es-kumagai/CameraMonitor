@@ -18,6 +18,8 @@ final class Application: NSApplication, @unchecked Sendable {
     
     @IBOutlet var usbDeviceDetector: USBDeviceDetector!
     @IBOutlet var checkerController: CheckerController!
+    
+    let usbDeviceDetectionDelay = 0.2
 }
 
 extension Application {
@@ -32,18 +34,20 @@ extension Application : USBDeviceDetectorDelegate {
     
     nonisolated func usbDeviceDetector(_ detector: USBDeviceDetector, devicesDidAdd devices: USBDevices) {
         
-        Task { @MainActor in
-
-            try! await Task.sleep(nanoseconds: 500_000)
+        NSLog("%@", "USB devices have been added: \(devices)")
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + usbDeviceDetectionDelay) { [unowned self] in
+            
             checkerController.updateDevices()
         }
     }
     
     nonisolated func usbDeviceDetector(_ detector: USBDeviceDetector, devicesDidRemove devices: USBDevices) {
 
-        Task { @MainActor in
+        NSLog("%@", "USB devices have been removed: \(devices)")
 
-            try! await Task.sleep(nanoseconds: 500_000)
+        DispatchQueue.main.asyncAfter(deadline: .now() + usbDeviceDetectionDelay) { [unowned self] in
+
             checkerController.updateDevices()
         }
     }
