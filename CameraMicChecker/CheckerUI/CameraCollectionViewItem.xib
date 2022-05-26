@@ -70,6 +70,7 @@
         <customObject id="iQj-dG-nWE" customClass="ESCameraCollectionViewItem">
             <connections>
                 <outlet property="cameraView" destination="c22-O7-iKe" id="NI3-yc-EC4"/>
+                <outlet property="expandButton" destination="DCz-xo-MTi" id="l5f-aq-ZVx"/>
                 <outlet property="view" destination="c22-O7-iKe" id="USa-Vr-6rl"/>
             </connections>
         </customObject>

@@ -13,7 +13,13 @@ import USBDeviceDetector
 @objcMembers @MainActor
 final class CameraCollectionViewController: NSViewController, NotificationObservable {
 
-    var presentedSingleCameraWindowControllers: [SingleCameraWindowController] = []
+    var presentedSingleCameraWindowControllers: [SingleCameraWindowController] = [] {
+        
+        didSet {
+
+            updateExpandButtonsState()
+        }
+    }
     
     @IBOutlet weak var cameraCollectionView: CameraCollectionView! {
         
@@ -102,11 +108,21 @@ extension CameraCollectionViewController : CheckerControllerDelegate {
     }
 }
 
+extension CameraCollectionViewController : SingleCameraWindowControllerDelegate {
+    
+    func singleCameraWindowControllerWillClose(_ controller: SingleCameraWindowController) {
+        
+        presentedSingleCameraWindowControllers.remove(controller, callCloseMethod: false)
+    }
+}
+
 extension CameraCollectionViewController : CameraCollectionViewDelegate {
     
     func cameraCollectionView(_ view: CameraCollectionView, expandButtonDidPush button: NSButton, on item: CameraCollectionViewItem) {
         
         let windowController = singleCameraWindowController(for: item.cameraView.camera!)
+        
+        windowController.delegate = self
         windowController.showWindow(self)
     }
 
@@ -134,6 +150,21 @@ extension CameraCollectionViewController : CameraCollectionViewDelegate {
 
 private extension CameraCollectionViewController {
 
+    func updateExpandButtonsState() {
+        
+        for case let item as CameraCollectionViewItem in cameraCollectionView.visibleItems() {
+
+            guard let camera = item.cameraView.camera else {
+                
+                continue
+            }
+            
+            let itemHavingCamera = presentedSingleCameraWindowControllers.contains(camera: camera)
+            
+            item.expandButton.state = itemHavingCamera ? .on : .off
+        }
+    }
+    
     func singleCameraWindowController(for camera: Camera) -> SingleCameraWindowController {
         
         NSLog("%@", "Creating new single camera window controller for \(camera).")
@@ -145,3 +176,4 @@ private extension CameraCollectionViewController {
         return windowController
     }
 }
+

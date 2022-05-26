@@ -11,6 +11,8 @@ import Cocoa
 @MainActor
 final class SingleCameraWindowController: NSWindowController {
 
+    @IBOutlet dynamic weak var delegate: SingleCameraWindowControllerDelegate?
+
     dynamic var singleCameraViewController: SingleCameraViewController {
     
         contentViewController as! SingleCameraViewController
@@ -19,9 +21,19 @@ final class SingleCameraWindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
     
-        // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+        window!.delegate = self
     }
+}
 
+extension SingleCameraWindowController : NSWindowDelegate {
+    
+    nonisolated func windowWillClose(_ notification: Notification) {
+
+        Task { @MainActor in
+
+            delegate?.singleCameraWindowControllerWillClose?(self)
+        }
+    }
 }
 
 @MainActor
@@ -44,11 +56,22 @@ extension Sequence where Element : SingleCameraWindowController {
 @MainActor
 extension RangeReplaceableCollection where Element : SingleCameraWindowController {
 
-    mutating func remove(_ singleCameraWindowController: SingleCameraWindowController) {
-    
-        singleCameraWindowController.close()
+    func contains(camera: Camera) -> Bool {
 
-        remove(contentsAt: indexes { $0.singleCameraViewController === singleCameraWindowController })
+        contains {
+            
+            $0.singleCameraViewController.camera == camera
+        }
+    }
+    
+    mutating func remove(_ singleCameraWindowController: SingleCameraWindowController, callCloseMethod: Bool = true) {
+    
+        if callCloseMethod {
+            
+            singleCameraWindowController.close()
+        }
+
+        remove(contentsAt: indexes { $0 === singleCameraWindowController })
     }
     
     mutating func remove(having camera: Camera) {

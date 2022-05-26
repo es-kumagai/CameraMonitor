@@ -14,6 +14,7 @@ import AVFoundation
 final class CameraCollectionViewItem : NSCollectionViewItem {
     
     @IBOutlet weak var cameraView: CameraView!
+    @IBOutlet weak var expandButton: NSButton!
     
     dynamic var cameraCollectionView: CameraCollectionView {
 
