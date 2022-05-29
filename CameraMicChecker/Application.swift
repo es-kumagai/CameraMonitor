@@ -19,7 +19,8 @@ final class Application: NSApplication, @unchecked Sendable {
     @IBOutlet var usbDeviceDetector: USBDeviceDetector!
     @IBOutlet var checkerController: CheckerController!
     
-    let usbDeviceDetectionDelay = 0.2
+    let usbDeviceDetectionDelay = 0.3
+    let usbDeviceDetectionAuxiliaryDelay = 5.0
 }
 
 extension Application {
@@ -39,6 +40,12 @@ extension Application : USBDeviceDetectorDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + usbDeviceDetectionDelay) { [unowned self] in
             
             checkerController.updateDevices()
+            
+            // To detect slowly detecting devices, retry updating after `usbDeviceDetectionAuxiliaryDelay` again.
+            DispatchQueue.main.asyncAfter(deadline: .now() + usbDeviceDetectionAuxiliaryDelay) { [unowned self] in
+                
+                checkerController.updateDevices()
+            }
         }
     }
     
