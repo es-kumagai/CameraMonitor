@@ -1,6 +1,6 @@
 //
 //  CheckerControllerError.swift
-//  CameraMicChecker
+// CameraMonitor
 //
 //  Created by Tomohiro Kumagai on 2022/02/26.
 //

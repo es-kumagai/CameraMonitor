@@ -1,6 +1,6 @@
 //
 //  CameraView.swift
-//  CameraMicChecker
+// CameraMonitor
 //
 //  Created by Tomohiro Kumagai on 2021/10/07.
 //

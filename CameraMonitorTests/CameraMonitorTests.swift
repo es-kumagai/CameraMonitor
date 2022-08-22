@@ -1,14 +1,14 @@
 //
-//  CameraMicCheckerTests.swift
-//  CameraMicCheckerTests
+// CameraMonitorTests.swift
+// CameraMonitorTests
 //
 //  Created by Tomohiro Kumagai on 2021/10/07.
 //
 
 import XCTest
-@testable import CameraMicChecker
+@testable import CameraMonitor
 
-class CameraMicCheckerTests: XCTestCase {
+class CameraMonitorTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

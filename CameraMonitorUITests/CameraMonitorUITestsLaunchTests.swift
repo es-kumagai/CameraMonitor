@@ -1,13 +1,13 @@
 //
-//  CameraMicCheckerUITestsLaunchTests.swift
-//  CameraMicCheckerUITests
+// CameraMonitorUITestsLaunchTests.swift
+// CameraMonitorUITests
 //
 //  Created by Tomohiro Kumagai on 2021/10/07.
 //
 
 import XCTest
 
-class CameraMicCheckerUITestsLaunchTests: XCTestCase {
+class CameraMonitorUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

@@ -12,9 +12,9 @@
 		B1505625270EF75400810CDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505624270EF75400810CDB /* AppDelegate.swift */; };
 		B1505629270EF75A00810CDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1505628270EF75900810CDB /* Assets.xcassets */; };
 		B150562C270EF75A00810CDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B150562A270EF75A00810CDB /* Main.storyboard */; };
-		B1505637270EF75A00810CDB /* CameraMicCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505636270EF75A00810CDB /* CameraMicCheckerTests.swift */; };
-		B1505641270EF75A00810CDB /* CameraMicCheckerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505640270EF75A00810CDB /* CameraMicCheckerUITests.swift */; };
-		B1505643270EF75A00810CDB /* CameraMicCheckerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505642270EF75A00810CDB /* CameraMicCheckerUITestsLaunchTests.swift */; };
+		B1505637270EF75A00810CDB /* CameraMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505636270EF75A00810CDB /* CameraMonitorTests.swift */; };
+		B1505641270EF75A00810CDB /* CameraMonitorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505640270EF75A00810CDB /* CameraMonitorUITests.swift */; };
+		B1505643270EF75A00810CDB /* CameraMonitorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505642270EF75A00810CDB /* CameraMonitorUITestsLaunchTests.swift */; };
 		B1505650270EFAA500810CDB /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B150564F270EFAA500810CDB /* CameraManager.swift */; };
 		B1505652270EFDF800810CDB /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505651270EFDF800810CDB /* CameraView.swift */; };
 		B1505658270F6AE800810CDB /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505657270F6AE800810CDB /* Camera.swift */; };
@@ -100,10 +100,10 @@
 		B150562B270EF75A00810CDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B150562D270EF75A00810CDB /* CameraMonitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CameraMonitor.entitlements; sourceTree = "<group>"; };
 		B1505632270EF75A00810CDB /* CameraMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B1505636270EF75A00810CDB /* CameraMicCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMicCheckerTests.swift; sourceTree = "<group>"; };
+		B1505636270EF75A00810CDB /* CameraMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMonitorTests.swift; sourceTree = "<group>"; };
 		B150563C270EF75A00810CDB /* CameraMonitorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraMonitorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B1505640270EF75A00810CDB /* CameraMicCheckerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMicCheckerUITests.swift; sourceTree = "<group>"; };
-		B1505642270EF75A00810CDB /* CameraMicCheckerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMicCheckerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B1505640270EF75A00810CDB /* CameraMonitorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMonitorUITests.swift; sourceTree = "<group>"; };
+		B1505642270EF75A00810CDB /* CameraMonitorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMonitorUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B150564F270EFAA500810CDB /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		B1505651270EFDF800810CDB /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		B1505657270F6AE800810CDB /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
@@ -245,7 +245,7 @@
 		B1505635270EF75A00810CDB /* CameraMonitorTests */ = {
 			isa = PBXGroup;
 			children = (
-				B1505636270EF75A00810CDB /* CameraMicCheckerTests.swift */,
+				B1505636270EF75A00810CDB /* CameraMonitorTests.swift */,
 			);
 			path = CameraMonitorTests;
 			sourceTree = "<group>";
@@ -253,8 +253,8 @@
 		B150563F270EF75A00810CDB /* CameraMonitorUITests */ = {
 			isa = PBXGroup;
 			children = (
-				B1505640270EF75A00810CDB /* CameraMicCheckerUITests.swift */,
-				B1505642270EF75A00810CDB /* CameraMicCheckerUITestsLaunchTests.swift */,
+				B1505640270EF75A00810CDB /* CameraMonitorUITests.swift */,
+				B1505642270EF75A00810CDB /* CameraMonitorUITestsLaunchTests.swift */,
 			);
 			path = CameraMonitorUITests;
 			sourceTree = "<group>";
@@ -563,7 +563,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1505637270EF75A00810CDB /* CameraMicCheckerTests.swift in Sources */,
+				B1505637270EF75A00810CDB /* CameraMonitorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,8 +571,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1505641270EF75A00810CDB /* CameraMicCheckerUITests.swift in Sources */,
-				B1505643270EF75A00810CDB /* CameraMicCheckerUITestsLaunchTests.swift in Sources */,
+				B1505641270EF75A00810CDB /* CameraMonitorUITests.swift in Sources */,
+				B1505643270EF75A00810CDB /* CameraMonitorUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -824,7 +824,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.CameraMicCheckerTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.CameraMonitorTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -849,7 +849,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.CameraMicCheckerTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.CameraMonitorTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -872,11 +872,11 @@
 					"@loader_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.CameraMicCheckerUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.CameraMonitorUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = CameraMicChecker;
+				TEST_TARGET_NAME = CameraMonitor;
 			};
 			name = Debug;
 		};
@@ -895,11 +895,11 @@
 					"@loader_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.CameraMicCheckerUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.CameraMonitorUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = CameraMicChecker;
+				TEST_TARGET_NAME = CameraMonitor;
 			};
 			name = Release;
 		};
