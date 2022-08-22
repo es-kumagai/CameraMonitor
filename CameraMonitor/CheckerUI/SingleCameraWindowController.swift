@@ -20,7 +20,11 @@ final class SingleCameraWindowController: NSWindowController {
     
     static func frameSaveName(for camera: Camera) -> String {
         
-        "SingleCameraWindowController:\(camera.id)"
+        #if DEBUG
+        return "SingleCameraWindowController-Debug:\(camera.id)"
+        #else
+        return "SingleCameraWindowController:\(camera.id)"
+        #endif
     }
     
     var camera: Camera! {
