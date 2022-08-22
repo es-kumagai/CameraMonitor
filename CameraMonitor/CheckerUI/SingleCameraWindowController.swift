@@ -27,11 +27,21 @@ final class SingleCameraWindowController: NSWindowController {
         
         didSet {
             
+            setFrameAutosave()
+            
             window!.title = camera.name
-            window!.setFrameAutosaveName(Self.frameSaveName(for: camera))
-
             singleCameraViewController.representedObject = camera
         }
+    }
+    
+    func setFrameAutosave() {
+        
+        window!.setFrameAutosaveName(Self.frameSaveName(for: camera))
+    }
+    
+    static func resetFrameAutosave(for camera: Camera) {
+        
+        NSWindow.removeFrame(usingName: frameSaveName(for: camera))
     }
 
     override func windowDidLoad() {
