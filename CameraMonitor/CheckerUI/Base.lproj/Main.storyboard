@@ -11,11 +11,11 @@
                 <application id="hnw-xV-0zn" customClass="ESApplication" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="CameraMicChecker" id="1Xt-HY-uBw">
+                            <menuItem title="CameraMonitor" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="CameraMicChecker" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="CameraMonitor" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About CameraMicChecker" id="5kV-Vb-QxS">
+                                        <menuItem title="About CameraMonitor" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
@@ -29,7 +29,7 @@
                                             <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                                        <menuItem title="Hide CameraMicChecker" keyEquivalent="h" id="Olw-nP-bQN">
+                                        <menuItem title="Hide CameraMonitor" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -660,7 +660,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="CameraMicChecker Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                                        <menuItem title="CameraMonitor Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
                                             </connections>
@@ -677,14 +677,14 @@
                         <outlet property="usbDeviceDetector" destination="w5I-k4-N2z" id="nay-iB-4jz"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="CameraMicChecker" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="CameraMonitor" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="w5I-k4-N2z" customClass="USBDeviceDetector" customModule="USBDeviceDetector">
                     <connections>
                         <outlet property="delegate" destination="hnw-xV-0zn" id="nz9-6R-YMd"/>
                     </connections>
                 </customObject>
-                <customObject id="bSz-Jo-mR7" customClass="CheckerController" customModule="CameraMicChecker" customModuleProvider="target">
+                <customObject id="bSz-Jo-mR7" customClass="CheckerController" customModule="CameraMonitor" customModuleProvider="target">
                     <connections>
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="Wa5-eo-rr9"/>
                     </connections>
@@ -717,7 +717,7 @@
         <!--Camera Collection View Controller-->
         <scene sceneID="F0B-tS-zjT">
             <objects>
-                <viewController id="dMW-g0-7vH" customClass="CameraCollectionViewController" customModule="CameraMicChecker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dMW-g0-7vH" customClass="CameraCollectionViewController" customModule="CameraMonitor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="pYg-pq-XWr">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
