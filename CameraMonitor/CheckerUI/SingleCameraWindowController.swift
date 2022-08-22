@@ -18,6 +18,22 @@ final class SingleCameraWindowController: NSWindowController {
         contentViewController as! SingleCameraViewController
     }
     
+    static func frameSaveName(for camera: Camera) -> String {
+        
+        "SingleCameraWindowController:\(camera.id)"
+    }
+    
+    var camera: Camera! {
+        
+        didSet {
+            
+            window!.title = camera.name
+            window!.setFrameAutosaveName(Self.frameSaveName(for: camera))
+
+            singleCameraViewController.representedObject = camera
+        }
+    }
+
     override func windowDidLoad() {
         super.windowDidLoad()
     

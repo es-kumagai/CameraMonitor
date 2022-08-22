@@ -33,6 +33,7 @@
 		B1AF5CF927DEDD8E006A11CC /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF5CF827DEDD8E006A11CC /* CameraPreviewView.swift */; };
 		B1B8627227E0B1FA009DF1BD /* CameraManagerPreviewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8627127E0B1FA009DF1BD /* CameraManagerPreviewState.swift */; };
 		B1B8627427E0B581009DF1BD /* AVCaptureVideoPreviewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8627327E0B581009DF1BD /* AVCaptureVideoPreviewLayer.swift */; };
+		B1C9E65728B3A60000A6F004 /* CameraCollectionWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C9E65628B3A60000A6F004 /* CameraCollectionWindowController.swift */; };
 		B1CC75F127CA6A280068BECF /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC75F027CA6A280068BECF /* Application.swift */; };
 		B1CC75F327CA74230068BECF /* CheckerControllerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC75F227CA74230068BECF /* CheckerControllerError.swift */; };
 		B1CC75F727CA86930068BECF /* AVCaptureDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC75F627CA86930068BECF /* AVCaptureDevice.swift */; };
@@ -129,6 +130,7 @@
 		B1AF5CF827DEDD8E006A11CC /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
 		B1B8627127E0B1FA009DF1BD /* CameraManagerPreviewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManagerPreviewState.swift; sourceTree = "<group>"; };
 		B1B8627327E0B581009DF1BD /* AVCaptureVideoPreviewLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureVideoPreviewLayer.swift; sourceTree = "<group>"; };
+		B1C9E65628B3A60000A6F004 /* CameraCollectionWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCollectionWindowController.swift; sourceTree = "<group>"; };
 		B1CC75F027CA6A280068BECF /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		B1CC75F227CA74230068BECF /* CheckerControllerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerControllerError.swift; sourceTree = "<group>"; };
 		B1CC75F627CA86930068BECF /* AVCaptureDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureDevice.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				B1505651270EFDF800810CDB /* CameraView.swift */,
 				B1F77CE627ECA92800839FAF /* CameraViewDelegate.swift */,
 				B1AF5CF827DEDD8E006A11CC /* CameraPreviewView.swift */,
+				B1C9E65628B3A60000A6F004 /* CameraCollectionWindowController.swift */,
 				B182E6F627DB426B0089C682 /* CameraCollectionViewController.swift */,
 				B1F77CEA27ECAE0300839FAF /* CameraCollectionView.swift */,
 				B1F77CE827ECAB4500839FAF /* CameraCollectionViewDelegate.swift */,
@@ -551,6 +554,7 @@
 				B1505625270EF75400810CDB /* AppDelegate.swift in Sources */,
 				B1F77CE527ECA22600839FAF /* SingleCameraViewController.swift in Sources */,
 				B1505658270F6AE800810CDB /* Camera.swift in Sources */,
+				B1C9E65728B3A60000A6F004 /* CameraCollectionWindowController.swift in Sources */,
 				B182E6F527DB41330089C682 /* Storyboard.swift in Sources */,
 				B1505652270EFDF800810CDB /* CameraView.swift in Sources */,
 				B182E6F327DB40940089C682 /* CameraCollectionViewItem.swift in Sources */,

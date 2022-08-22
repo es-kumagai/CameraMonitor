@@ -22,8 +22,7 @@ extension NSStoryboard {
         
         let windowController = singleCameraWindow.instantiateInitialController() as! SingleCameraWindowController
         
-        windowController.window!.title = camera.name
-        windowController.singleCameraViewController.representedObject = camera
+        windowController.camera = camera
         
         return windowController
     }
