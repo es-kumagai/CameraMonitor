@@ -14,9 +14,6 @@ final class CheckerController : NSObject {
     @IBOutlet var delegate: CheckerControllerDelegate?
     
     private(set) var cameraManager: CameraManager!
-    private(set) var micManager: MicManager!
-    
-    private(set) var micDevices: Mics = []
     private(set) var cameraDevices: Cameras = []
     
     private(set) var isReady: Bool = false
@@ -27,13 +24,12 @@ final class CheckerController : NSObject {
             return
         }
         
-        guard await AVCaptureDevice.authorizationStatus(for: .video), await AVCaptureDevice.authorizationStatus(for: .audio) else {
+        guard await AVCaptureDevice.authorizationStatus(for: .video) else {
             
             throw CheckerControllerError.mediaOperationIsNotPermitted
         }
 
         cameraManager = CameraManager()
-        micManager = MicManager()
         
         isReady = true
         
@@ -48,7 +44,6 @@ final class CheckerController : NSObject {
         }
         
         cameraDevices = cameraManager.cameras
-        micDevices = micManager.mics
         
         delegate?.checkerControllerDevicesDidUpdate?(self)
     }
