@@ -18,9 +18,16 @@ class CameraCollectionWindowController: NSWindowController {
     static let frameSaveName = "CameraCollectionWindowController"
     #endif
 
+    @MainActor
+    override func awakeFromNib() {
+
+        super.awakeFromNib()
+        NSApp.cameraCollectionWindowController = self
+    }
+
     override func windowDidLoad() {
+        
         super.windowDidLoad()
-    
         window?.setFrameAutosaveName(Self.frameSaveName)
     }
 }

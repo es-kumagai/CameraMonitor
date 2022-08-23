@@ -19,6 +19,9 @@ final class Application: NSApplication, @unchecked Sendable {
     @IBOutlet var usbDeviceDetector: USBDeviceDetector!
     @IBOutlet var checkerController: CheckerController!
     
+    weak var cameraCollectionWindowController: CameraCollectionWindowController!
+    weak var cameraCollectionViewController: CameraCollectionViewController!
+
     let usbDeviceDetectionDelay = 0.3
     let usbDeviceDetectionAuxiliaryDelay = 5.0
 }

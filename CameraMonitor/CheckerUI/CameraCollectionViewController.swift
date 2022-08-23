@@ -67,6 +67,13 @@ final class CameraCollectionViewController: NSViewController, NotificationObserv
         notificationHandlers.releaseAll()
     }
     
+    @MainActor
+    override func awakeFromNib() {
+        
+        super.awakeFromNib()
+        NSApp.cameraCollectionViewController = self
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -119,18 +126,8 @@ extension CameraCollectionViewController : SingleCameraWindowControllerDelegate 
 extension CameraCollectionViewController : CameraCollectionViewDelegate {
     
     func cameraCollectionView(_ view: CameraCollectionView, expandButtonDidPush button: NSButton, on item: CameraCollectionViewItem) {
-        
-        let camera = item.cameraView.camera!
 
-        if NSEvent.modifierFlags == .option {
-        
-            SingleCameraWindowController.resetFrameAutosave(for: camera)
-        }
-
-        let windowController = singleCameraWindowController(for: camera)
-                
-        windowController.delegate = self
-        windowController.showWindow(self)
+        showSingleCameraWindow(for: item.cameraView.camera!)
     }
 
     nonisolated func collectionView(_ collectionView: NSCollectionView, willDisplay item: NSCollectionViewItem, forRepresentedObjectAt indexPath: IndexPath) {
@@ -155,8 +152,31 @@ extension CameraCollectionViewController : CameraCollectionViewDelegate {
     }
 }
 
-private extension CameraCollectionViewController {
+extension CameraCollectionViewController {
+    
+    func findSingleCameraWindowControllers(for camera: Camera) -> [SingleCameraWindowController] {
+        
+        presentedSingleCameraWindowControllers.filter {
+            $0.camera == camera
+        }
+    }
+    
+    func showSingleCameraWindow(for camera: Camera) {
+        
+        if NSEvent.modifierFlags == .option {
+        
+            SingleCameraWindowController.resetFrameAutosave(for: camera)
+        }
 
+        let windowController = singleCameraWindowController(for: camera)
+                
+        windowController.delegate = self
+        windowController.showWindow(self)
+    }
+}
+
+private extension CameraCollectionViewController {
+    
     func updateExpandButtonsState() {
         
         for case let item as CameraCollectionViewItem in cameraCollectionView.visibleItems() {
