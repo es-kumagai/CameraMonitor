@@ -115,6 +115,7 @@
 		B15056FA270FD77100810CDB /* EzAudioUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EzAudioUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1505701270FD77100810CDB /* EzAudioUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EzAudioUnitTests.swift; sourceTree = "<group>"; };
 		B150570E270FD7B400810CDB /* EzAudioUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EzAudioUnit.swift; sourceTree = "<group>"; };
+		B17ABC7E28B647BB005DD4EA /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Resources; path = ../SystemMonitor/Resources; sourceTree = "<group>"; };
 		B182E6F227DB40940089C682 /* CameraCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCollectionViewItem.swift; sourceTree = "<group>"; };
 		B182E6F427DB41330089C682 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		B182E6F627DB426B0089C682 /* CameraCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCollectionViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +208,7 @@
 		B1505618270EF75300810CDB = {
 			isa = PBXGroup;
 			children = (
+				B17ABC7E28B647BB005DD4EA /* Resources */,
 				B1505623270EF75400810CDB /* CameraMonitor */,
 				B1505635270EF75A00810CDB /* CameraMonitorTests */,
 				B150563F270EF75A00810CDB /* CameraMonitorUITests */,
@@ -752,8 +754,9 @@
 		B1505647270EF75A00810CDB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Beta";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = CameraMonitor/CameraMonitor.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -787,6 +790,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = CameraMonitor/CameraMonitor.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
