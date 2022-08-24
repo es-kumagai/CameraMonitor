@@ -1,0 +1,84 @@
+
+/* Class = "NSMenuItem"; title = "CameraMonitor"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "CameraMonitor";
+
+/* Class = "NSMenuItem"; title = "Enter Full Screen"; ObjectID = "4J7-dP-txa"; */
+"4J7-dP-txa.title" = "Enter Full Screen";
+
+/* Class = "NSMenuItem"; title = "Quit CameraMonitor"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "Quit CameraMonitor";
+
+/* Class = "NSMenuItem"; title = "About CameraMonitor"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "About CameraMonitor";
+
+/* Class = "NSMenu"; title = "Expand"; ObjectID = "8ec-8c-WcJ"; */
+"8ec-8c-WcJ.title" = "Expand";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "Main Menu";
+
+/* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "BOF-NM-1cW"; */
+"BOF-NM-1cW.title" = "Preferences…";
+
+/* Class = "NSMenuItem"; title = "Camera"; ObjectID = "Ctj-rT-EId"; */
+"Ctj-rT-EId.title" = "Camera";
+
+/* Class = "NSMenuItem"; title = "Close"; ObjectID = "DVo-aG-piG"; */
+"DVo-aG-piG.title" = "Close";
+
+/* Class = "NSMenuItem"; title = "Expand"; ObjectID = "DlU-BL-UIc"; */
+"DlU-BL-UIc.title" = "Expand";
+
+/* Class = "NSMenuItem"; title = "View"; ObjectID = "H8h-7b-M4v"; */
+"H8h-7b-M4v.title" = "View";
+
+/* Class = "NSMenu"; title = "View"; ObjectID = "HyV-fh-RgO"; */
+"HyV-fh-RgO.title" = "View";
+
+/* Class = "NSWindow"; title = "Camera Monitor"; ObjectID = "IQv-IB-iLA"; */
+"IQv-IB-iLA.title" = "Camera Monitor";
+
+/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
+"Kd2-mp-pUS.title" = "Show All";
+
+/* Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "LE2-aR-0XJ"; */
+"LE2-aR-0XJ.title" = "Bring All to Front";
+
+/* Class = "NSMenuItem"; title = "Services"; ObjectID = "NMo-om-nkz"; */
+"NMo-om-nkz.title" = "Services";
+
+/* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "OY7-WF-poV"; */
+"OY7-WF-poV.title" = "Minimize";
+
+/* Class = "NSMenuItem"; title = "Hide CameraMonitor"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "Hide CameraMonitor";
+
+/* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4"; */
+"R4o-n2-Eq4.title" = "Zoom";
+
+/* Class = "NSMenu"; title = "Window"; ObjectID = "Td7-aD-5lo"; */
+"Td7-aD-5lo.title" = "Window";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
+"Vdr-fp-XzO.title" = "Hide Others";
+
+/* Class = "NSMenu"; title = "Camera"; ObjectID = "Yvr-NP-Btx"; */
+"Yvr-NP-Btx.title" = "Camera";
+
+/* Class = "NSMenuItem"; title = "Window"; ObjectID = "aUF-d1-5bR"; */
+"aUF-d1-5bR.title" = "Window";
+
+/* Class = "NSMenu"; title = "File"; ObjectID = "bib-Uj-vzu"; */
+"bib-Uj-vzu.title" = "File";
+
+/* Class = "NSMenuItem"; title = "Camera Monitor"; ObjectID = "d3q-IZ-vvn"; */
+"d3q-IZ-vvn.title" = "Camera Monitor";
+
+/* Class = "NSMenuItem"; title = "File"; ObjectID = "dMs-cI-mzQ"; */
+"dMs-cI-mzQ.title" = "File";
+
+/* Class = "NSMenu"; title = "Services"; ObjectID = "hz9-B4-Xy5"; */
+"hz9-B4-Xy5.title" = "Services";
+
+/* Class = "NSMenu"; title = "CameraMonitor"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "CameraMonitor";

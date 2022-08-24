@@ -24,6 +24,7 @@
 		B1505702270FD77100810CDB /* EzAudioUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505701270FD77100810CDB /* EzAudioUnitTests.swift */; };
 		B1505703270FD77100810CDB /* EzAudioUnit.h in Headers */ = {isa = PBXBuildFile; fileRef = B15056F3270FD77100810CDB /* EzAudioUnit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B150570F270FD7B400810CDB /* EzAudioUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B150570E270FD7B400810CDB /* EzAudioUnit.swift */; };
+		B17ABC8228B66B20005DD4EA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B17ABC8428B66B20005DD4EA /* InfoPlist.strings */; };
 		B182E6F327DB40940089C682 /* CameraCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182E6F227DB40940089C682 /* CameraCollectionViewItem.swift */; };
 		B182E6F527DB41330089C682 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182E6F427DB41330089C682 /* Storyboard.swift */; };
 		B182E6F727DB426B0089C682 /* CameraCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182E6F627DB426B0089C682 /* CameraCollectionViewController.swift */; };
@@ -116,6 +117,9 @@
 		B1505701270FD77100810CDB /* EzAudioUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EzAudioUnitTests.swift; sourceTree = "<group>"; };
 		B150570E270FD7B400810CDB /* EzAudioUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EzAudioUnit.swift; sourceTree = "<group>"; };
 		B17ABC7E28B647BB005DD4EA /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Resources; path = ../SystemMonitor/Resources; sourceTree = "<group>"; };
+		B17ABC7F28B66AC0005DD4EA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		B17ABC8328B66B20005DD4EA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B17ABC8528B66B22005DD4EA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B182E6F227DB40940089C682 /* CameraCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCollectionViewItem.swift; sourceTree = "<group>"; };
 		B182E6F427DB41330089C682 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		B182E6F627DB426B0089C682 /* CameraCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCollectionViewController.swift; sourceTree = "<group>"; };
@@ -242,6 +246,7 @@
 				B10D46E827E0D1C6001B8102 /* AVFoundation */,
 				B150565C270F703C00810CDB /* CheckerUI */,
 				B150565B270F6FF200810CDB /* CheckerSystem */,
+				B17ABC8428B66B20005DD4EA /* InfoPlist.strings */,
 			);
 			path = CameraMonitor;
 			sourceTree = "<group>";
@@ -473,6 +478,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = B1505618270EF75300810CDB;
 			packageReferences = (
@@ -502,6 +508,7 @@
 				B150562C270EF75A00810CDB /* Main.storyboard in Resources */,
 				B182E71127DD9FE80089C682 /* CameraCollectionViewItem.xib in Resources */,
 				B1F77CE327ECA1AB00839FAF /* SingleCameraWindow.storyboard in Resources */,
+				B17ABC8228B66B20005DD4EA /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,8 +636,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				B150562B270EF75A00810CDB /* Base */,
+				B17ABC7F28B66AC0005DD4EA /* ja */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B17ABC8428B66B20005DD4EA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B17ABC8328B66B20005DD4EA /* ja */,
+				B17ABC8528B66B22005DD4EA /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -640,6 +657,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -701,6 +719,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

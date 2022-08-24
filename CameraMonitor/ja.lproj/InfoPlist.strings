@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  CameraMonitor
+
+  Created by 熊谷 友宏 on 2022/08/24.
+  
+*/
+CFBundleDisplayName = "マルチカメラモニター";
+CFBundleName = "Camera Monitor";
