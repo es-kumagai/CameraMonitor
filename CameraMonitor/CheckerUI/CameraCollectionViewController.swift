@@ -161,11 +161,17 @@ extension CameraCollectionViewController {
         }
     }
     
+    func numberOfSingleCameraWindowControllers(for camera: Camera) -> Int {
+        
+        findSingleCameraWindowControllers(for: camera).count
+    }
+    
     func showSingleCameraWindow(for camera: Camera) {
         
         if NSEvent.modifierFlags == .option {
         
-            SingleCameraWindowController.resetFrameAutosave(for: camera)
+            let windowNumber = numberOfSingleCameraWindowControllers(for: camera)
+            SingleCameraWindowController.resetFrameAutosave(for: camera, windowNumber: windowNumber)
         }
 
         let windowController = singleCameraWindowController(for: camera)
@@ -196,8 +202,9 @@ private extension CameraCollectionViewController {
         
         NSLog("%@", "Creating new single camera window controller for \(camera).")
         
-        let windowController = NSStoryboard.instantiateSingleCameraWindowController(with: camera)
-        
+        let windowNumber = numberOfSingleCameraWindowControllers(for: camera)
+        let windowController = NSStoryboard.instantiateSingleCameraWindowController(with: camera, assigningWindowNumber: windowNumber)
+
         presentedSingleCameraWindowControllers.append(windowController)
         
         return windowController

@@ -18,13 +18,22 @@ final class SingleCameraWindowController: NSWindowController {
         contentViewController as! SingleCameraViewController
     }
     
-    static func frameSaveName(for camera: Camera) -> String {
+    static func frameSaveName(for camera: Camera, windowNumber: Int) -> String {
         
         #if DEBUG
-        return "SingleCameraWindowController-Debug:\(camera.id)"
+        return "SingleCameraWindowController-Debug:\(camera.id):\(windowNumber)"
         #else
-        return "SingleCameraWindowController:\(camera.id)"
+        return "SingleCameraWindowController:\(camera.id):\(windowNumber)"
         #endif
+    }
+    
+    var windowNumber: Int = 0 {
+        
+        didSet {
+            
+            setFrameAutosave()
+            updateWindowTitle()
+        }
     }
     
     var camera: Camera! {
@@ -32,20 +41,37 @@ final class SingleCameraWindowController: NSWindowController {
         didSet {
             
             setFrameAutosave()
-            
-            window!.title = camera.name
+            updateWindowTitle()
+
             singleCameraViewController.representedObject = camera
         }
     }
     
-    func setFrameAutosave() {
+    func updateWindowTitle() {
+
+        var title: String {
+            
+            switch windowNumber {
+                
+            case 0:
+                return camera.name
+
+            case let number:
+                return "\(camera.name) #\(number)"
+            }
+        }
         
-        window!.setFrameAutosaveName(Self.frameSaveName(for: camera))
+        window?.title = title
     }
     
-    static func resetFrameAutosave(for camera: Camera) {
+    func setFrameAutosave() {
         
-        NSWindow.removeFrame(usingName: frameSaveName(for: camera))
+        window!.setFrameAutosaveName(Self.frameSaveName(for: camera, windowNumber: windowNumber))
+    }
+    
+    static func resetFrameAutosave(for camera: Camera, windowNumber: Int) {
+        
+        NSWindow.removeFrame(usingName: frameSaveName(for: camera, windowNumber: windowNumber))
     }
 
     override func windowDidLoad() {

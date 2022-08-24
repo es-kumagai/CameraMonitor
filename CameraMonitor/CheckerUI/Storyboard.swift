@@ -18,11 +18,12 @@ extension NSStoryboard {
     
     static let singleCameraWindow = NSStoryboard(name: .singleCameraWindow, bundle: nil)
     
-    static func instantiateSingleCameraWindowController(with camera: Camera) -> SingleCameraWindowController {
+    static func instantiateSingleCameraWindowController(with camera: Camera, assigningWindowNumber windowNumber: Int) -> SingleCameraWindowController {
         
         let windowController = singleCameraWindow.instantiateInitialController() as! SingleCameraWindowController
         
         windowController.camera = camera
+        windowController.windowNumber = windowNumber
         
         return windowController
     }
