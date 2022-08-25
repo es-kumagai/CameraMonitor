@@ -31,7 +31,6 @@ final class SingleCameraWindowController: NSWindowController {
         
         didSet {
             
-            setFrameAutosave()
             updateWindowTitle()
         }
     }
@@ -40,7 +39,6 @@ final class SingleCameraWindowController: NSWindowController {
         
         didSet {
             
-            setFrameAutosave()
             updateWindowTitle()
 
             singleCameraViewController.representedObject = camera
@@ -63,10 +61,46 @@ final class SingleCameraWindowController: NSWindowController {
         
         window?.title = title
     }
+
+    var frameSaveName: String? {
     
-    func setFrameAutosave() {
+        guard let camera = camera else {
+            
+            return nil
+        }
         
-        window!.setFrameAutosaveName(Self.frameSaveName(for: camera, windowNumber: windowNumber))
+        return Self.frameSaveName(for: camera, windowNumber: windowNumber)
+    }
+    
+    @discardableResult
+    func restoreFrame() -> Bool {
+    
+        guard let name = frameSaveName, let window = window else {
+            
+            return false
+        }
+        
+        window.setFrameUsingName(name)
+        NSLog("Frame state has been restored on \(window.title)")
+        
+        // フレームとレイヤーを合わせるために呼び出していますが、呼び出さなくてもどこか適切な場所で連携が取れるようにするのが最適解と思われます。
+        singleCameraViewController.cameraView.updatePreviewFrame()
+        
+        return true
+    }
+    
+    @discardableResult
+    func saveFrame() -> Bool {
+    
+        guard let name = frameSaveName, let window = window else {
+            
+            return false
+        }
+        
+        window.saveFrame(usingName: name)
+        NSLog("Frame state has been saved on \(window.title)")
+        
+        return true
     }
     
     static func resetFrameAutosave(for camera: Camera, windowNumber: Int) {
@@ -79,6 +113,12 @@ final class SingleCameraWindowController: NSWindowController {
     
         window!.delegate = self
     }
+    
+    override func close() {
+        
+        saveFrame()
+        super.close()
+    }
 }
 
 extension SingleCameraWindowController : NSWindowDelegate {
@@ -87,6 +127,7 @@ extension SingleCameraWindowController : NSWindowDelegate {
 
         Task { @MainActor in
 
+            saveFrame()
             delegate?.singleCameraWindowControllerWillClose?(self)
         }
     }
@@ -149,5 +190,14 @@ extension RangeReplaceableCollection where Element : SingleCameraWindowControlle
                 remove(windowController)
             }
         }
+    }
+}
+
+extension Sequence where Element == SingleCameraWindowController {
+    
+    @MainActor
+    func sorted() -> [Element] {
+        
+        sorted { $0.windowNumber < $1.windowNumber }
     }
 }

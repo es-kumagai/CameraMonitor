@@ -108,7 +108,7 @@ final class CameraView : NSView {
 
         NSLog("%@", "Stopping \(camera) preview.")
     }
-    
+
     func updatePreviewFrame() {
         
         previewLayer?.frame = contentView.bounds

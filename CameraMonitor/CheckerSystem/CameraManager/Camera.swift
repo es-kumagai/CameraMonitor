@@ -93,3 +93,11 @@ extension Camera {
         "<Camera for '\(name), id=\(id)' at \(ObjectIdentifier(self))>"
     }
 }
+
+extension Sequence where Element == Camera {
+    
+    func having(id: String) -> Camera? {
+        
+        first { $0.id == id }
+    }
+}

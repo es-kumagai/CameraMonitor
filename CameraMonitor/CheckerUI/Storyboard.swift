@@ -25,6 +25,8 @@ extension NSStoryboard {
         windowController.camera = camera
         windowController.windowNumber = windowNumber
         
+        windowController.restoreFrame()
+
         return windowController
     }
 }

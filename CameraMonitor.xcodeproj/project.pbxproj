@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1241E9228B6E3C10012FBBF /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1241E9128B6E3C10012FBBF /* AppState.swift */; };
 		B141529E27E4AA2700B99ECC /* Ocean in Frameworks */ = {isa = PBXBuildFile; productRef = B141529D27E4AA2700B99ECC /* Ocean */; };
 		B14152A127E4AA3C00B99ECC /* USBDeviceDetector in Frameworks */ = {isa = PBXBuildFile; productRef = B14152A027E4AA3C00B99ECC /* USBDeviceDetector */; };
 		B1505625270EF75400810CDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505624270EF75400810CDB /* AppDelegate.swift */; };
@@ -77,6 +78,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B1241E9128B6E3C10012FBBF /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		B1505621270EF75400810CDB /* CameraMonitor-Debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CameraMonitor-Debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1505624270EF75400810CDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1505628270EF75900810CDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				B182E70727DB87FD0089C682 /* Info.plist */,
 				B1CC75F027CA6A280068BECF /* Application.swift */,
 				B1505624270EF75400810CDB /* AppDelegate.swift */,
+				B1241E9128B6E3C10012FBBF /* AppState.swift */,
 				B1505628270EF75900810CDB /* Assets.xcassets */,
 				B150562D270EF75A00810CDB /* CameraMonitor.entitlements */,
 				B10D46E827E0D1C6001B8102 /* AVFoundation */,
@@ -431,6 +434,7 @@
 				B1F77CE527ECA22600839FAF /* SingleCameraViewController.swift in Sources */,
 				B1505658270F6AE800810CDB /* Camera.swift in Sources */,
 				B1C9E65728B3A60000A6F004 /* CameraCollectionWindowController.swift in Sources */,
+				B1241E9228B6E3C10012FBBF /* AppState.swift in Sources */,
 				B182E6F527DB41330089C682 /* Storyboard.swift in Sources */,
 				B1505652270EFDF800810CDB /* CameraView.swift in Sources */,
 				B182E6F327DB40940089C682 /* CameraCollectionViewItem.swift in Sources */,
