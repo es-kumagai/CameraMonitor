@@ -93,7 +93,6 @@
 		B1505651270EFDF800810CDB /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		B1505657270F6AE800810CDB /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		B1505659270F6D1B00810CDB /* CheckerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerController.swift; sourceTree = "<group>"; };
-		B17ABC7E28B647BB005DD4EA /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Resources; path = ../SystemMonitor/Resources; sourceTree = "<group>"; };
 		B17ABC7F28B66AC0005DD4EA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		B17ABC8328B66B20005DD4EA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B17ABC8528B66B22005DD4EA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -116,6 +115,7 @@
 		B1CC75F027CA6A280068BECF /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		B1CC75F227CA74230068BECF /* CheckerControllerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerControllerError.swift; sourceTree = "<group>"; };
 		B1CC75F627CA86930068BECF /* AVCaptureDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureDevice.swift; sourceTree = "<group>"; };
+		B1EBAC9C28B75CB300660820 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 		B1F77CE027ECA13A00839FAF /* SingleCameraWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCameraWindowController.swift; sourceTree = "<group>"; };
 		B1F77CE227ECA1AB00839FAF /* SingleCameraWindow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SingleCameraWindow.storyboard; sourceTree = "<group>"; };
 		B1F77CE427ECA22600839FAF /* SingleCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCameraViewController.swift; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 		B1505618270EF75300810CDB = {
 			isa = PBXGroup;
 			children = (
-				B17ABC7E28B647BB005DD4EA /* Resources */,
+				B1EBAC9C28B75CB300660820 /* Resources */,
 				B1505623270EF75400810CDB /* CameraMonitor */,
 				B1505635270EF75A00810CDB /* CameraMonitorTests */,
 				B150563F270EF75A00810CDB /* CameraMonitorUITests */,
