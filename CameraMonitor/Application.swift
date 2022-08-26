@@ -22,7 +22,6 @@ final class Application: NSApplication, @unchecked Sendable {
     weak var cameraCollectionWindowController: CameraCollectionWindowController!
     weak var cameraCollectionViewController: CameraCollectionViewController!
 
-    let state = State()
     let usbDeviceDetectionDelay = 0.3
     let usbDeviceDetectionAuxiliaryDelay = 5.0
 }

@@ -21,6 +21,8 @@ final class CameraCollectionViewController: NSViewController, NotificationObserv
         }
     }
     
+    var expandedCameraWindowStates: ExpandingCameraWindowStates = []
+    
     @IBOutlet weak var cameraCollectionView: CameraCollectionView! {
         
         didSet {
@@ -35,30 +37,11 @@ final class CameraCollectionViewController: NSViewController, NotificationObserv
     
     dynamic var cameras = Cameras() {
         
-        willSet (newCameras) {
+        didSet {
             
-//            let difference = newCameras.difference(from: cameras)
-//            var addedCameras = Set<Camera>()
-//            var removedCameras = Set<Camera>()
-//
-//            for change in difference {
-//
-//                switch change {
-//
-//                case .insert(offset: _, element: let camera, associatedWith: _):
-//                    addedCameras.insert(camera)
-//
-//                case .remove(offset: _, element: let camera, associatedWith: _):
-//                    removedCameras.insert(camera)
-//                }
-//            }
-//
-//            for removedCamera in removedCameras.subtracting(addedCameras) {
-//
-//                NSLog("%@", "Removing single camera window controller for \(removedCamera).")
-//
-//                presentedSingleCameraWindowControllers.remove(having: removedCamera)
-//            }
+            presentedSingleCameraWindowControllers.keep(onlyHaving: cameras)
+            
+            restoreSingleCameraWindows(considerPersistentData: false)
         }
     }
     
@@ -85,18 +68,19 @@ final class CameraCollectionViewController: NSViewController, NotificationObserv
             reloadCameras()
         }
     }
+
+    override func viewDidAppear() {
+ 
+        super.viewDidAppear()
+    
+        restoreSingleCameraWindows(considerPersistentData: true)
+    }
     
     override func viewDidDisappear() {
         
         super.viewDidDisappear()
         
-        do {
-            try NSApp.state.save()
-        }
-        catch {
-            NSLog("Failed to save the app's state: \(error.localizedDescription)")
-        }
-
+        saveSingleCameraWindowExpandingState()
         presentedSingleCameraWindowControllers.closeAll()
     }
 
@@ -109,9 +93,6 @@ final class CameraCollectionViewController: NSViewController, NotificationObserv
     func reloadCameras() {
 
         cameras = NSApp.checkerController.cameraDevices
-        
-        presentedSingleCameraWindowControllers.leave(onlyHaving: cameras)
-        restoreSingleCameraWindows()
     }
 }
 
@@ -127,8 +108,16 @@ extension CameraCollectionViewController : SingleCameraWindowControllerDelegate 
     
     func singleCameraWindowControllerWillClose(_ controller: SingleCameraWindowController) {
         
-        presentedSingleCameraWindowControllers.remove(controller, callCloseMethod: false)
-        reorderExpandedSingleCameraWindows(for: controller.camera)
+        let camera = controller.camera!
+        
+        presentedSingleCameraWindowControllers.remove(controller)
+
+        if controller.isCameraConnected {
+
+            expandedCameraWindowStates.decrementWindowCount(forCameraID: camera.id)
+        }
+        
+        reorderExpandedSingleCameraWindows(for: camera)
         saveSingleCameraWindowExpandingState()
     }
 }
@@ -137,7 +126,10 @@ extension CameraCollectionViewController : CameraCollectionViewDelegate {
     
     func cameraCollectionView(_ view: CameraCollectionView, expandButtonDidPush button: NSButton, on item: CameraCollectionViewItem) {
 
-        showSingleCameraWindow(for: item.cameraView.camera!)
+        let camera = item.cameraView.camera!
+        
+        showSingleCameraWindow(for: camera)
+        expandedCameraWindowStates.incrementWindowCount(forCameraID: camera.id)
         saveSingleCameraWindowExpandingState()
     }
 
@@ -167,18 +159,7 @@ extension CameraCollectionViewController {
     
     func saveSingleCameraWindowExpandingState() {
     
-        NSApp.state.expandingCameraWindows = presentedSingleCameraWindowControllers.compactMap {
-            
-            guard let camera = $0.camera else {
-                
-                return nil
-            }
-            
-            let cameraID = camera.id
-            let windowCount = numberOfSingleCameraWindowControllers(for: camera)
-            
-            return Application.State.ExpandingCameraWindow(cameraID: cameraID, windowCount: windowCount)
-        }
+        Application.State.expandingCameraWindowStates = expandedCameraWindowStates
     }
     
     func findSingleCameraWindowControllers(for camera: Camera) -> [SingleCameraWindowController] {
@@ -188,7 +169,7 @@ extension CameraCollectionViewController {
         }
     }
     
-    func numberOfSingleCameraWindowControllers(for camera: Camera) -> Int {
+    func numberOfSingleCameraWindowControllersInFact(for camera: Camera) -> Int {
         
         findSingleCameraWindowControllers(for: camera).count
     }
@@ -205,7 +186,7 @@ extension CameraCollectionViewController {
         
         if NSEvent.modifierFlags == .option {
         
-            let windowNumber = numberOfSingleCameraWindowControllers(for: camera)
+            let windowNumber = numberOfSingleCameraWindowControllersInFact(for: camera)
             SingleCameraWindowController.resetFrameAutosave(for: camera, windowNumber: windowNumber)
         }
 
@@ -214,10 +195,31 @@ extension CameraCollectionViewController {
         windowController.delegate = self
         windowController.showWindow(self)
     }
+    
+    func hideSingleCameraWindow(for camera: Camera) {
+        
+        presentedSingleCameraWindowControllers.remove(having: camera)
+    }
 }
 
 private extension CameraCollectionViewController {
-    
+
+    func presentedSingleCameraWindowControllers(havingCameras cameras: Cameras) -> [SingleCameraWindowController] {
+        
+        presentedSingleCameraWindowControllers.filter {
+            
+            cameras.contains($0.camera)
+        }
+    }
+
+    func presentedSingleCameraWindowControllers(notHavingCameras cameras: Cameras) -> [SingleCameraWindowController] {
+        
+        presentedSingleCameraWindowControllers.filter {
+            
+            !cameras.contains($0.camera)
+        }
+    }
+
     func updateExpandButtonsState() {
         
         for case let item as CameraCollectionViewItem in cameraCollectionView.visibleItems() {
@@ -237,7 +239,7 @@ private extension CameraCollectionViewController {
         
         NSLog("%@", "Creating new single camera window controller for \(camera).")
         
-        let windowNumber = numberOfSingleCameraWindowControllers(for: camera)
+        let windowNumber = numberOfSingleCameraWindowControllersInFact(for: camera)
         let windowController = NSStoryboard.instantiateSingleCameraWindowController(with: camera, assigningWindowNumber: windowNumber)
 
         presentedSingleCameraWindowControllers.append(windowController)
@@ -245,8 +247,13 @@ private extension CameraCollectionViewController {
         return windowController
     }
     
-    func restoreSingleCameraWindows() {
+    func restoreSingleCameraWindows(considerPersistentData: Bool) {
     
+        if considerPersistentData {
+            
+            expandedCameraWindowStates = Application.State.expandingCameraWindowStates
+        }
+        
         for camera in NSApp.checkerController.cameraDevices {
             
             restoreSingleCameraWindows(for: camera.id)
@@ -267,8 +274,8 @@ private extension CameraCollectionViewController {
             return false
         }
 
-        let numberOfWindowsExpected = NSApp.state.expandingCameraWindows.numberOfWindows(ofCameraID: camera.id)
-        let numberOfWindowsPresented = numberOfSingleCameraWindowControllers(for: camera)
+        let numberOfWindowsExpected = expandedCameraWindowStates.numberOfWindows(ofCameraID: camera.id)
+        let numberOfWindowsPresented = numberOfSingleCameraWindowControllersInFact(for: camera)
 
         let numberOfWindowsRestoring = numberOfWindowsExpected - numberOfWindowsPresented
         

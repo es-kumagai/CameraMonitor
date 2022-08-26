@@ -45,6 +45,11 @@ final class SingleCameraWindowController: NSWindowController {
         }
     }
     
+    var isCameraConnected: Bool {
+    
+        singleCameraViewController.isCameraConnected
+    }
+    
     func updateWindowTitle() {
 
         var title: String {
@@ -161,12 +166,9 @@ extension RangeReplaceableCollection where Element : SingleCameraWindowControlle
         }
     }
     
-    mutating func remove(_ singleCameraWindowController: SingleCameraWindowController, callCloseMethod: Bool = true) {
+    mutating func remove(_ singleCameraWindowController: SingleCameraWindowController) {
     
-        if callCloseMethod {
-            
-            singleCameraWindowController.close()
-        }
+        singleCameraWindowController.close()
 
         remove(contentsAt: indexes { $0 === singleCameraWindowController })
     }
@@ -181,11 +183,19 @@ extension RangeReplaceableCollection where Element : SingleCameraWindowControlle
         }
     }
     
-    mutating func leave(onlyHaving cameras: Cameras) {
+    var assignedCameras: Set<Camera> {
+        
+        Set(map(\.camera))
+    }
+    
+    /// Keep single camera windows only having `cameras`.
+    ///
+    /// - Parameter cameras: Cameras for leaving windows that have.
+    mutating func keep(onlyHaving cameras: Cameras) {
         
         for windowController in self {
             
-            if !cameras.contains(windowController.singleCameraViewController.camera) {
+            if !cameras.contains(windowController.camera) {
                 
                 remove(windowController)
             }

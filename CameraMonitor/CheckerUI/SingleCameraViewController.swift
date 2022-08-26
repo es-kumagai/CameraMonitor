@@ -35,4 +35,9 @@ class SingleCameraViewController: NSViewController {
 
         super.viewDidDisappear()
     }
+    
+    dynamic var isCameraConnected: Bool {
+        
+        NSApp.checkerController.cameraDevices.contains(camera)
+    }
 }

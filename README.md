@@ -10,6 +10,10 @@ You can also show each cameras by individual window. A single camera image can b
 
 ## Updates
 
+### Version 1.0.6
+
+- The next time a camera device is connected, it restores the camera image windows that was closed due to disconnected the camera device.
+
 ### Version 1.0.5
 
 - Restore all camera image windows when the app is launched.

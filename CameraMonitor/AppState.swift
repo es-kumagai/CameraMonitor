@@ -10,43 +10,18 @@ import Foundation
 
 extension Application {
     
-    class State {
+    enum State {
 
-        var userDefaults = UserDefaults.standard
-        
-        typealias ExpandingCameraWindows = [ExpandingCameraWindow]
-        
-        var expandingCameraWindows: ExpandingCameraWindows = []
-        
-        init() {
-            
-            do {
-                try restore()
-            }
-            catch {
-                NSLog("Failed to restore the app's state: \(error.localizedDescription)")
-            }
-        }
-        
-        deinit {
-            
-            do {
-                try save()
-            }
-            catch {
-                NSLog("Failed to save the app's state: \(error.localizedDescription)")
-            }
-        }
+        private static let propertyListDecoder = PropertyListDecoder()
+        private static let propertyListEncoder = PropertyListEncoder()
+
+        static var userDefaults = UserDefaults.standard
     }
 }
 
 extension Application.State {
     
-    struct ExpandingCameraWindow : Codable {
-        
-        var cameraID: String
-        var windowCount: Int
-    }
+
 }
 
 private extension Application.State {
@@ -55,31 +30,33 @@ private extension Application.State {
 }
 
 extension Application.State {
-    
-    func save() throws {
-        
-        let encoder = PropertyListEncoder()
-        
-        let expandingCameraWindowsData = try encoder.encode(expandingCameraWindows)
-        
-        userDefaults.set(expandingCameraWindowsData, forKey: Self.expandingCameraIDsKey)
-    }
-    
-    func restore() throws {
-        
-        let decoder = PropertyListDecoder()
-        
-        expandingCameraWindows = try userDefaults.data(forKey: Self.expandingCameraIDsKey).map { data in
-            
-            try decoder.decode(ExpandingCameraWindows.self, from: data)
-        } ?? []
-    }
-}
 
-extension Sequence where Element == Application.State.ExpandingCameraWindow {
-    
-    func numberOfWindows(ofCameraID cameraID: String) -> Int {
+    static var expandingCameraWindowStates: ExpandingCameraWindowStates {
         
-        first { $0.cameraID == cameraID }?.windowCount ?? 0
+        get {
+            
+            do {
+
+                return try userDefaults.data(forKey: Self.expandingCameraIDsKey).map { data in
+                    
+                    try propertyListDecoder.decode(ExpandingCameraWindowStates.self, from: data)
+                } ?? []
+            }
+            catch {
+                fatalError(error.localizedDescription)
+            }
+        }
+        
+        set (newStates) {
+            
+            do {
+                let expandingCameraWindowsData = try propertyListEncoder.encode(newStates)
+                
+                userDefaults.set(expandingCameraWindowsData, forKey: Self.expandingCameraIDsKey)
+            }
+            catch {
+                fatalError(error.localizedDescription)
+            }
+        }
     }
 }
