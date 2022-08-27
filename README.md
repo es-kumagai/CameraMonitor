@@ -10,6 +10,10 @@ You can also show each cameras by individual window. A single camera image can b
 
 ## Updates
 
+### Next
+
+- Fix a bug that expanded window state on collection items was not set at launch.
+
 ### Version 1.0.6
 
 - The next time a camera device is connected, it restores the camera image windows that was closed due to disconnected the camera device.

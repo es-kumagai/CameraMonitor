@@ -132,6 +132,11 @@ extension CameraCollectionViewController : CameraCollectionViewDelegate {
         expandedCameraWindowStates.incrementWindowCount(forCameraID: camera.id)
         saveSingleCameraWindowExpandingState()
     }
+    
+    func cameraCollectionView(_ view: CameraCollectionView, itemWillVisible item: CameraCollectionViewItem) {
+        
+        updateExpandButtonsState(of: item)
+    }
 
     nonisolated func collectionView(_ collectionView: NSCollectionView, willDisplay item: NSCollectionViewItem, forRepresentedObjectAt indexPath: IndexPath) {
         
@@ -224,15 +229,20 @@ private extension CameraCollectionViewController {
         
         for case let item as CameraCollectionViewItem in cameraCollectionView.visibleItems() {
 
-            guard let camera = item.cameraView.camera else {
-                
-                continue
-            }
-            
-            let itemHavingCamera = presentedSingleCameraWindowControllers.contains(camera: camera)
-            
-            item.expandButton.state = itemHavingCamera ? .on : .off
+            updateExpandButtonsState(of: item)
         }
+    }
+    
+    func updateExpandButtonsState(of item: CameraCollectionViewItem) {
+        
+        guard let camera = item.cameraView.camera else {
+            
+            return
+        }
+        
+        let itemHavingCamera = presentedSingleCameraWindowControllers.contains(camera: camera)
+        
+        item.expandButton.state = itemHavingCamera ? .on : .off
     }
     
     func singleCameraWindowController(for camera: Camera) -> SingleCameraWindowController {

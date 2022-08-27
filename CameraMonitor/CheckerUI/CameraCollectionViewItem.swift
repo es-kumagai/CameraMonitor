@@ -35,14 +35,42 @@ final class CameraCollectionViewItem : NSCollectionViewItem {
 
         super.viewWillAppear()
         
+        let collectionView = cameraCollectionView
+        let delegate = collectionView.delegate as? CameraCollectionViewDelegate
+        
+        delegate?.cameraCollectionView?(collectionView, itemWillVisible: self)
     }
     
+    override func viewDidAppear() {
+
+        super.viewDidAppear()
+        
+        let collectionView = cameraCollectionView
+        let delegate = collectionView.delegate as? CameraCollectionViewDelegate
+        
+        delegate?.cameraCollectionView?(collectionView, itemDidVisible: self)
+    }
+    
+    override func viewWillDisappear() {
+
+        super.viewWillDisappear()
+
+        let collectionView = cameraCollectionView
+        let delegate = collectionView.delegate as? CameraCollectionViewDelegate
+        
+        delegate?.cameraCollectionView?(collectionView, itemWillInisible: self)
+    }
+
     override func viewDidDisappear() {
 
         NSLog("%@", "A camera collection view item did disappear: \(self)")
 
         super.viewDidDisappear()
 
+        let collectionView = cameraCollectionView
+        let delegate = collectionView.delegate as? CameraCollectionViewDelegate
+        
+        delegate?.cameraCollectionView?(collectionView, itemDidInisible: self)
     }
 }
 
