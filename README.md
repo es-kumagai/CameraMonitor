@@ -13,6 +13,7 @@ You can also show each cameras by individual window. A single camera image can b
 ### 1.0.7 (Next)
 
 - Fix a bug that expanded window state on collection items was not set at launch.
+- Stabilized the camera monitor window position restoration.
 
 ### Version 1.0.6
 

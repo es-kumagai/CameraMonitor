@@ -144,7 +144,7 @@ extension CameraCollectionViewController : CameraCollectionViewDelegate {
 
         Task { @MainActor in
 
-            NSLog("%@ will display.", item)
+            NSLog(#"A collection view item for "\#(item.cameraView.camera!.name)" will display."#)
             item.cameraView.updatePreviewFrame()
         }
     }
@@ -155,7 +155,7 @@ extension CameraCollectionViewController : CameraCollectionViewDelegate {
         
         Task { @MainActor in
             
-            NSLog("%@ did end displaying.", item)
+            NSLog(#"A collection view item for "\#(item.cameraView.camera!.name)" did end displaying."#)
         }
     }
 }

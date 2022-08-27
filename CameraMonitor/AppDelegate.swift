@@ -65,7 +65,7 @@ private extension AppDelegate {
     
     @IBAction func cameraMonitorMenuItemDidSelect(_ menuItem: NSMenuItem) {
         
-        NSApp.cameraCollectionWindowController.window?.makeKeyAndOrderFront(self)
+        NSApp.cameraCollectionWindowController.cameraCollectionWindow.makeKeyAndOrderFront(self)
     }
     
     @IBAction func cameraExpandMenuItemDidSelect(_ menuItem: NSMenuItem) {

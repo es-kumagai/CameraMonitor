@@ -8,15 +8,19 @@
 
 import Cocoa
 
-@objc(ESCameraCollectionWindow)
+@objc(ESCameraCollectionWindowController)
 @objcMembers @MainActor
 class CameraCollectionWindowController: NSWindowController {
 
-    #if DEBUG
-    static let frameSaveName = "CameraCollectionWindowController-Debug"
-    #else
-    static let frameSaveName = "CameraCollectionWindowController"
-    #endif
+    dynamic var cameraCollectionWindow: CameraCollectionWindow! {
+        
+        guard let window = window else {
+            
+            return nil
+        }
+        
+        return (window as! CameraCollectionWindow)
+    }
 
     @MainActor
     override func awakeFromNib() {
@@ -28,6 +32,32 @@ class CameraCollectionWindowController: NSWindowController {
     override func windowDidLoad() {
         
         super.windowDidLoad()
-        window?.setFrameAutosaveName(Self.frameSaveName)
+        
+        cameraCollectionWindow.restoreFrame()
+    }
+}
+
+extension CameraCollectionWindowController : NSWindowDelegate {
+    
+    nonisolated
+    func windowDidMove(_ notification: Notification) {
+        
+        let window = notification.object as! CameraCollectionWindow
+        
+        Task { @MainActor in
+
+            window.saveFrame()
+        }
+    }
+    
+    nonisolated
+    func windowDidResize(_ notification: Notification) {
+        
+        let window = notification.object as! CameraCollectionWindow
+        
+        Task { @MainActor in
+
+            window.saveFrame()
+        }
     }
 }
