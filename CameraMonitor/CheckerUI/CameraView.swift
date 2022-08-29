@@ -22,7 +22,10 @@ final class CameraView : NSView {
         
         willSet (newCamera) {
 
-            stopPreview()
+            if camera != nil {
+
+                stopPreview()
+            }
         }
         
         didSet {
