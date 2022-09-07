@@ -63,6 +63,11 @@ private extension AppDelegate {
         }
     }
     
+    @IBAction func cameraRescanCamerasMenuItemDidSelect(_ menuItem: NSMenuItem) {
+    
+        NSApp.cameraCollectionViewController.reloadCameras()
+    }
+    
     @IBAction func cameraMonitorMenuItemDidSelect(_ menuItem: NSMenuItem) {
         
         NSApp.cameraCollectionWindowController.cameraCollectionWindow.makeKeyAndOrderFront(self)

@@ -80,6 +80,12 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="Expand" id="8ec-8c-WcJ"/>
                                         </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="RVE-uZ-tCQ"/>
+                                        <menuItem title="Rescan Cameras" keyEquivalent="r" id="c5b-SA-IPF">
+                                            <connections>
+                                                <action selector="cameraRescanCamerasMenuItemDidSelect:" target="Voe-Tx-rLC" id="Hzg-Eh-pNe"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>

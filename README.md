@@ -10,7 +10,11 @@ You can also show each cameras by individual window. A single camera image can b
 
 ## Updates
 
-### 1.0.7 (Next)
+### 1.0.8 (Next)
+
+- Rescan cameras currently connected at any time.
+
+### 1.0.7
 
 - Fix a bug that expanded window state on collection items was not set at launch.
 - Stabilized the camera monitor window position restoration.
