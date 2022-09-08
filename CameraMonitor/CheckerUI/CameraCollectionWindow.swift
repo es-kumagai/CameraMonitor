@@ -26,7 +26,13 @@ class CameraCollectionWindow: NSWindow {
     
     func restoreFrame() {
         
-        setFrameUsingName(Self.frameSaveName)
-        NSLog("The camera monitor window's position has been restored.")
+        switch setFrameUsingName(Self.frameSaveName) {
+            
+        case true:
+            NSLog("The camera monitor window's position has been restored.")
+
+        case false:
+            NSLog("The camera monitor window's position couldn't be restored.")
+        }
     }
 }

@@ -85,8 +85,14 @@ final class SingleCameraWindowController: NSWindowController {
             return false
         }
         
-        window.setFrameUsingName(name)
-        NSLog("Frame state has been restored on \(window.title)")
+        switch window.setFrameUsingName(name) {
+            
+        case true:
+            NSLog("Frame state has been restored on \(window.title)")
+
+        case false:
+            NSLog("Frame state couldn't be restored on \(window.title)")
+        }
         
         // フレームとレイヤーを合わせるために呼び出していますが、呼び出さなくてもどこか適切な場所で連携が取れるようにするのが最適解と思われます。
         singleCameraViewController.cameraView.updatePreviewFrame()
