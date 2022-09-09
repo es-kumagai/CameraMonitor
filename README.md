@@ -13,6 +13,7 @@ You can also show each cameras by individual window. A single camera image can b
 ### 1.0.8 (Next)
 
 - Rescan cameras currently connected at any time.
+- Describe in detail the use of camera images in Info.plist.
 
 ### 1.0.7
 
