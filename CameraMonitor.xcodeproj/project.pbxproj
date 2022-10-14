@@ -17,11 +17,16 @@
 		B1505637270EF75A00810CDB /* CameraMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505636270EF75A00810CDB /* CameraMonitorTests.swift */; };
 		B1505641270EF75A00810CDB /* CameraMonitorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505640270EF75A00810CDB /* CameraMonitorUITests.swift */; };
 		B1505643270EF75A00810CDB /* CameraMonitorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505642270EF75A00810CDB /* CameraMonitorUITestsLaunchTests.swift */; };
-		B1505650270EFAA500810CDB /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B150564F270EFAA500810CDB /* CameraManager.swift */; };
+		B1505650270EFAA500810CDB /* CameraChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B150564F270EFAA500810CDB /* CameraChecker.swift */; };
 		B1505652270EFDF800810CDB /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505651270EFDF800810CDB /* CameraView.swift */; };
 		B1505658270F6AE800810CDB /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505657270F6AE800810CDB /* Camera.swift */; };
 		B150565A270F6D1B00810CDB /* CheckerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505659270F6D1B00810CDB /* CheckerController.swift */; };
 		B17ABC8228B66B20005DD4EA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B17ABC8428B66B20005DD4EA /* InfoPlist.strings */; };
+		B17CA39128F98C6800786DA2 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17CA39028F98C6800786DA2 /* VideoCapture.swift */; };
+		B17CA39328F990AE00786DA2 /* VideoCaptureError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17CA39228F990AE00786DA2 /* VideoCaptureError.swift */; };
+		B17CA39528F99EA300786DA2 /* VideoCaptureObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17CA39428F99EA300786DA2 /* VideoCaptureObserver.swift */; };
+		B17CA39A28F9B09E00786DA2 /* UncheckedSendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17CA39928F9B09E00786DA2 /* UncheckedSendable.swift */; };
+		B17CA39C28F9B1E600786DA2 /* VideoCaptureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17CA39B28F9B1E600786DA2 /* VideoCaptureManager.swift */; };
 		B182E6F327DB40940089C682 /* CameraCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182E6F227DB40940089C682 /* CameraCollectionViewItem.swift */; };
 		B182E6F527DB41330089C682 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182E6F427DB41330089C682 /* Storyboard.swift */; };
 		B182E6F727DB426B0089C682 /* CameraCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182E6F627DB426B0089C682 /* CameraCollectionViewController.swift */; };
@@ -29,7 +34,7 @@
 		B182E71127DD9FE80089C682 /* CameraCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = B182E71027DD9FE80089C682 /* CameraCollectionViewItem.xib */; };
 		B1AEC4F1283F77F5000C806C /* SingleCameraWindowControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AEC4F0283F77F5000C806C /* SingleCameraWindowControllerDelegate.swift */; };
 		B1AF5CF927DEDD8E006A11CC /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF5CF827DEDD8E006A11CC /* CameraPreviewView.swift */; };
-		B1B8627227E0B1FA009DF1BD /* CameraManagerPreviewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8627127E0B1FA009DF1BD /* CameraManagerPreviewState.swift */; };
+		B1B8627227E0B1FA009DF1BD /* CameraCheckerPreviewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8627127E0B1FA009DF1BD /* CameraCheckerPreviewState.swift */; };
 		B1B8627427E0B581009DF1BD /* AVCaptureVideoPreviewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8627327E0B581009DF1BD /* AVCaptureVideoPreviewLayer.swift */; };
 		B1BC5C9E28B8EC96002A2F37 /* ExpandingCameraWindowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BC5C9D28B8EC96002A2F37 /* ExpandingCameraWindowState.swift */; };
 		B1BC5CA028B8EEB7002A2F37 /* ExpandingCameraWindowStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BC5C9F28B8EEB7002A2F37 /* ExpandingCameraWindowStates.swift */; };
@@ -94,13 +99,18 @@
 		B150563C270EF75A00810CDB /* CameraMonitorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraMonitorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1505640270EF75A00810CDB /* CameraMonitorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMonitorUITests.swift; sourceTree = "<group>"; };
 		B1505642270EF75A00810CDB /* CameraMonitorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMonitorUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B150564F270EFAA500810CDB /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		B150564F270EFAA500810CDB /* CameraChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraChecker.swift; sourceTree = "<group>"; };
 		B1505651270EFDF800810CDB /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		B1505657270F6AE800810CDB /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		B1505659270F6D1B00810CDB /* CheckerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerController.swift; sourceTree = "<group>"; };
 		B17ABC7F28B66AC0005DD4EA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		B17ABC8328B66B20005DD4EA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B17ABC8528B66B22005DD4EA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B17CA39028F98C6800786DA2 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		B17CA39228F990AE00786DA2 /* VideoCaptureError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCaptureError.swift; sourceTree = "<group>"; };
+		B17CA39428F99EA300786DA2 /* VideoCaptureObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCaptureObserver.swift; sourceTree = "<group>"; };
+		B17CA39928F9B09E00786DA2 /* UncheckedSendable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UncheckedSendable.swift; sourceTree = "<group>"; };
+		B17CA39B28F9B1E600786DA2 /* VideoCaptureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCaptureManager.swift; sourceTree = "<group>"; };
 		B182E6F227DB40940089C682 /* CameraCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCollectionViewItem.swift; sourceTree = "<group>"; };
 		B182E6F427DB41330089C682 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		B182E6F627DB426B0089C682 /* CameraCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCollectionViewController.swift; sourceTree = "<group>"; };
@@ -114,7 +124,7 @@
 		B182E71227DE4F610089C682 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		B1AEC4F0283F77F5000C806C /* SingleCameraWindowControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCameraWindowControllerDelegate.swift; sourceTree = "<group>"; };
 		B1AF5CF827DEDD8E006A11CC /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
-		B1B8627127E0B1FA009DF1BD /* CameraManagerPreviewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManagerPreviewState.swift; sourceTree = "<group>"; };
+		B1B8627127E0B1FA009DF1BD /* CameraCheckerPreviewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCheckerPreviewState.swift; sourceTree = "<group>"; };
 		B1B8627327E0B581009DF1BD /* AVCaptureVideoPreviewLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureVideoPreviewLayer.swift; sourceTree = "<group>"; };
 		B1BC5C9D28B8EC96002A2F37 /* ExpandingCameraWindowState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingCameraWindowState.swift; sourceTree = "<group>"; };
 		B1BC5C9F28B8EEB7002A2F37 /* ExpandingCameraWindowStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingCameraWindowStates.swift; sourceTree = "<group>"; };
@@ -168,14 +178,14 @@
 			path = AVFoundation;
 			sourceTree = "<group>";
 		};
-		B10D46E927E0D22F001B8102 /* CameraManager */ = {
+		B10D46E927E0D22F001B8102 /* CameraChecker */ = {
 			isa = PBXGroup;
 			children = (
 				B1505657270F6AE800810CDB /* Camera.swift */,
-				B150564F270EFAA500810CDB /* CameraManager.swift */,
-				B1B8627127E0B1FA009DF1BD /* CameraManagerPreviewState.swift */,
+				B150564F270EFAA500810CDB /* CameraChecker.swift */,
+				B1B8627127E0B1FA009DF1BD /* CameraCheckerPreviewState.swift */,
 			);
-			path = CameraManager;
+			path = CameraChecker;
 			sourceTree = "<group>";
 		};
 		B1505618270EF75300810CDB = {
@@ -204,6 +214,7 @@
 		B1505623270EF75400810CDB /* CameraMonitor */ = {
 			isa = PBXGroup;
 			children = (
+				B17CA39828F9B08F00786DA2 /* Concurrency */,
 				B182E70727DB87FD0089C682 /* Info.plist */,
 				B1CC75F027CA6A280068BECF /* Application.swift */,
 				B1505624270EF75400810CDB /* AppDelegate.swift */,
@@ -212,6 +223,7 @@
 				B150562D270EF75A00810CDB /* CameraMonitor.entitlements */,
 				B10D46E827E0D1C6001B8102 /* AVFoundation */,
 				B1BC5C9C28B8EC6F002A2F37 /* Data */,
+				B17CA38F28F98C4F00786DA2 /* Capture */,
 				B150565C270F703C00810CDB /* CheckerUI */,
 				B150565B270F6FF200810CDB /* CheckerSystem */,
 				B17ABC8428B66B20005DD4EA /* InfoPlist.strings */,
@@ -242,7 +254,7 @@
 				B1505659270F6D1B00810CDB /* CheckerController.swift */,
 				B182E6FA27DB5AF10089C682 /* CheckerControllerDelegate.swift */,
 				B1CC75F227CA74230068BECF /* CheckerControllerError.swift */,
-				B10D46E927E0D22F001B8102 /* CameraManager */,
+				B10D46E927E0D22F001B8102 /* CameraChecker */,
 			);
 			path = CheckerSystem;
 			sourceTree = "<group>";
@@ -268,6 +280,25 @@
 				B182E71027DD9FE80089C682 /* CameraCollectionViewItem.xib */,
 			);
 			path = CheckerUI;
+			sourceTree = "<group>";
+		};
+		B17CA38F28F98C4F00786DA2 /* Capture */ = {
+			isa = PBXGroup;
+			children = (
+				B17CA39028F98C6800786DA2 /* VideoCapture.swift */,
+				B17CA39428F99EA300786DA2 /* VideoCaptureObserver.swift */,
+				B17CA39228F990AE00786DA2 /* VideoCaptureError.swift */,
+				B17CA39B28F9B1E600786DA2 /* VideoCaptureManager.swift */,
+			);
+			path = Capture;
+			sourceTree = "<group>";
+		};
+		B17CA39828F9B08F00786DA2 /* Concurrency */ = {
+			isa = PBXGroup;
+			children = (
+				B17CA39928F9B09E00786DA2 /* UncheckedSendable.swift */,
+			);
+			path = Concurrency;
 			sourceTree = "<group>";
 		};
 		B182E70827DB95C70089C682 /* Frameworks */ = {
@@ -436,22 +467,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1505650270EFAA500810CDB /* CameraManager.swift in Sources */,
+				B1505650270EFAA500810CDB /* CameraChecker.swift in Sources */,
 				B182E6FB27DB5AF10089C682 /* CheckerControllerDelegate.swift in Sources */,
 				B1AF5CF927DEDD8E006A11CC /* CameraPreviewView.swift in Sources */,
 				B1F77CEB27ECAE0300839FAF /* CameraCollectionView.swift in Sources */,
+				B17CA39128F98C6800786DA2 /* VideoCapture.swift in Sources */,
 				B1CC75F327CA74230068BECF /* CheckerControllerError.swift in Sources */,
 				B1F77CE927ECAB4500839FAF /* CameraCollectionViewDelegate.swift in Sources */,
 				B1AEC4F1283F77F5000C806C /* SingleCameraWindowControllerDelegate.swift in Sources */,
 				B1CC75F727CA86930068BECF /* AVCaptureDevice.swift in Sources */,
-				B1B8627227E0B1FA009DF1BD /* CameraManagerPreviewState.swift in Sources */,
+				B1B8627227E0B1FA009DF1BD /* CameraCheckerPreviewState.swift in Sources */,
 				B1BC5CA028B8EEB7002A2F37 /* ExpandingCameraWindowStates.swift in Sources */,
 				B1CC75F127CA6A280068BECF /* Application.swift in Sources */,
 				B150565A270F6D1B00810CDB /* CheckerController.swift in Sources */,
+				B17CA39528F99EA300786DA2 /* VideoCaptureObserver.swift in Sources */,
 				B1B8627427E0B581009DF1BD /* AVCaptureVideoPreviewLayer.swift in Sources */,
 				B1F77CE127ECA13A00839FAF /* SingleCameraWindowController.swift in Sources */,
 				B1505625270EF75400810CDB /* AppDelegate.swift in Sources */,
 				B1F77CE527ECA22600839FAF /* SingleCameraViewController.swift in Sources */,
+				B17CA39C28F9B1E600786DA2 /* VideoCaptureManager.swift in Sources */,
 				B1505658270F6AE800810CDB /* Camera.swift in Sources */,
 				B1C9E65728B3A60000A6F004 /* CameraCollectionWindowController.swift in Sources */,
 				B1BC5C9E28B8EC96002A2F37 /* ExpandingCameraWindowState.swift in Sources */,
@@ -459,9 +493,11 @@
 				B10D2B9828B9FB6C00463F25 /* CameraCollectionWindow.swift in Sources */,
 				B182E6F527DB41330089C682 /* Storyboard.swift in Sources */,
 				B1505652270EFDF800810CDB /* CameraView.swift in Sources */,
+				B17CA39A28F9B09E00786DA2 /* UncheckedSendable.swift in Sources */,
 				B182E6F327DB40940089C682 /* CameraCollectionViewItem.swift in Sources */,
 				B1F77CE727ECA92800839FAF /* CameraViewDelegate.swift in Sources */,
 				B182E6F727DB426B0089C682 /* CameraCollectionViewController.swift in Sources */,
+				B17CA39328F990AE00786DA2 /* VideoCaptureError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

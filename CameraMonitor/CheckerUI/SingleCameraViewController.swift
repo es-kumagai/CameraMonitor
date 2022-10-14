@@ -9,7 +9,7 @@ import Cocoa
 
 @objc(ESSingleCameraViewController)
 @MainActor
-class SingleCameraViewController: NSViewController {
+final class SingleCameraViewController: NSViewController {
 
     @IBOutlet var cameraView: CameraView!
     

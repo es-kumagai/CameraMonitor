@@ -9,7 +9,7 @@ import AVFoundation
 
 extension AVCaptureVideoPreviewLayer {
 
-    func apply(previewState: CameraManager.PreviewState) {
+    func apply(previewState: CameraChecker.PreviewState) {
         
         videoGravity = previewState.videoGravity
         
@@ -19,7 +19,7 @@ extension AVCaptureVideoPreviewLayer {
 
 extension AVCaptureConnection {
     
-    func apply(previewState: CameraManager.PreviewState) {
+    func apply(previewState: CameraChecker.PreviewState) {
 
         videoOrientation = previewState.videoOrientation
         

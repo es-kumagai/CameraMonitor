@@ -8,7 +8,7 @@
 import Foundation
 import AVFoundation
 
-final class CameraManager {
+final class CameraChecker {
     
     init() {
 

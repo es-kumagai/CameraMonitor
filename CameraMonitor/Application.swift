@@ -16,6 +16,8 @@ let NSApp = Application.shared as! Application
 @objc(ESApplication)
 final class Application: NSApplication, @unchecked Sendable {
     
+    let videoCaptureManager = VideoCaptureManager()
+    
     @IBOutlet var usbDeviceDetector: USBDeviceDetector!
     @IBOutlet var checkerController: CheckerController!
     
@@ -31,6 +33,16 @@ extension Application {
     struct DevicesDidUpdateNotification : NotificationProtocol {
         
         var checkerController: CheckerController
+    }
+    
+    struct VideoCapturePreparedNotification : NotificationProtocol {
+        
+        var videoCapture: VideoCapture
+    }
+    
+    struct VideoCaptureReleasedNotification : NotificationProtocol {
+        
+        var videoCapture: VideoCapture
     }
 }
 

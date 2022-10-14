@@ -7,7 +7,7 @@
 
 import AVFoundation
 
-extension CameraManager {
+extension CameraChecker {
     
     struct PreviewState {
         

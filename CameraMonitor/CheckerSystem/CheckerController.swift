@@ -13,7 +13,7 @@ final class CheckerController : NSObject {
     
     @IBOutlet var delegate: CheckerControllerDelegate?
     
-    private(set) var cameraManager: CameraManager!
+    private(set) var cameraChecker: CameraChecker!
     private(set) var cameraDevices: Cameras = []
     
     private(set) var isReady: Bool = false
@@ -29,7 +29,7 @@ final class CheckerController : NSObject {
             throw CheckerControllerError.mediaOperationIsNotPermitted
         }
 
-        cameraManager = CameraManager()
+        cameraChecker = CameraChecker()
         
         isReady = true
         
@@ -43,7 +43,7 @@ final class CheckerController : NSObject {
             return
         }
         
-        cameraDevices = cameraManager.cameras
+        cameraDevices = cameraChecker.cameras
         
         delegate?.checkerControllerDevicesDidUpdate?(self)
     }

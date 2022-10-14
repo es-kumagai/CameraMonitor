@@ -11,7 +11,7 @@ typealias Cameras = Array<Camera>
 
 @objc(ESCamera)
 @objcMembers
-final class Camera : NSObject, Identifiable {
+final class Camera : NSObject, Identifiable, @unchecked Sendable {
     
     let device: AVCaptureDevice
     

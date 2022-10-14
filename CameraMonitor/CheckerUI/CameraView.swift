@@ -35,7 +35,7 @@ final class CameraView : NSView {
                 return
             }
 
-            let previewState = NSApp.checkerController.cameraManager.previewState(for: camera)
+            let previewState = NSApp.checkerController.cameraChecker.previewState(for: camera)
             
             startPreview(with: previewState)
         }
@@ -55,7 +55,7 @@ final class CameraView : NSView {
         }
     }
 
-    func startPreview(with previewState: CameraManager.PreviewState) {
+    func startPreview(with previewState: CameraChecker.PreviewState) {
         
         guard let camera = camera else {
         

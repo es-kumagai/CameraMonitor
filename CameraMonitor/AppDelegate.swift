@@ -39,8 +39,13 @@ extension AppDelegate: CheckerControllerDelegate {
     
     func checkerControllerDevicesDidUpdate(_ checkerController: CheckerController) {
 
-        updateExpandMenu()
-        Application.DevicesDidUpdateNotification(checkerController: checkerController).post()
+        Task {
+            
+            await NSApp.videoCaptureManager.prepareVideoCaptures(for: checkerController.cameraDevices)
+            
+            updateExpandMenu()
+            Application.DevicesDidUpdateNotification(checkerController: checkerController).post()
+        }
     }
 }
 
