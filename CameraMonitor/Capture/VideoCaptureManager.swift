@@ -15,9 +15,52 @@ actor VideoCaptureManager {
     func videoCapture(for camera: Camera) -> VideoCapture {
         
         prepareVideoCapture(for: camera)
- 
+        
         return videoCaptures.videoCapture(havingCamera: camera)!
     }
+    
+    func updateVideoCapturesForAllCameras() async {
+        
+        let newCameras = await NSApp.checkerController.cameraDevices
+        
+        let oldCameras = videoCaptures.map(\.camera)
+        let difference = newCameras.difference(from: oldCameras)
+
+        var addedCameras = Cameras()
+        var removedCameras = Cameras()
+        
+        for difference in difference {
+            
+            switch difference {
+                
+            case .insert(_, let camera, _):
+                addedCameras.append(camera)
+                
+            case .remove(_, let camera, _):
+                removedCameras.append(camera)
+            }
+        }
+        
+        NSLog("Following cameras have been added: \(addedCameras.names)")
+        NSLog("Following cameras have been removed: \(removedCameras.names)")
+
+        addedCameras.forEach(prepareVideoCapture(for:))
+        removedCameras.forEach(releaseVideoCapture(for:))
+    }
+}
+
+extension VideoCapture {
+    
+    func release() {
+        
+        Task.detached { [self] in
+            
+            await manager.releaseVideoCapture(self)
+        }
+    }
+}
+
+private extension VideoCaptureManager {
     
     func prepareVideoCapture(for camera: Camera) {
         
@@ -26,52 +69,34 @@ actor VideoCaptureManager {
             return
         }
         
-        let videoCapture = try! VideoCapture(camera: camera)
+        let videoCapture = try! VideoCapture(camera: camera, manager: self)
         
         videoCaptures.append(videoCapture)
         
         Application.VideoCapturePreparedNotification(videoCapture: videoCapture).post()
     }
-    
-    func prepareVideoCaptures(for cameras: [Camera]) {
-        
-        let oldCameras = videoCaptures.map(\.camera)
-        let difference = cameras.difference(from: oldCameras)
 
-        var addedCameras = [Camera]()
-        var removedCameras = [Camera]()
+    func releaseVideoCapture(_ videoCapture: VideoCapture) {
+    
+        videoCaptures.removeAll { $0 === videoCapture }
         
-        for difference in difference {
+        Task.detached {
             
-            switch difference {
+            for observer in await videoCapture.observers {
                 
-            case .insert(offset: _, element: let camera, associatedWith: _):
-                addedCameras.append(camera)
-                
-            case .remove(offset: _, element: let camera, associatedWith: _):
-                removedCameras.append(camera)
+                observer.videoCaptureDidRelease(videoCapture)
             }
+            
+            Application.VideoCaptureReleasedNotification(videoCapture: videoCapture).post()
         }
-        
-        addedCameras.forEach(prepareVideoCapture(for:))
-        removedCameras.forEach(releaseVideoCapture(for:))
     }
     
     func releaseVideoCapture(for camera: Camera) {
 
-        let targetIndexes = videoCaptures.indexes { $0.camera == camera }
-        let targetVideoCaptures = targetIndexes.map { videoCaptures[$0] }
+        let targetVideoCaptures = videoCaptures
+            .indexes { $0.camera == camera }
+            .map { videoCaptures[$0] }
 
-        videoCaptures.remove(contentsAt: targetIndexes)
-        
-        Task {
-            
-            await targetVideoCaptures.videoCapturesDidRelease()
-        }
-
-        targetVideoCaptures.forEach {
-            
-            Application.VideoCaptureReleasedNotification(videoCapture: $0).post()
-        }
+        targetVideoCaptures.forEach(releaseVideoCapture(_:))
     }
 }

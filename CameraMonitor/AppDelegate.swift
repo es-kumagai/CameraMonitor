@@ -41,9 +41,9 @@ extension AppDelegate: CheckerControllerDelegate {
 
         Task {
             
-            await NSApp.videoCaptureManager.prepareVideoCaptures(for: checkerController.cameraDevices)
-            
+            await NSApp.videoCaptureManager.updateVideoCapturesForAllCameras()
             updateExpandMenu()
+            
             Application.DevicesDidUpdateNotification(checkerController: checkerController).post()
         }
     }

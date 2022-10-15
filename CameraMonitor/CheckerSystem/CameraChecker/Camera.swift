@@ -100,4 +100,9 @@ extension Sequence where Element == Camera {
         
         first { $0.id == id }
     }
+    
+    var names: [String] {
+        
+        map(\.name)
+    }
 }

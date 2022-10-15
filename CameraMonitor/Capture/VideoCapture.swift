@@ -11,18 +11,20 @@ import AVFoundation
 actor VideoCapture : NSObject {
     
     let camera: Camera
+    unowned let manager: VideoCaptureManager
     
     private var session = Session()
     private let bufferingQueue: DispatchQueue
 
     private(set) var observers: [VideoCaptureObserver] = []
     
-    init(camera: Camera) throws {
+    init(camera: Camera, manager: VideoCaptureManager) throws {
         
         let input = try AVCaptureDeviceInput(device: camera.device)
         let output = AVCaptureVideoDataOutput()
 
         self.camera = camera
+        self.manager = manager
 
         try session.addInput(input)
         try session.addOutput(output)
@@ -148,16 +150,5 @@ extension Sequence where Element == VideoCapture {
     func contains(camera: Camera) -> Bool {
         
         map(\.camera).contains(camera)
-    }
-    
-    func videoCapturesDidRelease() async {
-
-        for videoCapture in self {
-
-            for observer in await videoCapture.observers {
-                
-                observer.videoCaptureDidRelease(videoCapture)
-            }
-        }
     }
 }
