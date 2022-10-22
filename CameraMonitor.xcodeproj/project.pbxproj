@@ -27,6 +27,7 @@
 		B17CA39528F99EA300786DA2 /* VideoCaptureObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17CA39428F99EA300786DA2 /* VideoCaptureObserver.swift */; };
 		B17CA39A28F9B09E00786DA2 /* UncheckedSendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17CA39928F9B09E00786DA2 /* UncheckedSendable.swift */; };
 		B17CA39C28F9B1E600786DA2 /* VideoCaptureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17CA39B28F9B1E600786DA2 /* VideoCaptureManager.swift */; };
+		B17CA39E28FA597700786DA2 /* CameraViewVideoCaptureObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17CA39D28FA597700786DA2 /* CameraViewVideoCaptureObserver.swift */; };
 		B182E6F327DB40940089C682 /* CameraCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182E6F227DB40940089C682 /* CameraCollectionViewItem.swift */; };
 		B182E6F527DB41330089C682 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182E6F427DB41330089C682 /* Storyboard.swift */; };
 		B182E6F727DB426B0089C682 /* CameraCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182E6F627DB426B0089C682 /* CameraCollectionViewController.swift */; };
@@ -51,6 +52,7 @@
 		B1F77CE927ECAB4500839FAF /* CameraCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F77CE827ECAB4500839FAF /* CameraCollectionViewDelegate.swift */; };
 		B1F77CEB27ECAE0300839FAF /* CameraCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F77CEA27ECAE0300839FAF /* CameraCollectionView.swift */; };
 		B1F77CEC27ECC65300839FAF /* Ocean in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B141529D27E4AA2700B99ECC /* Ocean */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		B1FC7F062903D7C900E7104A /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FC7F052903D7C900E7104A /* NSImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,7 @@
 		B17CA39428F99EA300786DA2 /* VideoCaptureObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCaptureObserver.swift; sourceTree = "<group>"; };
 		B17CA39928F9B09E00786DA2 /* UncheckedSendable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UncheckedSendable.swift; sourceTree = "<group>"; };
 		B17CA39B28F9B1E600786DA2 /* VideoCaptureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCaptureManager.swift; sourceTree = "<group>"; };
+		B17CA39D28FA597700786DA2 /* CameraViewVideoCaptureObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewVideoCaptureObserver.swift; sourceTree = "<group>"; };
 		B182E6F227DB40940089C682 /* CameraCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCollectionViewItem.swift; sourceTree = "<group>"; };
 		B182E6F427DB41330089C682 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		B182E6F627DB426B0089C682 /* CameraCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCollectionViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +142,7 @@
 		B1F77CE627ECA92800839FAF /* CameraViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewDelegate.swift; sourceTree = "<group>"; };
 		B1F77CE827ECAB4500839FAF /* CameraCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		B1F77CEA27ECAE0300839FAF /* CameraCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCollectionView.swift; sourceTree = "<group>"; };
+		B1FC7F052903D7C900E7104A /* NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,7 @@
 		B10D46E827E0D1C6001B8102 /* AVFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				B1FC7F052903D7C900E7104A /* NSImage.swift */,
 				B1CC75F627CA86930068BECF /* AVCaptureDevice.swift */,
 				B1B8627327E0B581009DF1BD /* AVCaptureVideoPreviewLayer.swift */,
 			);
@@ -214,6 +219,7 @@
 		B1505623270EF75400810CDB /* CameraMonitor */ = {
 			isa = PBXGroup;
 			children = (
+				B1FC7F032903D7A900E7104A /* Extensions */,
 				B17CA39828F9B08F00786DA2 /* Concurrency */,
 				B182E70727DB87FD0089C682 /* Info.plist */,
 				B1CC75F027CA6A280068BECF /* Application.swift */,
@@ -221,7 +227,6 @@
 				B1241E9128B6E3C10012FBBF /* AppState.swift */,
 				B1505628270EF75900810CDB /* Assets.xcassets */,
 				B150562D270EF75A00810CDB /* CameraMonitor.entitlements */,
-				B10D46E827E0D1C6001B8102 /* AVFoundation */,
 				B1BC5C9C28B8EC6F002A2F37 /* Data */,
 				B17CA38F28F98C4F00786DA2 /* Capture */,
 				B150565C270F703C00810CDB /* CheckerUI */,
@@ -264,6 +269,7 @@
 			children = (
 				B182E6F427DB41330089C682 /* Storyboard.swift */,
 				B1505651270EFDF800810CDB /* CameraView.swift */,
+				B17CA39D28FA597700786DA2 /* CameraViewVideoCaptureObserver.swift */,
 				B1F77CE627ECA92800839FAF /* CameraViewDelegate.swift */,
 				B1AF5CF827DEDD8E006A11CC /* CameraPreviewView.swift */,
 				B1C9E65628B3A60000A6F004 /* CameraCollectionWindowController.swift */,
@@ -320,6 +326,22 @@
 				B1BC5C9F28B8EEB7002A2F37 /* ExpandingCameraWindowStates.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		B1FC7F032903D7A900E7104A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B1FC7F042903D7C100E7104A /* AppKit */,
+				B10D46E827E0D1C6001B8102 /* AVFoundation */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B1FC7F042903D7C100E7104A /* AppKit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AppKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -486,9 +508,11 @@
 				B1505625270EF75400810CDB /* AppDelegate.swift in Sources */,
 				B1F77CE527ECA22600839FAF /* SingleCameraViewController.swift in Sources */,
 				B17CA39C28F9B1E600786DA2 /* VideoCaptureManager.swift in Sources */,
+				B1FC7F062903D7C900E7104A /* NSImage.swift in Sources */,
 				B1505658270F6AE800810CDB /* Camera.swift in Sources */,
 				B1C9E65728B3A60000A6F004 /* CameraCollectionWindowController.swift in Sources */,
 				B1BC5C9E28B8EC96002A2F37 /* ExpandingCameraWindowState.swift in Sources */,
+				B17CA39E28FA597700786DA2 /* CameraViewVideoCaptureObserver.swift in Sources */,
 				B1241E9228B6E3C10012FBBF /* AppState.swift in Sources */,
 				B10D2B9828B9FB6C00463F25 /* CameraCollectionWindow.swift in Sources */,
 				B182E6F527DB41330089C682 /* Storyboard.swift in Sources */,

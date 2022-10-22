@@ -5,7 +5,7 @@
 //  Created by Tomohiro Kumagai on 2021/10/07.
 //
 
-import AppKit
+@preconcurrency import AppKit
 import AVFoundation
 
 @objc(ESCameraView)
@@ -17,7 +17,24 @@ final class CameraView : NSView {
     @IBOutlet var nameLabel: NSTextField!
     @IBOutlet var expandButton: NSButton!
     @IBOutlet var contentView: CameraPreviewView!
+    @IBOutlet var captureImageView: NSImageView!
 
+    private var videoCapture: VideoCapture?
+    private var cameraObserver: CameraObserver!
+    
+    private var currentCaptureImage: NSImage? {
+        
+        didSet {
+
+            guard let currentCaptureImage = currentCaptureImage else {
+                
+                return
+            }
+
+            captureImageView?.image = currentCaptureImage
+        }
+    }
+    
     dynamic var camera: Camera? {
         
         willSet (newCamera) {
@@ -28,7 +45,12 @@ final class CameraView : NSView {
             }
         }
         
-        didSet {
+        didSet (oldCamera) {
+
+            if oldCamera != camera {
+                
+                startObservingCamera()
+            }
             
             guard let camera = camera else {
 
@@ -55,6 +77,20 @@ final class CameraView : NSView {
         }
     }
 
+    override func didAddSubview(_ subview: NSView) {
+        
+        super.didAddSubview(subview)
+        
+        startObservingCamera()
+    }
+    
+    override func willRemoveSubview(_ subview: NSView) {
+        
+        super.willRemoveSubview(subview)
+
+        finishObservingCamera()
+    }
+    
     func startPreview(with previewState: CameraChecker.PreviewState) {
         
         guard let camera = camera else {
@@ -127,5 +163,53 @@ final class CameraView : NSView {
         super.resize(withOldSuperviewSize: oldSize)
         
         updatePreviewFrame()
+    }
+    
+    func applyCaptureImage(_ sampleBuffer: CMSampleBuffer) {
+        
+        let sampleBuffer = UncheckedSendable(sampleBuffer)
+        
+        Task.detached { [self] in
+
+            let image = NSImage(sampleBuffer: sampleBuffer.instance)
+            
+            Task { @MainActor in
+                
+                currentCaptureImage = image
+            }
+        }
+    }
+}
+
+private extension CameraView {
+    
+    func startObservingCamera() {
+        
+        guard let camera else {
+        
+            finishObservingCamera()
+            return
+        }
+        
+        Task {
+            cameraObserver = CameraObserver(view: self)
+            videoCapture = await NSApp.videoCaptureManager.videoCapture(for: camera)
+            await videoCapture?.addVideoCaptureObserver(cameraObserver)
+        }
+    }
+    
+    func finishObservingCamera() {
+
+        guard camera != nil else {
+        
+            return
+        }
+        
+        Task { [self] in
+            
+            await videoCapture?.removeVideoCaptureObserver(cameraObserver)
+            videoCapture = nil
+            cameraObserver = nil
+        }
     }
 }

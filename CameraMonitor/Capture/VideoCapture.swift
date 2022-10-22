@@ -58,12 +58,20 @@ actor VideoCapture : NSObject {
     
     func addVideoCaptureObserver(_ observer: VideoCaptureObserver) async {
 
-        guard !observers.map(\.videoCaptureObserverIdentifier).contains(observer.videoCaptureObserverIdentifier) else {
+        guard !observers.contains(observer) else {
             
             return
         }
         
         observers.append(observer)
+    }
+    
+    func removeVideoCaptureObserver(_ observer: VideoCaptureObserver) async {
+        
+        observers.removeAll {
+            
+            $0 === observer
+        }
     }
 }
 
@@ -144,7 +152,7 @@ extension Sequence where Element == VideoCapture {
     
     func videoCapture(havingCamera camera: Camera) -> Element? {
         
-        first { $0 == camera }
+        first { $0.camera == camera }
     }
     
     func contains(camera: Camera) -> Bool {
