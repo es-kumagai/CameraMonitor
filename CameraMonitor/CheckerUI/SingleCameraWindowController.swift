@@ -95,7 +95,7 @@ final class SingleCameraWindowController: NSWindowController {
         }
         
         // フレームとレイヤーを合わせるために呼び出していますが、呼び出さなくてもどこか適切な場所で連携が取れるようにするのが最適解と思われます。
-        singleCameraViewController.cameraView.updatePreviewFrame()
+//        singleCameraViewController.cameraView.updatePreviewFrame()
         
         return true
     }

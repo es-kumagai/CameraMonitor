@@ -1,5 +1,5 @@
 //
-//  CameraViewVideoCaptureObserver.swift
+//  CameraPreviewViewVideoCaptureObserver.swift
 //  CameraMonitor
 //  
 //  Created by Tomohiro Kumagai on 2022/10/15
@@ -8,20 +8,20 @@
 
 import CoreMedia
 
-extension CameraView {
+extension CameraPreviewView {
     
     final class CameraObserver {
         
-        let view: CameraView
+        let view: CameraPreviewView
         
-        init(view: CameraView) {
+        init(view: CameraPreviewView) {
             
             self.view = view
         }
     }
 }
 
-extension CameraView.CameraObserver : VideoCaptureObserver {
+extension CameraPreviewView.CameraObserver : VideoCaptureObserver {
     
     func videoCapture(_ capture: VideoCapture, didOutput sampleBuffer: CMSampleBuffer) {
 

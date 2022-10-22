@@ -32,8 +32,8 @@ final class CameraChecker {
 //            .filter { $0.name != "NDI Video" }
     }
     
-    func previewState(for camera: Camera) -> PreviewState {
-        
-        PreviewState()
-    }
+//    func previewState(for camera: Camera) -> PreviewState {
+//        
+//        PreviewState()
+//    }
 }

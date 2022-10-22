@@ -6,12 +6,14 @@
 //  
 //
 
+import Foundation
+
 struct UncheckedSendable<Instance> : @unchecked Sendable {
     
     let instance: Instance
     
     init(_ instance: Instance) {
-        
+
         self.instance = instance
     }
 }

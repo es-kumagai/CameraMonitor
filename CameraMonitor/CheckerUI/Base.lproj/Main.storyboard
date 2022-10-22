@@ -193,10 +193,11 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView id="HHm-Z5-bYf" customClass="ESCameraCollectionView">
-                                            <rect key="frame" x="0.0" y="0.0" width="448" height="158"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="448" height="298"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="Hwx-WB-yYe">
-                                                <size key="itemSize" width="320" height="180"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="4" minimumLineSpacing="4" id="Hwx-WB-yYe">
+                                                <size key="itemSize" width="300" height="180"/>
+                                                <edgeInsets key="sectionInset" left="4" right="4" top="4" bottom="4"/>
                                             </collectionViewFlowLayout>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
@@ -207,11 +208,11 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="L8Z-MM-rJ3">
-                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                    <rect key="frame" x="-100" y="-100" width="233" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="La1-hF-6KU">
-                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                    <rect key="frame" x="433" y="1" width="16" height="298"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
