@@ -12,7 +12,7 @@ extension CameraPreviewView {
     
     final class CameraObserver {
         
-        let view: CameraPreviewView
+        unowned let view: CameraPreviewView
         
         init(view: CameraPreviewView) {
             
@@ -25,12 +25,7 @@ extension CameraPreviewView.CameraObserver : VideoCaptureObserver {
     
     func videoCapture(_ capture: VideoCapture, didOutput sampleBuffer: CMSampleBuffer) {
 
-        let sampleBuffer = UncheckedSendable(sampleBuffer)
-        
-        Task { @MainActor in
-            
-            view.applyCaptureImage(sampleBuffer.instance)
-        }
+        view.applyCaptureImage(sampleBuffer)
     }
     
     func videoCaptureDidRelease(_ capture: VideoCapture) {

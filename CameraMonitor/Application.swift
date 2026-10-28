@@ -46,30 +46,25 @@ extension Application {
     }
 }
 
-extension Application : USBDeviceDetectorDelegate {
+extension Application : @MainActor USBDeviceDetectorDelegate {
     
-    nonisolated func usbDeviceDetector(_ detector: USBDeviceDetector, devicesDidAdd devices: USBDevices) {
+    func usbDeviceDetector(_ detector: USBDeviceDetector, devicesDidAdd devices: USBDevices) {
         
         NSLog("%@", "USB devices have been added: \(devices)")
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + usbDeviceDetectionDelay) { [unowned self] in
-            
+        checkerController.updateDevices()
+
+        // To detect slowly detecting devices, retry updating after `usbDeviceDetectionAuxiliaryDelay` again.
+        Task {
+            try? await Task.sleep(for: .seconds(usbDeviceDetectionAuxiliaryDelay))
             checkerController.updateDevices()
-            
-            // To detect slowly detecting devices, retry updating after `usbDeviceDetectionAuxiliaryDelay` again.
-            DispatchQueue.main.asyncAfter(deadline: .now() + usbDeviceDetectionAuxiliaryDelay) { [unowned self] in
-                
-                checkerController.updateDevices()
-            }
         }
     }
     
-    nonisolated func usbDeviceDetector(_ detector: USBDeviceDetector, devicesDidRemove devices: USBDevices) {
+    func usbDeviceDetector(_ detector: USBDeviceDetector, devicesDidRemove devices: USBDevices) {
 
         NSLog("%@", "USB devices have been removed: \(devices)")
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + usbDeviceDetectionDelay) { [unowned self] in
-
+        Task {
+            try? await Task.sleep(for: .seconds(usbDeviceDetectionDelay))
             checkerController.updateDevices()
         }
     }

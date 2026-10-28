@@ -8,6 +8,7 @@
 
 import Foundation
 
+@available(*, deprecated, message: "UncheckedSendable は、ビデオバッファーを不必要に持ち越してしまうため、非推奨です。")
 struct UncheckedSendable<Instance> : @unchecked Sendable {
     
     let instance: Instance

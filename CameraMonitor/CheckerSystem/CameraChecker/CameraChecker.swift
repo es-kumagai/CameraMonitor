@@ -26,7 +26,7 @@ final class CameraChecker {
     var cameras: Cameras {
 
         AVCaptureDevice
-            .DiscoverySession(deviceTypes: [.builtInWideAngleCamera, .externalUnknown], mediaType: .video, position: .unspecified)
+            .DiscoverySession(deviceTypes: [.builtInWideAngleCamera, .external], mediaType: .video, position: .unspecified)
             .devices
             .map(Camera.init)
 //            .filter { $0.name != "NDI Video" }

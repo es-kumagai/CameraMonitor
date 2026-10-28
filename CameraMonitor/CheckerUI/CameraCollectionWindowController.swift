@@ -10,7 +10,7 @@ import Cocoa
 
 @objc(ESCameraCollectionWindowController)
 @objcMembers @MainActor
-class CameraCollectionWindowController: NSWindowController {
+final class CameraCollectionWindowController: NSWindowController {
 
     dynamic var cameraCollectionWindow: CameraCollectionWindow! {
         
@@ -22,42 +22,23 @@ class CameraCollectionWindowController: NSWindowController {
         return (window as! CameraCollectionWindow)
     }
 
-    @MainActor
-    override func awakeFromNib() {
-
-        super.awakeFromNib()
-        NSApp.cameraCollectionWindowController = self
-    }
-
-    override func windowDidLoad() {
-        
+    override func windowDidLoad() {        
         super.windowDidLoad()
         
+        NSApp.cameraCollectionWindowController = self
         cameraCollectionWindow.restoreFrame()
     }
 }
 
-extension CameraCollectionWindowController : NSWindowDelegate {
+extension CameraCollectionWindowController : @MainActor NSWindowDelegate {
     
-    nonisolated
     func windowDidMove(_ notification: Notification) {
-        
         let window = notification.object as! CameraCollectionWindow
-        
-        Task { @MainActor in
-
-            window.saveFrame()
-        }
+        window.saveFrame()
     }
     
-    nonisolated
     func windowDidResize(_ notification: Notification) {
-        
         let window = notification.object as! CameraCollectionWindow
-        
-        Task { @MainActor in
-
-            window.saveFrame()
-        }
+        window.saveFrame()
     }
 }

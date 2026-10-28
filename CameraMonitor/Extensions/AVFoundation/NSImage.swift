@@ -11,6 +11,8 @@ import AVFoundation
 
 extension NSImage {
     
+    private static let sharedCIContext = CIContext()
+    
     convenience init?(sampleBuffer: CMSampleBuffer) {
         
         guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
@@ -34,10 +36,9 @@ extension NSImage {
     
     convenience init?(image: CIImage, size: NSSize) {
         
-        let context = CIContext()
         let imageRect = CGRect(origin: .zero, size: size)
         
-        guard let image = context.createCGImage(image, from: imageRect) else {
+        guard let image = Self.sharedCIContext.createCGImage(image, from: imageRect) else {
             
             return nil
         }

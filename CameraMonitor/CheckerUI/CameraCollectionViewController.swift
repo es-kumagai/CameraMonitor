@@ -11,7 +11,7 @@ import AVFoundation
 import USBDeviceDetector
 
 @objcMembers @MainActor
-final class CameraCollectionViewController: NSViewController, NotificationObservable {
+final class CameraCollectionViewController: NSViewController, @MainActor NotificationObservable {
 
     var presentedSingleCameraWindowControllers: [SingleCameraWindowController] = [] {
         
@@ -39,8 +39,9 @@ final class CameraCollectionViewController: NSViewController, NotificationObserv
         
         didSet {
             
-            presentedSingleCameraWindowControllers.keep(onlyHaving: cameras)
-            
+// 🌾            presentedSingleCameraWindowControllers.keep(onlyHaving: cameras)
+            presentedSingleCameraWindowControllers.closeAll(exceptHaving: cameras)
+
             restoreSingleCameraWindows(considerPersistentData: false)
         }
     }
@@ -50,11 +51,12 @@ final class CameraCollectionViewController: NSViewController, NotificationObserv
         notificationHandlers.releaseAll()
     }
     
-    @MainActor
     override func awakeFromNib() {
-        
         super.awakeFromNib()
-        NSApp.cameraCollectionViewController = self
+
+        MainActor.assumeIsolated {
+            NSApp.cameraCollectionViewController = self
+        }
     }
     
     override func viewDidLoad() {
@@ -137,27 +139,6 @@ extension CameraCollectionViewController : CameraCollectionViewDelegate {
         
         updateExpandButtonsState(of: item)
     }
-
-    nonisolated func collectionView(_ collectionView: NSCollectionView, willDisplay item: NSCollectionViewItem, forRepresentedObjectAt indexPath: IndexPath) {
-        
-        let item = item as! CameraCollectionViewItem
-
-        Task { @MainActor in
-
-            NSLog(#"A collection view item for "\#(item.cameraView.camera!.name)" will display."#)
-//            item.cameraView.updatePreviewFrame()
-        }
-    }
-    
-    nonisolated func collectionView(_ collectionView: NSCollectionView, didEndDisplaying item: NSCollectionViewItem, forRepresentedObjectAt indexPath: IndexPath) {
-        
-        let item = item as! CameraCollectionViewItem
-        
-        Task { @MainActor in
-            
-            NSLog(#"A collection view item for "\#(item.cameraView.camera!.name)" did end displaying."#)
-        }
-    }
 }
 
 extension CameraCollectionViewController {
@@ -202,8 +183,8 @@ extension CameraCollectionViewController {
     }
     
     func hideSingleCameraWindow(for camera: Camera) {
-        
-        presentedSingleCameraWindowControllers.remove(having: camera)
+// 🌾       presentedSingleCameraWindowControllers.remove(having: camera)
+        presentedSingleCameraWindowControllers.closeAll(having: camera)
     }
 }
 

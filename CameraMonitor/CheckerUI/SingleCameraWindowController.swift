@@ -94,9 +94,6 @@ final class SingleCameraWindowController: NSWindowController {
             NSLog("Frame state couldn't be restored on \(window.title)")
         }
         
-        // フレームとレイヤーを合わせるために呼び出していますが、呼び出さなくてもどこか適切な場所で連携が取れるようにするのが最適解と思われます。
-//        singleCameraViewController.cameraView.updatePreviewFrame()
-        
         return true
     }
     
@@ -132,15 +129,11 @@ final class SingleCameraWindowController: NSWindowController {
     }
 }
 
-extension SingleCameraWindowController : NSWindowDelegate {
+extension SingleCameraWindowController : @MainActor NSWindowDelegate {
     
-    nonisolated func windowWillClose(_ notification: Notification) {
-
-        Task { @MainActor in
-
-            saveFrame()
-            delegate?.singleCameraWindowControllerWillClose?(self)
-        }
+    func windowWillClose(_ notification: Notification) {
+        saveFrame()
+        delegate?.singleCameraWindowControllerWillClose?(self)
     }
 }
 
@@ -148,8 +141,10 @@ extension SingleCameraWindowController : NSWindowDelegate {
 extension Sequence where Element : SingleCameraWindowController {
     
     func closeAll() {
-
-        forEach { $0.close() }
+        // 🌾
+        for controller in self {
+            controller.close()
+        }
     }
     
     func having(camera: Camera) -> [Element] {
@@ -172,20 +167,24 @@ extension RangeReplaceableCollection where Element : SingleCameraWindowControlle
         }
     }
     
-    mutating func remove(_ singleCameraWindowController: SingleCameraWindowController) {
-    
-        singleCameraWindowController.close()
-
-        remove(contentsAt: indexes { $0 === singleCameraWindowController })
+    mutating func remove(_ controller: SingleCameraWindowController) {
+        remove(contentsAt: indexes { $0 === controller })
     }
-    
-    mutating func remove(having camera: Camera) {
-        
-        for windowController in having(camera: camera) {
 
-            NSLog("%@", "Removing single camera window controller for \(camera) on \(windowController).")
-            
-            remove(windowController)
+// 🌾
+//    mutating func remove(having camera: Camera) {
+//        
+//        for windowController in having(camera: camera) {
+//
+//            NSLog("%@", "Removing single camera window controller for \(camera) on \(windowController).")
+//            
+//            remove(windowController)
+//        }
+//    }
+    func closeAll(having camera: Camera) {
+        for controller in having(camera: camera) {
+            NSLog("%@", "Closing single camera window controller for \(camera) on \(controller).")
+            controller.close()
         }
     }
     
@@ -197,14 +196,20 @@ extension RangeReplaceableCollection where Element : SingleCameraWindowControlle
     /// Keep single camera windows only having `cameras`.
     ///
     /// - Parameter cameras: Cameras for leaving windows that have.
-    mutating func keep(onlyHaving cameras: Cameras) {
-        
-        for windowController in self {
-            
-            if !cameras.contains(windowController.camera) {
-                
-                remove(windowController)
-            }
+    // 🌾
+//    mutating func keep(onlyHaving cameras: Cameras) {
+//        
+//        for windowController in self {
+//            
+//            if !cameras.contains(windowController.camera) {
+//                
+//                remove(windowController)
+//            }
+//        }
+//    }
+    func closeAll(exceptHaving cameras: Cameras) {
+        for controller in self where !cameras.contains(controller.camera) {
+            controller.close()
         }
     }
 }

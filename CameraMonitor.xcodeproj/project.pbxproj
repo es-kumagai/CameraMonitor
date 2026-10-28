@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		B10D2B9828B9FB6C00463F25 /* CameraCollectionWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10D2B9728B9FB6C00463F25 /* CameraCollectionWindow.swift */; };
 		B1241E9228B6E3C10012FBBF /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1241E9128B6E3C10012FBBF /* AppState.swift */; };
-		B141529E27E4AA2700B99ECC /* Ocean in Frameworks */ = {isa = PBXBuildFile; productRef = B141529D27E4AA2700B99ECC /* Ocean */; };
-		B14152A127E4AA3C00B99ECC /* USBDeviceDetector in Frameworks */ = {isa = PBXBuildFile; productRef = B14152A027E4AA3C00B99ECC /* USBDeviceDetector */; };
+		B1342FF12905622100AB12C3 /* UnsafeLazyInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1342FF02905622100AB12C3 /* UnsafeLazyInitializable.swift */; };
+		B1342FF52905852200AB12C3 /* VideoCaptureObserverUnownedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1342FF42905852100AB12C3 /* VideoCaptureObserverUnownedContainer.swift */; };
 		B1505625270EF75400810CDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1505624270EF75400810CDB /* AppDelegate.swift */; };
 		B1505629270EF75A00810CDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1505628270EF75900810CDB /* Assets.xcassets */; };
 		B150562C270EF75A00810CDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B150562A270EF75A00810CDB /* Main.storyboard */; };
@@ -36,23 +36,21 @@
 		B1AEC4F1283F77F5000C806C /* SingleCameraWindowControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AEC4F0283F77F5000C806C /* SingleCameraWindowControllerDelegate.swift */; };
 		B1AF5CF927DEDD8E006A11CC /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF5CF827DEDD8E006A11CC /* CameraPreviewView.swift */; };
 		B1B8627227E0B1FA009DF1BD /* CameraCheckerPreviewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8627127E0B1FA009DF1BD /* CameraCheckerPreviewState.swift */; };
-		B1B8627427E0B581009DF1BD /* AVCaptureVideoPreviewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8627327E0B581009DF1BD /* AVCaptureVideoPreviewLayer.swift */; };
 		B1BC5C9E28B8EC96002A2F37 /* ExpandingCameraWindowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BC5C9D28B8EC96002A2F37 /* ExpandingCameraWindowState.swift */; };
 		B1BC5CA028B8EEB7002A2F37 /* ExpandingCameraWindowStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BC5C9F28B8EEB7002A2F37 /* ExpandingCameraWindowStates.swift */; };
 		B1C9E65728B3A60000A6F004 /* CameraCollectionWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C9E65628B3A60000A6F004 /* CameraCollectionWindowController.swift */; };
 		B1CC75F127CA6A280068BECF /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC75F027CA6A280068BECF /* Application.swift */; };
 		B1CC75F327CA74230068BECF /* CheckerControllerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC75F227CA74230068BECF /* CheckerControllerError.swift */; };
 		B1CC75F727CA86930068BECF /* AVCaptureDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC75F627CA86930068BECF /* AVCaptureDevice.swift */; };
-		B1E5E94B280704C70006CE8B /* Swim in Frameworks */ = {isa = PBXBuildFile; productRef = B1E5E94A280704C70006CE8B /* Swim */; };
-		B1E5E94C280704CF0006CE8B /* Swim in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B1E5E94A280704C70006CE8B /* Swim */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		B1F77CE127ECA13A00839FAF /* SingleCameraWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F77CE027ECA13A00839FAF /* SingleCameraWindowController.swift */; };
 		B1F77CE327ECA1AB00839FAF /* SingleCameraWindow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1F77CE227ECA1AB00839FAF /* SingleCameraWindow.storyboard */; };
 		B1F77CE527ECA22600839FAF /* SingleCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F77CE427ECA22600839FAF /* SingleCameraViewController.swift */; };
 		B1F77CE727ECA92800839FAF /* CameraViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F77CE627ECA92800839FAF /* CameraViewDelegate.swift */; };
 		B1F77CE927ECAB4500839FAF /* CameraCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F77CE827ECAB4500839FAF /* CameraCollectionViewDelegate.swift */; };
 		B1F77CEB27ECAE0300839FAF /* CameraCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F77CEA27ECAE0300839FAF /* CameraCollectionView.swift */; };
-		B1F77CEC27ECC65300839FAF /* Ocean in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B141529D27E4AA2700B99ECC /* Ocean */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		B1FC7F062903D7C900E7104A /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FC7F052903D7C900E7104A /* NSImage.swift */; };
+		B1FC7F0929042F4F00E7104A /* Ocean in Frameworks */ = {isa = PBXBuildFile; productRef = B1FC7F0829042F4F00E7104A /* Ocean */; };
+		B1FC7F0C29042F7800E7104A /* USBDeviceDetector in Frameworks */ = {isa = PBXBuildFile; productRef = B1FC7F0B29042F7800E7104A /* USBDeviceDetector */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,8 +77,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B1E5E94C280704CF0006CE8B /* Swim in Embed Frameworks */,
-				B1F77CEC27ECC65300839FAF /* Ocean in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,6 +87,8 @@
 		B10D2B9728B9FB6C00463F25 /* CameraCollectionWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCollectionWindow.swift; sourceTree = "<group>"; };
 		B11C469428B78FDE00ED01CC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B1241E9128B6E3C10012FBBF /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		B1342FF02905622100AB12C3 /* UnsafeLazyInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsafeLazyInitializable.swift; sourceTree = "<group>"; };
+		B1342FF42905852100AB12C3 /* VideoCaptureObserverUnownedContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCaptureObserverUnownedContainer.swift; sourceTree = "<group>"; };
 		B1505621270EF75400810CDB /* CameraMonitor-Debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CameraMonitor-Debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1505624270EF75400810CDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1505628270EF75900810CDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 		B1AEC4F0283F77F5000C806C /* SingleCameraWindowControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCameraWindowControllerDelegate.swift; sourceTree = "<group>"; };
 		B1AF5CF827DEDD8E006A11CC /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
 		B1B8627127E0B1FA009DF1BD /* CameraCheckerPreviewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCheckerPreviewState.swift; sourceTree = "<group>"; };
-		B1B8627327E0B581009DF1BD /* AVCaptureVideoPreviewLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureVideoPreviewLayer.swift; sourceTree = "<group>"; };
 		B1BC5C9D28B8EC96002A2F37 /* ExpandingCameraWindowState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingCameraWindowState.swift; sourceTree = "<group>"; };
 		B1BC5C9F28B8EEB7002A2F37 /* ExpandingCameraWindowStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingCameraWindowStates.swift; sourceTree = "<group>"; };
 		B1C9E65628B3A60000A6F004 /* CameraCollectionWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCollectionWindowController.swift; sourceTree = "<group>"; };
@@ -150,9 +147,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B14152A127E4AA3C00B99ECC /* USBDeviceDetector in Frameworks */,
-				B141529E27E4AA2700B99ECC /* Ocean in Frameworks */,
-				B1E5E94B280704C70006CE8B /* Swim in Frameworks */,
+				B1FC7F0929042F4F00E7104A /* Ocean in Frameworks */,
+				B1FC7F0C29042F7800E7104A /* USBDeviceDetector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,7 +174,6 @@
 			children = (
 				B1FC7F052903D7C900E7104A /* NSImage.swift */,
 				B1CC75F627CA86930068BECF /* AVCaptureDevice.swift */,
-				B1B8627327E0B581009DF1BD /* AVCaptureVideoPreviewLayer.swift */,
 			);
 			path = AVFoundation;
 			sourceTree = "<group>";
@@ -293,6 +288,7 @@
 			children = (
 				B17CA39028F98C6800786DA2 /* VideoCapture.swift */,
 				B17CA39428F99EA300786DA2 /* VideoCaptureObserver.swift */,
+				B1342FF42905852100AB12C3 /* VideoCaptureObserverUnownedContainer.swift */,
 				B17CA39228F990AE00786DA2 /* VideoCaptureError.swift */,
 				B17CA39B28F9B1E600786DA2 /* VideoCaptureManager.swift */,
 			);
@@ -324,6 +320,7 @@
 			children = (
 				B1BC5C9D28B8EC96002A2F37 /* ExpandingCameraWindowState.swift */,
 				B1BC5C9F28B8EEB7002A2F37 /* ExpandingCameraWindowStates.swift */,
+				B1342FF02905622100AB12C3 /* UnsafeLazyInitializable.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -362,9 +359,8 @@
 			);
 			name = CameraMonitor;
 			packageProductDependencies = (
-				B141529D27E4AA2700B99ECC /* Ocean */,
-				B14152A027E4AA3C00B99ECC /* USBDeviceDetector */,
-				B1E5E94A280704C70006CE8B /* Swim */,
+				B1FC7F0829042F4F00E7104A /* Ocean */,
+				B1FC7F0B29042F7800E7104A /* USBDeviceDetector */,
 			);
 			productName = CameraMicChecker;
 			productReference = B1505621270EF75400810CDB /* CameraMonitor-Debug.app */;
@@ -414,7 +410,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 2700;
 				TargetAttributes = {
 					B1505620270EF75400810CDB = {
 						CreatedOnToolsVersion = 13.0;
@@ -440,9 +436,8 @@
 			);
 			mainGroup = B1505618270EF75300810CDB;
 			packageReferences = (
-				B141529C27E4AA2700B99ECC /* XCRemoteSwiftPackageReference "Ocean" */,
-				B141529F27E4AA3C00B99ECC /* XCRemoteSwiftPackageReference "USBDeviceDetector" */,
-				B1E5E949280704C70006CE8B /* XCRemoteSwiftPackageReference "Swim" */,
+				B1FC7F0729042F4F00E7104A /* XCRemoteSwiftPackageReference "Ocean" */,
+				B1FC7F0A29042F7800E7104A /* XCRemoteSwiftPackageReference "USBDeviceDetector" */,
 			);
 			productRefGroup = B1505622270EF75400810CDB /* Products */;
 			projectDirPath = "";
@@ -490,6 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1505650270EFAA500810CDB /* CameraChecker.swift in Sources */,
+				B1342FF12905622100AB12C3 /* UnsafeLazyInitializable.swift in Sources */,
 				B182E6FB27DB5AF10089C682 /* CheckerControllerDelegate.swift in Sources */,
 				B1AF5CF927DEDD8E006A11CC /* CameraPreviewView.swift in Sources */,
 				B1F77CEB27ECAE0300839FAF /* CameraCollectionView.swift in Sources */,
@@ -503,7 +499,6 @@
 				B1CC75F127CA6A280068BECF /* Application.swift in Sources */,
 				B150565A270F6D1B00810CDB /* CheckerController.swift in Sources */,
 				B17CA39528F99EA300786DA2 /* VideoCaptureObserver.swift in Sources */,
-				B1B8627427E0B581009DF1BD /* AVCaptureVideoPreviewLayer.swift in Sources */,
 				B1F77CE127ECA13A00839FAF /* SingleCameraWindowController.swift in Sources */,
 				B1505625270EF75400810CDB /* AppDelegate.swift in Sources */,
 				B1F77CE527ECA22600839FAF /* SingleCameraViewController.swift in Sources */,
@@ -512,6 +507,7 @@
 				B1505658270F6AE800810CDB /* Camera.swift in Sources */,
 				B1C9E65728B3A60000A6F004 /* CameraCollectionWindowController.swift in Sources */,
 				B1BC5C9E28B8EC96002A2F37 /* ExpandingCameraWindowState.swift in Sources */,
+				B1342FF52905852200AB12C3 /* VideoCaptureObserverUnownedContainer.swift in Sources */,
 				B17CA39E28FA597700786DA2 /* CameraPreviewViewVideoCaptureObserver.swift in Sources */,
 				B1241E9228B6E3C10012FBBF /* AppState.swift in Sources */,
 				B10D2B9828B9FB6C00463F25 /* CameraCollectionWindow.swift in Sources */,
@@ -614,9 +610,12 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 89282N6UM7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -631,13 +630,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -676,9 +677,12 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 89282N6UM7;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -687,12 +691,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
@@ -706,8 +712,8 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 16;
-				DEVELOPMENT_TEAM = 89282N6UM7;
+				CURRENT_PROJECT_VERSION = 19;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CameraMonitor/Info.plist;
@@ -720,13 +726,12 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.8;
+				MARKETING_VERSION = 1.1.0;
 				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-concurrency";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.CameraMonitor-$(CONFIGURATION)";
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)_$(CONFIGURATION)";
 				PRODUCT_NAME = "$(TARGET_NAME)-$(CONFIGURATION)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -740,8 +745,8 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 16;
-				DEVELOPMENT_TEAM = 89282N6UM7;
+				CURRENT_PROJECT_VERSION = 19;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CameraMonitor/Info.plist;
@@ -754,36 +759,33 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.8;
+				MARKETING_VERSION = 1.1.0;
 				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-concurrency";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.CameraMonitor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
 		B150564A270EF75A00810CDB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 89282N6UM7;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.CameraMonitorTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CameraMonitor.app/Contents/MacOS/CameraMonitor";
 			};
 			name = Debug;
@@ -791,24 +793,22 @@
 		B150564B270EF75A00810CDB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 89282N6UM7;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.CameraMonitorTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CameraMonitor.app/Contents/MacOS/CameraMonitor";
 			};
 			name = Release;
@@ -816,11 +816,10 @@
 		B150564D270EF75A00810CDB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 89282N6UM7;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -831,7 +830,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.CameraMonitorUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = CameraMonitor;
 			};
 			name = Debug;
@@ -839,11 +837,10 @@
 		B150564E270EF75A00810CDB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 89282N6UM7;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -854,7 +851,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.ez-net.CameraMonitorUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = CameraMonitor;
 			};
 			name = Release;
@@ -901,7 +897,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B141529C27E4AA2700B99ECC /* XCRemoteSwiftPackageReference "Ocean" */ = {
+		B1FC7F0729042F4F00E7104A /* XCRemoteSwiftPackageReference "Ocean" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/es-kumagai/Ocean.git";
 			requirement = {
@@ -909,7 +905,7 @@
 				kind = branch;
 			};
 		};
-		B141529F27E4AA3C00B99ECC /* XCRemoteSwiftPackageReference "USBDeviceDetector" */ = {
+		B1FC7F0A29042F7800E7104A /* XCRemoteSwiftPackageReference "USBDeviceDetector" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/es-kumagai/USBDeviceDetector.git";
 			requirement = {
@@ -917,31 +913,18 @@
 				kind = branch;
 			};
 		};
-		B1E5E949280704C70006CE8B /* XCRemoteSwiftPackageReference "Swim" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:es-kumagai/Swim.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B141529D27E4AA2700B99ECC /* Ocean */ = {
+		B1FC7F0829042F4F00E7104A /* Ocean */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B141529C27E4AA2700B99ECC /* XCRemoteSwiftPackageReference "Ocean" */;
+			package = B1FC7F0729042F4F00E7104A /* XCRemoteSwiftPackageReference "Ocean" */;
 			productName = Ocean;
 		};
-		B14152A027E4AA3C00B99ECC /* USBDeviceDetector */ = {
+		B1FC7F0B29042F7800E7104A /* USBDeviceDetector */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B141529F27E4AA3C00B99ECC /* XCRemoteSwiftPackageReference "USBDeviceDetector" */;
+			package = B1FC7F0A29042F7800E7104A /* XCRemoteSwiftPackageReference "USBDeviceDetector" */;
 			productName = USBDeviceDetector;
-		};
-		B1E5E94A280704C70006CE8B /* Swim */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1E5E949280704C70006CE8B /* XCRemoteSwiftPackageReference "Swim" */;
-			productName = Swim;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

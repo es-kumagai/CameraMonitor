@@ -142,42 +142,10 @@
             filePath = "CameraMonitor/CheckerUI/SingleCameraWindowController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "saveFrame()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D288ACFB-BFFD-4F32-A920-22075139ECA0 - 33bd0804248c532c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CameraMonitor_Debug_Debug.SingleCameraWindowController.saveFrame() -&gt; Swift.Bool"
-                  moduleName = "CameraMonitor-Debug"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomohiro/Developer/Applications/CameraMonitor/CameraMonitor/CheckerUI/SingleCameraWindowController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "85">
-               </Location>
-               <Location
-                  uuid = "D288ACFB-BFFD-4F32-A920-22075139ECA0 - 33bd0804248c532c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CameraMonitor_Debug_Debug.SingleCameraWindowController.saveFrame() -&gt; Swift.Bool"
-                  moduleName = "CameraMonitor-Debug"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomohiro/Developer/Applications/CameraMonitor/CameraMonitor/CheckerUI/SingleCameraWindowController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "122">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -190,8 +158,8 @@
             filePath = "CameraMonitor/CheckerUI/CameraCollectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "singleCameraWindowControllerWillClose(_:)"
             landmarkType = "7">
          </BreakpointContent>

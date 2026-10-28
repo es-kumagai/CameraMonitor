@@ -5,74 +5,71 @@
 //  Created by Tomohiro Kumagai on 2022/03/14.
 //
 
-@preconcurrency import AppKit
+import AppKit
 import AVFoundation
 
 @objc(ESCameraPreviewView)
 @MainActor
 final class CameraPreviewView : NSView {
     
-    private var cameraObserver: CameraObserver!
+    @UnsafeLazyInitializable
+    private var cameraObserver: CameraObserver
+    
     private var videoCapture: VideoCapture?
 
     @IBOutlet var captureImageView: NSImageView!
     
-    dynamic var camera: Camera? {
-        
-        willSet (newCamera) {
-
-            if camera != newCamera {
-
-                finishObservingCamera()
-            }
-        }
+    var camera: Camera? {
         
         didSet (oldCamera) {
 
             if oldCamera != camera {
                 
-                startObservingCamera()
+                observeCurrentCamera()
             }
         }
     }
 
     override func awakeFromNib() {
-        
         super.awakeFromNib()
-
-        captureImageView = NSImageView()
+        MainActor.assumeIsolated {
+            cameraObserver = CameraObserver(view: self)
+            
+            captureImageView = NSImageView()
+            
+            captureImageView.imageFrameStyle = .grayBezel
+            captureImageView.imageAlignment = .alignCenter
+            captureImageView.imageScaling = .scaleProportionallyUpOrDown
+            
+            captureImageView.translatesAutoresizingMaskIntoConstraints = false
+            
+            addSubview(captureImageView)
+            
+            let top = captureImageView.topAnchor.constraint(equalTo: topAnchor, constant: 4)
+            let bottom = captureImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4)
+            let leading = captureImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4)
+            let trailing = captureImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4)
+            
+            NSLayoutConstraint.activate([
+                top, bottom, leading, trailing
+            ])
+        }
+    }
+    
+    override func removeFromSuperview() {
         
-        captureImageView.imageFrameStyle = .grayBezel
-        captureImageView.imageAlignment = .alignCenter
-        captureImageView.imageScaling = .scaleProportionallyUpOrDown
+        super.removeFromSuperview()
         
-        captureImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        addSubview(captureImageView)
-        
-        let top = captureImageView.topAnchor.constraint(equalTo: topAnchor, constant: 4)
-        let bottom = captureImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4)
-        let leading = captureImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4)
-        let trailing = captureImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4)
-        
-        NSLayoutConstraint.activate([
-            top, bottom, leading, trailing
-        ])
-        
-//        captureImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-//        captureImageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-//        captureImageView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-//        captureImageView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-//        captureImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1).isActive = true
-//        captureImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1).isActive = true
-//        captureImageView.heightAnchor.constraint(greaterThanOrEqualToConstant: 0).isActive = true
+        Task {
+            await videoCapture?.removeVideoCaptureObserver(cameraObserver)
+        }
     }
 }
 
 extension CameraPreviewView {
     
+    nonisolated
     func applyCaptureImage(_ sampleBuffer: CMSampleBuffer) {
-        
         let sampleBuffer = UncheckedSendable(sampleBuffer)
         
         Task.detached { [self] in
@@ -81,42 +78,36 @@ extension CameraPreviewView {
                 
                 return
             }
-            
-            Task { @MainActor in
-                
+
+            await MainActor.run {
                 captureImageView.image = image
             }
         }
     }
     
-    func startObservingCamera() {
+    func observeCurrentCamera() {
         
-        guard let camera else {
-        
-            finishObservingCamera()
-            return
-        }
-        
-        Task { [self] in
-            cameraObserver = CameraObserver(view: self)
-            videoCapture = await NSApp.videoCaptureManager.videoCapture(for: camera)
-            #warning("ここで cameraObserver が nil になってしまうことがある。")
-            await videoCapture?.addVideoCaptureObserver(cameraObserver)
-        }
-    }
-    
-    func finishObservingCamera() {
+        Task.detached { [self] in
 
-        guard camera != nil else {
-        
-            return
-        }
-        
-        Task { [self] in
+            let newVideoCapture: VideoCapture?
+            let currentVideoCapture = await videoCapture
             
-            await videoCapture?.removeVideoCaptureObserver(cameraObserver)
-            videoCapture = nil
-            cameraObserver = nil
+            switch await camera {
+                
+            case let camera?:
+                newVideoCapture = await NSApp.videoCaptureManager.videoCapture(for: camera)
+                await newVideoCapture!.addVideoCaptureObserver(cameraObserver)
+                
+            case nil:
+                newVideoCapture = nil
+            }
+
+            await currentVideoCapture?.removeVideoCaptureObserver(cameraObserver)
+            
+            Task { @MainActor in
+                
+                videoCapture = newVideoCapture
+            }
         }
     }
 }

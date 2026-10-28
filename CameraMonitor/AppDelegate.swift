@@ -9,28 +9,24 @@ import AppKit
 import USBDeviceDetector
 
 @main @MainActor
-final class AppDelegate: NSObject, NSApplicationDelegate, @unchecked Sendable {
+final class AppDelegate: NSObject, @MainActor NSApplicationDelegate, @unchecked Sendable {
 
     @IBOutlet var cameraExpandMenu: NSMenu!
     
-    nonisolated func applicationDidFinishLaunching(_ aNotification: Notification) {
-
-        Task { @MainActor in
-            
-            try await NSApp.checkerController.prepare()
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        Task {
+            try! await NSApp.checkerController.prepare()
         }
     }
 
-    nonisolated func applicationWillTerminate(_ aNotification: Notification) {
-        
+    func applicationWillTerminate(_ aNotification: Notification) {
     }
 
-    nonisolated func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
-        return true
+    func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
+        true
     }
 
-    nonisolated func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-        
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         true
     }
 }
@@ -38,9 +34,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, @unchecked Sendable {
 extension AppDelegate: CheckerControllerDelegate {
     
     func checkerControllerDevicesDidUpdate(_ checkerController: CheckerController) {
-
         Task {
-            
             await NSApp.videoCaptureManager.updateVideoCapturesForAllCameras()
             updateExpandMenu()
             
@@ -69,12 +63,10 @@ private extension AppDelegate {
     }
     
     @IBAction func cameraRescanCamerasMenuItemDidSelect(_ menuItem: NSMenuItem) {
-    
         NSApp.cameraCollectionViewController.reloadCameras()
     }
     
     @IBAction func cameraMonitorMenuItemDidSelect(_ menuItem: NSMenuItem) {
-        
         NSApp.cameraCollectionWindowController.cameraCollectionWindow.makeKeyAndOrderFront(self)
     }
     

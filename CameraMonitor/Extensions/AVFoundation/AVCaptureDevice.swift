@@ -12,21 +12,23 @@ extension AVCaptureDevice {
     
     static func authorizationStatus(for mediaType: AVMediaType) async -> Bool {
         
-        await withCheckedContinuation { (contiguation: CheckedContinuation<Bool, Never>) in
+        await withCheckedContinuation { (continuation: CheckedContinuation<Bool, Never>) in
 
             switch AVCaptureDevice.authorizationStatus(for: mediaType) {
                 
             case .authorized:
-                contiguation.resume(returning: true)
+                continuation.resume(returning: true)
                 
             case .notDetermined:
-                AVCaptureDevice.requestAccess(for: mediaType, completionHandler: contiguation.resume(returning:))
+                AVCaptureDevice.requestAccess(for: mediaType) { granted in
+                    continuation.resume(returning: granted)
+                }
                 
             case .denied, .restricted:
-                contiguation.resume(returning: false)
+                continuation.resume(returning: false)
                 
             @unknown default:
-                contiguation.resume(returning: false)
+                continuation.resume(returning: false)
             }
         }
     }

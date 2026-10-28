@@ -10,12 +10,12 @@ import Foundation
 
 extension Application {
     
+    @MainActor
     enum State {
-
         private static let propertyListDecoder = PropertyListDecoder()
         private static let propertyListEncoder = PropertyListEncoder()
 
-        static var userDefaults = UserDefaults.standard
+        static let userDefaults = UserDefaults.standard
     }
 }
 

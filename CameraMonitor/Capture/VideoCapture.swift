@@ -87,7 +87,6 @@ extension VideoCapture : AVCaptureVideoDataOutputSampleBufferDelegate {
 
     nonisolated
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        
         let sampleBuffer = UncheckedSendable(sampleBuffer)
         
         Task.detached {
