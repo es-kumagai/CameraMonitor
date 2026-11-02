@@ -6,6 +6,8 @@ This app supports not only physical cameras but also virtual cameras such as OBS
 
 You can also show each cameras by individual window. A single camera image can be displayed in multiple windows too.
 
+The camera overview restores its saved window size and position on the next launch. Camera previews are packed from the left edge of each row and wrap as the window width changes. See the [overview window design and verification notes](docs/overview-window-layout.md).
+
 
 
 ## Updates
