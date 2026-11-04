@@ -14,6 +14,7 @@ The camera overview restores its saved window size and position on the next laun
 
 ### 1.0.8 (Next)
 
+- Bound preview frame buffering and isolate subscription lifetimes to address possible camera freezes. See the [frame delivery design and verification notes](docs/preview-frame-delivery.md).
 - Rescan cameras currently connected at any time.
 - Describe in detail the use of camera images in Info.plist.
 

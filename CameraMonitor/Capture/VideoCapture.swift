@@ -7,7 +7,10 @@
 //
 
 import AVFoundation
+import CoreImage
+import Synchronization
 
+/// A camera session that renders frames synchronously before returning capture buffers.
 actor VideoCapture : NSObject {
     
     let camera: Camera
@@ -16,12 +19,27 @@ actor VideoCapture : NSObject {
     private var session = Session()
     private let bufferingQueue: DispatchQueue
 
-    private(set) var observers: [VideoCaptureObserver] = []
+    /// Observers shared between the actor and the serial capture callback queue.
+    private nonisolated let observerStorage = Mutex<[VideoCaptureObserver]>([])
+
+    /// The rendering context reused on this camera's serial callback queue.
+    private nonisolated let imageContext = CIContext(options: [.cacheIntermediates: false])
+
+    /// A snapshot of the current observers; callbacks run without holding the storage lock.
+    var observers: [VideoCaptureObserver] {
+        observerStorage.withLock { $0 }
+    }
     
+    /// Create and start a session that drops late frames instead of accumulating capture buffers.
+    /// - Parameters:
+    ///   - camera: The camera supplying the video.
+    ///   - manager: The owner of this capture session.
+    /// - Throws: An input creation or session configuration error.
     init(camera: Camera, manager: VideoCaptureManager) throws {
         
         let input = try AVCaptureDeviceInput(device: camera.device)
         let output = AVCaptureVideoDataOutput()
+        output.alwaysDiscardsLateVideoFrames = true
 
         self.camera = camera
         self.manager = manager
@@ -56,21 +74,20 @@ actor VideoCapture : NSObject {
         }
     }
     
+    /// Register an observer for subsequent frames, ignoring duplicate registrations.
     func addVideoCaptureObserver(_ observer: VideoCaptureObserver) async {
-
-        guard !observers.contains(observer) else {
-            
-            return
+        observerStorage.withLock { observers in
+            guard !observers.contains(observer) else {
+                return
+            }
+            observers.append(observer)
         }
-        
-        observers.append(observer)
     }
     
+    /// Remove an observer; a callback already using a snapshot may still finish.
     func removeVideoCaptureObserver(_ observer: VideoCaptureObserver) async {
-        
-        observers.removeAll {
-            
-            $0 === observer
+        observerStorage.withLock { observers in
+            observers.removeAll { $0 === observer }
         }
     }
 }
@@ -83,19 +100,26 @@ private extension VideoCapture {
     }
 }
 
+/// Synchronous frame rendering and delivery on the session's serial callback queue.
 extension VideoCapture : AVCaptureVideoDataOutputSampleBufferDelegate {
 
+    /// Render one independent image and deliver it without retaining the sample buffer in a task.
+    ///
+    /// Slow rendering is bounded by `alwaysDiscardsLateVideoFrames`. Observers must return
+    /// promptly and bound any image queue they maintain for asynchronous display.
     nonisolated
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        let sampleBuffer = UncheckedSendable(sampleBuffer)
-        
-        Task.detached {
-            
-            let observers = await self.observers
-            
+        autoreleasepool {
+            let observers = observerStorage.withLock { $0 }
+            guard !observers.isEmpty, let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
+                return
+            }
+            let image = CIImage(cvPixelBuffer: imageBuffer)
+            guard let renderedImage = imageContext.createCGImage(image, from: image.extent, format: .RGBA8, colorSpace: image.colorSpace, deferred: false) else {
+                return
+            }
             for observer in observers {
-                
-                observer.videoCapture(self, didOutput: sampleBuffer.instance)
+                observer.videoCapture(self, didOutput: renderedImage)
             }
         }
     }

@@ -6,108 +6,104 @@
 //
 
 import AppKit
-import AVFoundation
 
+/// A camera preview with one cancellable subscription for its current window attachment.
 @objc(ESCameraPreviewView)
 @MainActor
 final class CameraPreviewView : NSView {
-    
-    @UnsafeLazyInitializable
-    private var cameraObserver: CameraObserver
-    
-    private var videoCapture: VideoCapture?
 
+    /// The receiver belonging exclusively to the current subscription.
+    private var cameraObserver: CameraObserver?
+
+    /// The task that registers, displays, and unregisters the current receiver.
+    private var observationTask: Task<Void, Never>?
+
+    /// The image view displaying the latest rendered frame.
     @IBOutlet var captureImageView: NSImageView!
-    
-    var camera: Camera? {
-        
-        didSet (oldCamera) {
 
-            if oldCamera != camera {
-                
+    /// The camera to display; changes replace the subscription and clear the old image.
+    var camera: Camera? {
+        didSet {
+            if oldValue != camera {
                 observeCurrentCamera()
             }
         }
     }
 
+    /// Cancel delivery without retaining a disappearing view until another frame arrives.
+    deinit {
+        cameraObserver?.finish()
+        observationTask?.cancel()
+    }
+
+    /// Configure the image view and begin observing if already attached to a window.
     override func awakeFromNib() {
         super.awakeFromNib()
         MainActor.assumeIsolated {
-            cameraObserver = CameraObserver(view: self)
-            
             captureImageView = NSImageView()
-            
             captureImageView.imageFrameStyle = .grayBezel
             captureImageView.imageAlignment = .alignCenter
             captureImageView.imageScaling = .scaleProportionallyUpOrDown
-            
             captureImageView.translatesAutoresizingMaskIntoConstraints = false
-            
             addSubview(captureImageView)
-            
-            let top = captureImageView.topAnchor.constraint(equalTo: topAnchor, constant: 4)
-            let bottom = captureImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4)
-            let leading = captureImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4)
-            let trailing = captureImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4)
-            
+
             NSLayoutConstraint.activate([
-                top, bottom, leading, trailing
+                captureImageView.topAnchor.constraint(equalTo: topAnchor, constant: 4),
+                captureImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4),
+                captureImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4),
+                captureImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4)
             ])
+            observeCurrentCamera()
         }
     }
-    
-    override func removeFromSuperview() {
-        
-        super.removeFromSuperview()
-        
-        Task {
-            await videoCapture?.removeVideoCaptureObserver(cameraObserver)
-        }
+
+    /// Stop when detached and resume when reattached, even if the camera has not changed.
+    override func viewDidMoveToWindow() {
+        super.viewDidMoveToWindow()
+        observeCurrentCamera()
     }
 }
 
-extension CameraPreviewView {
-    
-    nonisolated
-    func applyCaptureImage(_ sampleBuffer: CMSampleBuffer) {
-        let sampleBuffer = UncheckedSendable(sampleBuffer)
-        
-        Task.detached { [self] in
-            
-            guard let image = NSImage(sampleBuffer: sampleBuffer.instance) else {
-                
+/// Subscription replacement and main-actor presentation.
+private extension CameraPreviewView {
+
+    /// Replace the subscription with a unique receiver and discard stale asynchronous work.
+    ///
+    /// Each task removes only its own receiver, including when cancellation arrives during
+    /// registration. The task holds the view weakly across suspension and buffers one image.
+    func observeCurrentCamera() {
+        cameraObserver?.finish()
+        observationTask?.cancel()
+        cameraObserver = nil
+        observationTask = nil
+        captureImageView?.image = nil
+
+        guard window != nil, captureImageView != nil, let camera else {
+            return
+        }
+
+        let observer = CameraObserver()
+        let manager = NSApp.videoCaptureManager
+        cameraObserver = observer
+
+        observationTask = Task { [weak self] in
+            let capture = await manager.videoCapture(for: camera)
+            guard !Task.isCancelled else {
                 return
             }
+            await capture.addVideoCaptureObserver(observer)
 
-            await MainActor.run {
-                captureImageView.image = image
-            }
-        }
-    }
-    
-    func observeCurrentCamera() {
-        
-        Task.detached { [self] in
-
-            let newVideoCapture: VideoCapture?
-            let currentVideoCapture = await videoCapture
-            
-            switch await camera {
-                
-            case let camera?:
-                newVideoCapture = await NSApp.videoCaptureManager.videoCapture(for: camera)
-                await newVideoCapture!.addVideoCaptureObserver(cameraObserver)
-                
-            case nil:
-                newVideoCapture = nil
+            if !Task.isCancelled {
+                for await image in observer.images {
+                    guard !Task.isCancelled, let self, self.cameraObserver === observer else {
+                        break
+                    }
+                    self.captureImageView.image = NSImage(cgImage: image, size: .zero)
+                }
             }
 
-            await currentVideoCapture?.removeVideoCaptureObserver(cameraObserver)
-            
-            Task { @MainActor in
-                
-                videoCapture = newVideoCapture
-            }
+            observer.finish()
+            await capture.removeVideoCaptureObserver(observer)
         }
     }
 }

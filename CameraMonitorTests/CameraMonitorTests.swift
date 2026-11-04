@@ -6,9 +6,66 @@ import XCTest
 @testable import CameraMonitor
 #endif
 
-/// Regression coverage for overview frame persistence and camera row placement.
+/// Regression coverage for overview layout, persistence, and bounded preview delivery.
 @MainActor
 final class CameraMonitorTests: XCTestCase {
+
+    /// Ensure a stalled display receives only the most recent image after a burst of frames.
+    func testSlowPreviewDropsOlderPendingImages() async throws {
+        let observer = CameraPreviewView.CameraObserver()
+        let olderImage = try makePreviewImage(width: 1)
+        let newestImage = try makePreviewImage(width: 2)
+        for _ in 0..<1_000 {
+            observer.receive(olderImage)
+        }
+        observer.receive(newestImage)
+        observer.finish()
+
+        var displayedWidths: [Int] = []
+        for await image in observer.images {
+            displayedWidths.append(image.width)
+        }
+        XCTAssertEqual(displayedWidths, [2])
+    }
+
+    /// Ensure callbacks from an ended subscription cannot affect its replacement.
+    func testFinishedPreviewRejectsLateFramesWithoutStoppingReplacement() async throws {
+        let oldObserver = CameraPreviewView.CameraObserver()
+        let newObserver = CameraPreviewView.CameraObserver()
+        let image = try makePreviewImage(width: 3)
+        oldObserver.finish()
+        oldObserver.receive(image)
+        newObserver.receive(image)
+        oldObserver.finish()
+        newObserver.finish()
+
+        var oldIterator = oldObserver.images.makeAsyncIterator()
+        let oldImage = await oldIterator.next()
+        XCTAssertNil(oldImage)
+        var newIterator = newObserver.images.makeAsyncIterator()
+        let newImage = await newIterator.next()
+        XCTAssertEqual(newImage?.width, 3)
+    }
+
+    /// Ensure cancelling an idle preview exits without waiting for the camera's next frame.
+    func testCancellingPreviewStopsIdleConsumer() async {
+        let observer = CameraPreviewView.CameraObserver()
+        let finished = expectation(description: "The cancelled image consumer exits")
+        let consumer = Task {
+            for await _ in observer.images {
+                XCTFail("An idle camera must not supply an image")
+            }
+            finished.fulfill()
+        }
+        consumer.cancel()
+        await fulfillment(of: [finished], timeout: 2)
+    }
+
+    /// Create a tiny independent image with a width identifying the frame in delivery tests.
+    private func makePreviewImage(width: Int) throws -> CGImage {
+        let context = try XCTUnwrap(CGContext(data: nil, width: width, height: 1, bitsPerComponent: 8, bytesPerRow: 0, space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue))
+        return try XCTUnwrap(context.makeImage())
+    }
 
     /// Ensure the shipped storyboard installs the custom layout and restores the saved frame.
     func testStoryboardRestoresOverviewFrameAndInstallsLeftAlignedLayout() throws {
